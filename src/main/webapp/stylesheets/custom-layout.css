@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700');
+
+.navbar {
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+h1, h2, h3, h4 {
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+nav.navbar.navbar-inverse.navbar-fixed-top {
+    background: #060729;
+}
+
+.navbar-inverse .navbar-nav>.active>a {
+    background: #1f2158;
+}
