@@ -16,6 +16,7 @@
     <link type="text/css" href="<%= FrontEndLibrary.BOOTSTRAP_CSS %>" rel="stylesheet">
     <link type="text/css" href="<%= FrontEndLibrary.BOOTSTRAP_THEME_CSS %>" rel="stylesheet">
     <link type="text/css" href="stylesheets/teammatesCommon.css" rel="stylesheet">
+    <link type="text/css" href="stylesheets/custom-layout.css" rel="stylesheet">
     <link rel="shortcut icon" href="/favicon.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <title>TEAMMATES - Online Peer Feedback/Evaluation System for Student Team Projects</title>

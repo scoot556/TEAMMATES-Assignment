@@ -19,6 +19,7 @@
     <link type="text/css" href="<%= FrontEndLibrary.BOOTSTRAP_CSS %>" rel="stylesheet">
     <link type="text/css" href="<%= FrontEndLibrary.BOOTSTRAP_THEME_CSS %>" rel="stylesheet">
     <link type="text/css" href="/stylesheets/teammatesCommon.css" rel="stylesheet">
+    <link type="text/css" href="/stylesheets/custom-layout.css" rel="stylesheet">
     <jsp:invoke fragment="cssIncludes" />
   </head>
   <body>
