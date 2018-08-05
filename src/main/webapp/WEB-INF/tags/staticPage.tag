@@ -41,6 +41,7 @@
               <li class="${currentPage == 'about' ? 'active' : ''}"><a href="about.jsp">About Us</a></li>
               <li class="${currentPage == 'contact' ? 'active' : ''}"><a href="contact.jsp">Contact</a></li>
               <li class="${currentPage == 'terms' ? 'active' : ''}"><a href="terms.jsp">Terms of Use</a></li>
+              <li class="${currentPage == 'samplePage' ? 'active' : ''}"><a href="SamplePage.jsp">Sample Page</a></li>
             </ul>
             <form class="navbar-form navbar-right" action="/login" name="login">
               <input type="submit" name="student" class="btn btn-login " id="btnStudentLogin" value="Student Login" label="studentLogin">
