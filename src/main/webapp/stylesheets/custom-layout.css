@@ -50,6 +50,7 @@ body {
 .navbar {
     font-family: "Open Sans", Arial, Helvetica, sans-serif;
     border-radius: 0;
+    margin-bottom: 0;
 }
 
 h1, h2, h3, h4 {
@@ -62,4 +63,15 @@ nav.navbar.navbar-inverse.navbar-fixed-top {
 
 .navbar-inverse .navbar-nav>.active>a {
     background: #1f2158;
+}
+
+.entry-header {
+    padding-top: 20px;
+    background-color: #eee;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+.entry-header h1 {
+    font-size: 30px;
 }
