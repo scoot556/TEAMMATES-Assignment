@@ -13,8 +13,12 @@
   <c:if test="${not empty data.studentProfile}">
     <csd:studentProfile student="${data.studentProfile}"/>
   </c:if>
-  <csd:studentInformationTable studentInfoTable="${data.studentInfoTable}" />
-  <c:if test="${not empty data.studentProfile}">
-    <ti:moreInfo student="${data.studentProfile}" />
-  </c:if>
+  <div class="col-xs-12 col-md-6">
+    <csd:studentInformationTable studentInfoTable="${data.studentInfoTable}" />
+  </div>
+  <div class="col-xs-12 col-md-6">
+    <c:if test="${not empty data.studentProfile}">
+      <ti:moreInfo student="${data.studentProfile}" />
+    </c:if>
+  </div>
 </ti:instructorPage>

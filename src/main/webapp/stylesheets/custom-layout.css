@@ -11,6 +11,10 @@ body {
     padding-right: 15px;
 }
 
+/**
+============================================
+TOP NAVIGATION
+============================================*/
 #NavTop {
     background-color: #000;
 }
@@ -47,14 +51,14 @@ body {
     color: #e8e8e8;
 }
 
+/**
+============================================
+NAVIGATION BAR
+============================================*/
 .navbar {
     font-family: "Open Sans", Arial, Helvetica, sans-serif;
     border-radius: 0;
     margin-bottom: 0;
-}
-
-h1, h2, h3, h4 {
-    font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 
 nav.navbar.navbar-inverse.navbar-fixed-top {
@@ -65,9 +69,23 @@ nav.navbar.navbar-inverse.navbar-fixed-top {
     background: #1f2158;
 }
 
+
+/**
+--------------------------------------------
+TYPOGRAPHY OVERRIDES
+--------------------------------------------*/
+h1, h2, h3, h4 {
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+
+/**
+============================================
+ENTRY HEADER
+============================================*/
 .entry-header {
     padding-top: 20px;
-    background-color: #eee;
+    background-color: #e4e4e4;
     padding-bottom: 5px;
     border-bottom: 1px solid #ddd;
 }
@@ -75,3 +93,44 @@ nav.navbar.navbar-inverse.navbar-fixed-top {
 .entry-header h1 {
     font-size: 30px;
 }
+
+/**
+============================================
+STUDENT DETAILS PAGE 
+- page/instructorCourseStudentDetailsPage
+============================================*/
+#studentInfomationTable {
+}
+
+#studentInfomationTable .form-group {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#studentInfomationTable .form-group label {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#studentInfomationTable .form-group label + div {
+    display: inline-block;
+}
+
+/**
+============================================
+BUTTONS
+============================================*/
+.btn {
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+}
+
+/**
+============================================
+FORMS
+============================================*/
+.form-control {
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+}
+
