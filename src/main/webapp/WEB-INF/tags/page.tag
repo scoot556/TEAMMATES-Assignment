@@ -20,6 +20,7 @@
     <link type="text/css" href="<%= FrontEndLibrary.BOOTSTRAP_THEME_CSS %>" rel="stylesheet">
     <link type="text/css" href="/stylesheets/teammatesCommon.css" rel="stylesheet">
     <link type="text/css" href="/stylesheets/custom-layout.css" rel="stylesheet">
+	<link type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <jsp:invoke fragment="cssIncludes" />
   </head>
   <body>
