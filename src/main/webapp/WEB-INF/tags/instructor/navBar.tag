@@ -4,7 +4,32 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="t" %>
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+<div id="NavTop">
+  <div class="container clearfix">
+  
+    <ul id="NavTop-left">
+      <li>
+        <a class="nav help" href="/instructorHelp.jsp" target="_blank" rel="noopener noreferrer">HELP</a>
+      </li>
+    </ul>
+    
+    <ul id="NavTop-right" class="pull-right">
+      <li>
+        <span id="LoggedInAs">
+          Logged in as 
+          <span class="text-info" data-toggle="tooltip" title="${data.account.googleId}" data-placement="bottom">
+            ${data.account.truncatedGoogleId}
+          </span>
+        </span>
+        <a id="btnLogout" class="nav logout btn btn-xs btn-danger" href="<%= Const.ActionURIs.LOGOUT %>">Logout</a>
+      </li>
+    </ul>
+    
+  </div>
+</div>
+
+<div class="navbar navbar-inverse" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#contentLinks">
@@ -34,20 +59,8 @@
             Search
           </a>
         </li>
-        <li>
-          <a class="nav help" href="/instructorHelp.jsp" target="_blank" rel="noopener noreferrer">Help</a>
-        </li>
       </ul>
-      <ul class="nav navbar-nav pull-right">
-        <li>
-          <a id="btnLogout" class="nav logout" href="<%= Const.ActionURIs.LOGOUT %>">Logout
-
-            (<span class="text-info" data-toggle="tooltip" title="${data.account.googleId}" data-placement="bottom">
-              ${data.account.truncatedGoogleId}
-            </span>)
-          </a>
-        </li>
-      </ul>
+      <ul class="nav navbar-nav pull-right"></ul>
     </div>
   </div>
 </div>

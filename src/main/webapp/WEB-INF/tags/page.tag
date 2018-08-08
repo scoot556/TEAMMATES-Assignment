@@ -27,8 +27,8 @@
       <jsp:include page="<%= Const.ViewURIs.ENABLE_JS %>" />
     </noscript>
     <jsp:invoke fragment="navBar" />
+    <t:bodyHeader title="${bodyTitle}" />
     <div class="container" id="mainContent">
-      <t:bodyHeader title="${bodyTitle}" />
       <jsp:doBody />
     </div>
     <jsp:invoke fragment="bodyFooter" />
