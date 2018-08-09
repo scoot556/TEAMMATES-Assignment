@@ -60,14 +60,8 @@
         </li>
       </ul>
       <ul class="nav navbar-nav pull-right">
-        <li>            
-            <!-- <div class="well well-plain">-->
-              <form class="form-horizontal" method="get" action="" id="activityLogFilter" role="form">
-                <!-- <div class="panel-heading" id="filterForm"> -->
-                  <div class="form-group">
-                    <div class="row">
-                      <div class="col-md-12">            
-                        <div class="input-group">
+        <li>        
+              <form class="form-horizontal" method="get" action="/admin/adminSearchPage" id="activityLogFilter" role="form">
                           <input type="text" class="form-control" id="filterQuery"
                               name="<%=Const.ParamsNames.ADMIN_SEARCH_KEY%>"
                               value="${searchKey}">
@@ -77,15 +71,9 @@
                                 name="<%=Const.ParamsNames.ADMIN_SEARCH_BUTTON_HIT%>"
                                 id="searchButton" value="true">Search</button>
                           </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                <!--</div>-->
               </form>
-            <!-- </div>-->
         </li>
-           
+       
         <li>
           <a id="btnLogout" class="nav logout" href="<%= Const.ActionURIs.LOGOUT %>">
             <span class="glyphicon glyphicon-user"></span> Logout
