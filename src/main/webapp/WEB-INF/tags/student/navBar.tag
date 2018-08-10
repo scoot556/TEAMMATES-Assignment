@@ -5,7 +5,32 @@
 <%@ tag import="teammates.common.util.Const" %>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="t" %>
 <c:set var="isUnregistered" value="${data.unregisteredStudent}" />
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<div id="NavTop">
+  <div class="container clearfix">
+  
+    <ul id="NavTop-left">
+      <li<c:if test="${fn:contains(data.getClass(), 'StudentHelp')}"> class="active"</c:if>>
+        <a id="studentHelpLink" class="nav" href="/studentHelp.jsp" target="_blank" rel="noopener noreferrer">HELP</a>
+      </li>
+    </ul>
+    
+      <ul id="NavTop-right" class="pull-right">
+        <li>
+          <c:if test="${not empty data.account && not empty data.account.googleId}">
+          <span id="LoggedInAs">
+            Logged in as 
+            <span class="text-info" data-toggle="tooltip" title="${data.account.googleId}" data-placement="bottom">
+              ${data.account.truncatedGoogleId}
+            </span>
+          </span>
+          </c:if>
+          <a id="btnLogout" class="nav logout btn btn-xs btn-danger" href="<%= Const.ActionURIs.LOGOUT %>">Logout</a>
+        </li>
+      </ul>
+    
+  </div>
+</div>
+<div class="navbar navbar-inverse" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#contentLinks">
@@ -30,23 +55,7 @@
             Profile
           </a>
         </li>
-        <li<c:if test="${fn:contains(data.getClass(), 'StudentHelp')}"> class="active"</c:if>>
-          <a id="studentHelpLink" class="nav" href="/studentHelp.jsp" target="_blank" rel="noopener noreferrer">Help</a>
-        </li>
       </ul>
-      <c:if test="${not empty data.account && not empty data.account.googleId}">
-        <ul class="nav navbar-nav pull-right">
-          <li>
-            <a id="btnLogout" class="nav logout" href="<%= Const.ActionURIs.LOGOUT %>">
-              Logout (
-              <span class="text-info" data-toggle="tooltip" title="${data.account.googleId}" data-placement="bottom">
-                ${data.account.truncatedGoogleId}
-              </span>
-              )
-            </a>
-          </li>
-        </ul>
-      </c:if>
     </div>
   </div>
 </div>

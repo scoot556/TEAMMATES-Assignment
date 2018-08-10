@@ -5,7 +5,28 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="t" %>
 
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+<div id="NavTop">
+  <div class="container clearfix">
+  
+  <ul id="NavTop-left"></ul>
+  
+  <ul id="NavTop-right" class="pull-right">
+    <li>
+      <span id="LoggedInAs">
+        Logged in as 
+        <span class="text-info" data-toggle="tooltip" title="${data.account.googleId}" data-placement="bottom">
+          ${data.account.truncatedGoogleId}
+        </span>
+      </span>
+      <a id="btnLogout" class="nav logout btn btn-xs btn-danger" href="<%= Const.ActionURIs.LOGOUT %>">Logout</a>
+    </li>
+  </ul>
+  
+  </div>
+</div>
+
+<div class="navbar navbar-inverse" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -59,29 +80,14 @@
           </ul>
         </li>
       </ul>
-      <ul class="nav navbar-nav pull-right">
+
+      <ul class="nav navbar-nav pull-right" id="searchContainer">
         <li>        
               <form class="form-horizontal" method="get" action="/admin/adminSearchPage" id="activityLogFilter" role="form">
                           <input type="text" class="form-control" id="filterQuery"
                               name="<%=Const.ParamsNames.ADMIN_SEARCH_KEY%>"
                               value="${searchKey}">
-                          
-                          <span class="input-group-btn">
-                            <button class="btn btn-default" type="submit"
-                                name="<%=Const.ParamsNames.ADMIN_SEARCH_BUTTON_HIT%>"
-                                id="searchButton" value="true">Search</button>
-                          </span>
               </form>
-        </li>
-       
-        <li>
-          <a id="btnLogout" class="nav logout" href="<%= Const.ActionURIs.LOGOUT %>">
-            <span class="glyphicon glyphicon-user"></span> Logout
-
-            (<span class="text-info" data-toggle="tooltip" title="${data.account.googleId}" data-placement="bottom">
-              ${data.account.truncatedGoogleId}
-            </span>)
-          </a>
         </li>
       </ul>
     </div>

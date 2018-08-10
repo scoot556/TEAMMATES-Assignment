@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="<%= FrontEndLibrary.BOOTSTRAP_CSS %>" type="text/css">
     <link rel="stylesheet" href="<%= FrontEndLibrary.BOOTSTRAP_THEME_CSS %>" type="text/css">
     <link rel="stylesheet" href="/stylesheets/teammatesCommon.css" type="text/css">
+    <link rel="stylesheet" href="/stylesheets/custom-layout.css" type="text/css">
   </head>
   <body>
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">

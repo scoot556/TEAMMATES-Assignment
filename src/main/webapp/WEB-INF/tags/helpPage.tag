@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="<%= FrontEndLibrary.BOOTSTRAP_CSS %>" type="text/css">
     <link rel="stylesheet" href="<%= FrontEndLibrary.BOOTSTRAP_THEME_CSS %>" type="text/css">
     <link rel="stylesheet" href="/stylesheets/teammatesCommon.css" type="text/css">
+    <link rel="stylesheet" href="/stylesheets/custom-layout.css" type="text/css">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
   </head>
   <body style="padding-top: 0;">
