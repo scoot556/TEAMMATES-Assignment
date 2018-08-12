@@ -12,7 +12,7 @@
 </c:set>
 
 <ta:adminPage title="Admin Search" jsIncludes="${jsIncludes}">
-  <adminSearch:searchPageInput searchKey="${data.searchKey}"/>
+  
 
   <c:if test="${not empty data.instructorResultList}">
     <adminSearch:instructorResultsTable instructorResultsTable="${data.instructorTable}"/>

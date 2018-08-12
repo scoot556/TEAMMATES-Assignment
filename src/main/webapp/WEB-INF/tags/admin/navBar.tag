@@ -5,6 +5,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="t" %>
 
+
 <div id="NavTop">
   <div class="container clearfix">
   
@@ -49,9 +50,11 @@
           <a href="<%=Const.ActionURIs.ADMIN_ACCOUNT_MANAGEMENT_PAGE%>">Account Management</a>
         </li>-->
 
+       <!-- 
         <li <c:if test="${fn:contains(data.getClass(), 'AdminSearchPage')}">class="active"</c:if>>
           <a href="<%=Const.ActionURIs.ADMIN_SEARCH_PAGE%>">Search</a>
         </li>
+       -->
 
         <li <c:if test="${fn:contains(data.getClass(), 'AdminActivityLogPage')}">class="active"</c:if>>
           <a href="<%=Const.ActionURIs.ADMIN_ACTIVITY_LOG_PAGE%>">Activity Log</a>
@@ -77,9 +80,16 @@
           </ul>
         </li>
       </ul>
-      
-      <ul class="nav navbar-nav pull-right"></ul>
-      
+
+      <ul class="nav navbar-nav pull-right" id="searchContainer">
+        <li>        
+              <form class="form-horizontal" method="get" action="/admin/adminSearchPage" id="activityLogFilter" role="form">
+                          <input type="text" class="form-control" id="filterQuery"
+                              name="<%=Const.ParamsNames.ADMIN_SEARCH_KEY%>"
+                              value="${searchKey}">
+              </form>
+        </li>
+      </ul>
     </div>
   </div>
 </div>

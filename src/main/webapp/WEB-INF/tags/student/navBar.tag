@@ -14,19 +14,19 @@
       </li>
     </ul>
     
-    <c:if test="${not empty data.account && not empty data.account.googleId}">
       <ul id="NavTop-right" class="pull-right">
         <li>
+          <c:if test="${not empty data.account && not empty data.account.googleId}">
           <span id="LoggedInAs">
             Logged in as 
             <span class="text-info" data-toggle="tooltip" title="${data.account.googleId}" data-placement="bottom">
               ${data.account.truncatedGoogleId}
             </span>
           </span>
+          </c:if>
           <a id="btnLogout" class="nav logout btn btn-xs btn-danger" href="<%= Const.ActionURIs.LOGOUT %>">Logout</a>
         </li>
       </ul>
-    </c:if>
     
   </div>
 </div>
