@@ -21,6 +21,8 @@ public class StudentHomePageAction extends Action {
     @Override
     public ActionResult execute() {
         gateKeeper.verifyLoggedInUserPrivileges();
+        
+        //Put RMIT Regex
 
         String recentlyJoinedCourseId = getRequestParamValue(Const.ParamsNames.CHECK_PERSISTENCE_COURSE);
 
