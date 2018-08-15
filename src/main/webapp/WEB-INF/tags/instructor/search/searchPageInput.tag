@@ -49,6 +49,21 @@
               Questions, responses, comments on responses
             </label>
           </li>
+          <li>
+            <input id="search-teams" type="checkbox"
+            name="" value="true"
+            <c:if test="">checked</c:if>>
+            <label for="search-teams">
+             Teams
+            </label>
+          </li>
+          <li>
+             <input id="search-courses" type="checkbox"
+             name="" value="true">
+             <label for="search-courses">
+              Courses
+             </label>
+          </li>
         </ul>
       </div>
     </div>
