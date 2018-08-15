@@ -1,5 +1,7 @@
 package teammates.logic.api;
 
+import java.util.regex.Pattern;
+
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
@@ -18,6 +20,8 @@ import teammates.logic.core.AccountsLogic;
 import teammates.logic.core.InstructorsLogic;
 import teammates.logic.core.StudentsLogic;
 
+import java.util.regex.Matcher;
+
 /**
  * Provides access control mechanisms.
  */
@@ -29,6 +33,9 @@ public class GateKeeper {
     private static final InstructorsLogic instructorsLogic = InstructorsLogic.inst();
     private static final StudentsLogic studentsLogic = StudentsLogic.inst();
 
+    
+    //Check ONLY if student regex the email
+    
     public boolean isUserLoggedOn() {
         return userService.getCurrentUser() != null;
     }
@@ -59,7 +66,7 @@ public class GateKeeper {
 
     public String getLoginUrl(String redirectPage) {
         User user = userService.getCurrentUser();
-
+        
         if (user == null) {
             return userService.createLoginURL(redirectPage);
         }
@@ -354,5 +361,19 @@ public class GateKeeper {
         if (!studentsLogic.isStudentsInSameTeam(courseId, email, student.email)) {
             throw new UnauthorizedAccessException("Student does not have enough privileges to view the photo");
         }
+    }
+    
+    //New Method for RMIT check
+    public boolean isRMIT(String email) {
+    	Pattern pattern = Pattern.compile("^s[0-9]{7}@((student.rmit.edu.au)|(rmit.edu.au))$", Pattern.CASE_INSENSITIVE); 
+    	Matcher matcher = pattern.matcher(email);
+    	
+    	if(matcher.matches()) {
+    		return true;
+    	}else {
+        	throw new UnauthorizedAccessException("Invalid RMIT account.");
+    	}
+    	
+
     }
 }
