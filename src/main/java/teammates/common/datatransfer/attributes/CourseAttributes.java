@@ -22,7 +22,7 @@ public class CourseAttributes extends EntityAttributes<Course> implements Compar
 
     //Note: be careful when changing these variables as their names are used in *.json files.
     public Instant createdAt;
-    private String id;
+    public String id;
     private String name;
     private ZoneId timeZone;
 

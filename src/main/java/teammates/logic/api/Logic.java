@@ -10,6 +10,7 @@ import com.google.appengine.api.blobstore.BlobKey;
 import teammates.common.datatransfer.CourseDetailsBundle;
 import teammates.common.datatransfer.CourseEnrollmentResult;
 import teammates.common.datatransfer.CourseRoster;
+import teammates.common.datatransfer.CourseSearchResultBundle;
 import teammates.common.datatransfer.CourseSummaryBundle;
 import teammates.common.datatransfer.FeedbackResponseCommentSearchResultBundle;
 import teammates.common.datatransfer.FeedbackSessionDetailsBundle;
@@ -543,6 +544,14 @@ public class Logic {
 
         coursesLogic.createCourseAndInstructor(instructorGoogleId, courseId, courseName, courseTimeZone);
     }
+    
+    
+    public CourseSearchResultBundle searchCourses(String courseId, String courseName) {
+        Assumption.assertNotNull(courseId);
+        Assumption.assertNotNull(courseName);
+        return coursesLogic.searchCourses(courseId, courseName);
+    }
+    
 
     /**
      * Preconditions: <br>

@@ -907,6 +907,7 @@ public final class Const {
         public static final String FEEDBACK_RESPONSE_COMMENT = "feedbackresponsecomment";
         public static final String STUDENT = "student";
         public static final String INSTRUCTOR = "instructor";
+        public static final String COURSE = "course";
     }
 
     public static class SearchDocumentField {

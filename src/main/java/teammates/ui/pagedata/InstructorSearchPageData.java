@@ -23,6 +23,7 @@ import teammates.ui.template.FeedbackResponseCommentRow;
 import teammates.ui.template.FeedbackSessionRow;
 import teammates.ui.template.QuestionTable;
 import teammates.ui.template.ResponseRow;
+import teammates.ui.template.SearchCoursesTable;
 import teammates.ui.template.SearchFeedbackSessionDataTable;
 import teammates.ui.template.SearchStudentsTable;
 import teammates.ui.template.StudentListSectionData;

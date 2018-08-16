@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Set;
 
 import teammates.common.datatransfer.CourseDetailsBundle;
+import teammates.common.datatransfer.CourseSearchResultBundle;
 import teammates.common.datatransfer.CourseSummaryBundle;
 import teammates.common.datatransfer.FeedbackSessionDetailsBundle;
 import teammates.common.datatransfer.InstructorPrivileges;
@@ -752,4 +753,14 @@ public final class CoursesLogic {
                 .builder(courseId, courseName, ZoneId.of(courseTimeZone))
                 .build();
     }
+
+    
+    public CourseSearchResultBundle searchCourses(String queryString, List<CourseAttributes> courses) {
+    	return coursesDb.search(queryString, courses);
+    }
+
+
+
 }
+
+

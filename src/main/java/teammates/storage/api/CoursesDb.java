@@ -8,16 +8,21 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import com.google.appengine.api.search.Results;
+import com.google.appengine.api.search.ScoredDocument;
 import com.googlecode.objectify.Key;
 import com.googlecode.objectify.cmd.LoadType;
 import com.googlecode.objectify.cmd.QueryKeys;
+import com.googlecode.objectify.cmd.Query;
 
+import teammates.common.datatransfer.CourseSearchResultBundle;
 import teammates.common.datatransfer.attributes.CourseAttributes;
 import teammates.common.exception.EntityDoesNotExistException;
 import teammates.common.exception.InvalidParametersException;
 import teammates.common.util.Assumption;
 import teammates.common.util.Const;
 import teammates.storage.entity.Course;
+import teammates.storage.search.CourseSearchQuery;
 
 /**
  * Handles CRUD operations for courses.
@@ -62,6 +67,18 @@ public class CoursesDb extends EntitiesDb<Course, CourseAttributes> {
         Assumption.assertNotNull(Const.StatusCodes.DBLEVEL_NULL_INPUT, courseIds);
 
         return makeAttributes(getCourseEntities(courseIds));
+    }
+    
+    
+    public CourseSearchResultBundle search(String queryString, List<CourseAttributes> courses) {
+    	if (queryString.trim().isEmpty()) {
+    		return new CourseSearchResultBundle();
+    	}
+    	
+    	Results<ScoredDocument> results = searchDocuments(Const.SearchIndex.COURSE, 
+    			new CourseSearchQuery(courses, queryString));
+    	
+    	return ResultSearchDocument.fromResults(results, courses);
     }
 
     /**
