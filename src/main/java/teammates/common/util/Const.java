@@ -894,6 +894,7 @@ public final class Const {
         public static final String PROFILE_PICTURE_ROTATE = "picturerotate";
 
         public static final String SEARCH_STUDENTS = "searchstudents";
+        public static final String SEARCH_COURSES = "searchcourses";
         public static final String SEARCH_FEEDBACK_SESSION_DATA = "searchfeedbacksessiondata";
 
         public static final String ERROR_FEEDBACK_EMAIL_RECEIVER_ADDRESS = "errorfeedbackemailreceiveraddress";

@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import teammates.common.datatransfer.CourseSearchResultBundle;
 import teammates.common.datatransfer.FeedbackResponseCommentSearchResultBundle;
 import teammates.common.datatransfer.StudentSearchResultBundle;
 import teammates.common.datatransfer.attributes.InstructorAttributes;
@@ -19,7 +20,7 @@ public class InstructorSearchPageAction extends Action {
 
     @Override
     protected ActionResult execute() {
-        gateKeeper.verifyInstructorPrivileges(account);
+       gateKeeper.verifyInstructorPrivileges(account);
         String searchKey = getRequestParamValue(Const.ParamsNames.SEARCH_KEY);
         if (searchKey == null) {
             searchKey = "";
@@ -36,9 +37,15 @@ public class InstructorSearchPageAction extends Action {
         if (isSearchFeedbackSessionData) {
             numberOfSearchOptions++;
         }
+		
+		boolean isSearchForCourses = getRequestParamAsBoolean(Const.ParamsNames.SEARCH_COURSES);
+		if (isSearchForCourses){
+			numberOfSearchOptions++;
+		}
 
         FeedbackResponseCommentSearchResultBundle frCommentSearchResults = new FeedbackResponseCommentSearchResultBundle();
         StudentSearchResultBundle studentSearchResults = new StudentSearchResultBundle();
+		CourseSearchResultBundle courseSearchResults = new CourseSearchResultBundle();
         int totalResultsSize = 0;
 
         if (searchKey.isEmpty() || numberOfSearchOptions == 0) {
@@ -53,8 +60,12 @@ public class InstructorSearchPageAction extends Action {
             if (isSearchForStudents) {
                 studentSearchResults = logic.searchStudents(searchKey, instructors);
             }
+			if (isSearchForCourses) {
+				courseSearchResults = logic.searchCourses(searchKey, instructors);
+			}
+				
 
-            totalResultsSize = frCommentSearchResults.numberOfResults + studentSearchResults.numberOfResults;
+            totalResultsSize = frCommentSearchResults.numberOfResults + studentSearchResults.numberOfResults + courseSearchResults.numberOfResults;
 
             Set<String> instructorEmails = new HashSet<>();
 
@@ -69,7 +80,7 @@ public class InstructorSearchPageAction extends Action {
         }
 
         InstructorSearchPageData data = new InstructorSearchPageData(account, sessionToken);
-        data.init(frCommentSearchResults, studentSearchResults, searchKey, isSearchFeedbackSessionData, isSearchForStudents);
+        data.init(frCommentSearchResults, studentSearchResults, courseSearchResults, searchKey, isSearchFeedbackSessionData, isSearchForStudents, isSearchForCourses);
 
         return createShowPageResult(Const.ViewURIs.INSTRUCTOR_SEARCH, data);
     }

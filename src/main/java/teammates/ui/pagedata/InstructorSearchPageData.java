@@ -36,14 +36,17 @@ public class InstructorSearchPageData extends PageData {
     /* Whether checkbox is checked for search input */
     private boolean isSearchFeedbackSessionData;
     private boolean isSearchForStudents;
+    private boolean isSearchForCourses;
 
     /* Whether search results are empty */
     private boolean isFeedbackSessionDataEmpty;
     private boolean isStudentsEmpty;
+    private boolean isCoursesEmpty;
 
     /* Tables containing search results */
     private List<SearchFeedbackSessionDataTable> searchFeedbackSessionDataTables;
     private List<SearchStudentsTable> searchStudentsTables;
+    private List<SearchCoursesTable> searchCoursesTables;
 
     public InstructorSearchPageData(AccountAttributes account, String sessionToken) {
         super(account, sessionToken);
