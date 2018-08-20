@@ -43,10 +43,29 @@
               <li class="${currentPage == 'terms' ? 'active' : ''}"><a href="terms.jsp">Terms of Use</a></li>
               <li class="${currentPage == 'samplePage' ? 'active' : ''}"><a href="SamplePage.jsp">Sample Page</a></li>
             </ul>
+            
+            
+				<div class="dropdown">
+				  <button class="dropbtn">Login</button>
+				  <form action="/login" name="login">
+				  <div class="dropdown-content">
+				    <input type="submit" name="student" id="btnStudentLogin" value="Student Login" label="studentLogin">
+				    <input type="submit" name="instructor" id="btnInstructorLogin" value="Instructor Login" label="instructorLogin">
+				  </div>
+				  </form>
+				</div>
+
+            
+          <!--
+            
             <form class="navbar-form navbar-right" action="/login" name="login">
               <input type="submit" name="student" class="btn btn-login " id="btnStudentLogin" value="Student Login" label="studentLogin">
+
               <input type="submit" name="instructor" class="btn btn-login" id="btnInstructorLogin" value="Instructor Login" label="instructorLogin">
+            	  
             </form>
+            
+          -->
           </div>
         </div>
       </nav>
