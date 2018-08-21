@@ -26,5 +26,9 @@
     <c:forEach items="${searchStudentsTables}" var="searchStudentsTable" varStatus="i">
       <search:searchStudentsTable studentTable="${searchStudentsTable}" courseIdx="${i.index}"/>
     </c:forEach>
+    
+    <div id="StudentListPaginationLinks">
+    </div>
+    
   </div>
 </div>
