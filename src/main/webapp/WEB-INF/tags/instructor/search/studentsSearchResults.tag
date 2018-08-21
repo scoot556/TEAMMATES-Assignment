@@ -11,6 +11,18 @@
   </div>
 
   <div class="panel-body">
+  
+    <div style="font-size: 13px;">
+      <label for="StudentResultsItemsPerPage">Items per page</label>
+      <select name="items-per-page" id="StudentResultsItemsPerPage" style="width: 50px">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+      <button type="submit">Go</button>
+    </div>
+  
     <c:forEach items="${searchStudentsTables}" var="searchStudentsTable" varStatus="i">
       <search:searchStudentsTable studentTable="${searchStudentsTable}" courseIdx="${i.index}"/>
     </c:forEach>
