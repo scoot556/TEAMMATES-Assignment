@@ -5,6 +5,7 @@
 
 <div>
   <form method="get" action="${data.instructorSearchLink}" name="search_form">
+  
     <div class="well well-plain">
 
       <div class="form-group">
@@ -52,5 +53,6 @@
         </ul>
       </div>
     </div>
+    
   </form>
 </div>

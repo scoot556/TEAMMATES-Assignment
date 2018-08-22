@@ -62,3 +62,7 @@ build-eclipse/
 
 ### Gmail API Credentials ###
 /src/test/resources/gmail-api/
+
+### Ignore inspector stylesheets
+src/main/webapp/stylesheets/inspector%3a/localhost/page/inspector-stylesheet
+src/main/webapp/stylesheets/localhost%3a8080/stylesheets/custom-layout.css
