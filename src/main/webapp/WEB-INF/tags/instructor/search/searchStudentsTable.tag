@@ -34,7 +34,7 @@
   </div>
 </div>
 
-<form action="${data.instructorSearchLink}" style="font-size: 13px; display: inline-block;" id="StudentListPaginationLinks">
+<form action="${data.instructorSearchLink}" style="font-size: 13px; display: inline-block;" class="pagination-links">
   <input type="hidden" name="searchkey" value="${data.searchKey}" >
   <input type="hidden" name="user" value="${data.account.googleId}">
   <input type="hidden" name="searchstudents" value="true" />
