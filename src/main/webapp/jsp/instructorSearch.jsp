@@ -14,8 +14,6 @@
 
 <ti:instructorPage title="Search" jsIncludes="${jsIncludes}">
 
-  <form method="get" action="${data.instructorSearchLink}" name="search_form">
-
     <search:searchPageInput />
     <br>
     <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}" />
@@ -31,7 +29,5 @@
         Students
       </search:studentsSearchResults>
     </c:if>
-  
-  </form>
 
 </ti:instructorPage>
