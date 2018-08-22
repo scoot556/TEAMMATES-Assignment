@@ -11,6 +11,7 @@ import teammates.common.util.Const;
 import teammates.common.util.StatusMessage;
 import teammates.common.util.StatusMessageColor;
 import teammates.ui.pagedata.InstructorSearchPageData;
+import teammates.ui.pagedata.InstructorSearchPagePaginatedData;
 
 /**
  * Action: Showing the InstructorSearchPage for an instructor.
@@ -24,6 +25,24 @@ public class InstructorSearchPageAction extends Action {
         if (searchKey == null) {
             searchKey = "";
         }
+        
+        // get from search request "items-per-page"
+        int itemsPerPage = InstructorSearchPagePaginatedData.GIVEN_ITEMS_PER_PAGE[0]; // 5 items per page
+        String itemsPerPageString = getRequestParamValue("items-per-page");
+        if (itemsPerPageString != null && !itemsPerPageString.isEmpty()) {
+        	try { itemsPerPage = Integer.parseInt(itemsPerPageString); } 
+        	catch (NumberFormatException e) { itemsPerPage = 0; }
+        }
+        
+        // get from search request "page"
+        int pageNumber = 1;
+        String pageNumberString = getRequestParamValue("page");
+        if (pageNumberString != null && !pageNumberString.isEmpty()) {
+        	try { pageNumber = Integer.parseInt(pageNumberString); } 
+        	catch (NumberFormatException e) { pageNumber = 1; }
+        	pageNumber = pageNumber <= 0 ? 1 : pageNumber;
+        }
+        
 
         int numberOfSearchOptions = 0;
 
@@ -67,10 +86,11 @@ public class InstructorSearchPageAction extends Action {
                                                    StatusMessageColor.WARNING));
             }
         }
+        
 
-        InstructorSearchPageData data = new InstructorSearchPageData(account, sessionToken);
+        //InstructorSearchPageData data = new InstructorSearchPageData(account, sessionToken);
+        InstructorSearchPagePaginatedData data = new InstructorSearchPagePaginatedData(account, sessionToken, itemsPerPage, pageNumber);
         data.init(frCommentSearchResults, studentSearchResults, searchKey, isSearchFeedbackSessionData, isSearchForStudents);
-
         return createShowPageResult(Const.ViewURIs.INSTRUCTOR_SEARCH, data);
     }
 }
