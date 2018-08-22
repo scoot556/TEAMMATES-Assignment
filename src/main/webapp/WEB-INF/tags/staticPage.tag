@@ -43,10 +43,21 @@
               <li class="${currentPage == 'terms' ? 'active' : ''}"><a href="terms.jsp">Terms of Use</a></li>
               <li class="${currentPage == 'samplePage' ? 'active' : ''}"><a href="SamplePage.jsp">Sample Page</a></li>
             </ul>
-            <form class="navbar-form navbar-right" action="/login" name="login">
-              <input type="submit" name="student" class="btn btn-login " id="btnStudentLogin" value="Student Login" label="studentLogin">
-              <input type="submit" name="instructor" class="btn btn-login" id="btnInstructorLogin" value="Instructor Login" label="instructorLogin">
+            
+           	<!-- Bootstrap Login Layout -->
+            <form action="/login" name="login">
+            <ul class="nav navbar-nav navbar-right">
+            	<li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login<span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+		            <li><a><input class="inputLogin" type="submit" name="student" id="btnStudentLogin" value="Student Login" label="studentLogin"></a></li>
+		            <li><a><input class="inputLogin" type="submit" name="instructor" id="btnInstructorLogin" value="Instructor Login" label="instructorLogin"></a></li>
+		            <li></li>
+		          </ul>
+		        </li>
+            </ul>
             </form>
+
           </div>
         </div>
       </nav>
