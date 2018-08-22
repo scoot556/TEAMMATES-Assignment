@@ -33,3 +33,19 @@
         sections="${studentTable.sections}" fromStudentListPage="${false}" />
   </div>
 </div>
+
+<form action="${data.instructorSearchLink}" style="font-size: 13px; display: inline-block;" id="StudentListPaginationLinks">
+  <input type="hidden" name="searchkey" value="${data.searchKey}" >
+  <input type="hidden" name="user" value="${data.account.googleId}">
+  <input type="hidden" name="searchstudents" value="true" />
+  <input type="hidden" name="items-per-page" value="${data.itemsPerPage}" />
+  <nav>
+    <ul>
+      <c:forEach begin="0" end="${data.numPages - 1}" step="1" var="i">
+        <li <c:if test="${i+1 == data.pageNumber}">class="active"</c:if>>
+          <input type="submit" name="page" class="btn btn-small btn-link" value="${i + 1}" />
+        </li>
+      </c:forEach>
+    </ul>
+  </nav>
+</form>
