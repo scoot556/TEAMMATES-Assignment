@@ -546,13 +546,13 @@ public class Logic {
     }
     
     
-    public CourseSearchResultBundle searchCourses(String courseId, String courseName) {
+    public CourseSearchResultBundle searchCourses(String courseId, List<CourseAttributes> courseName) {
         Assumption.assertNotNull(courseId);
         Assumption.assertNotNull(courseName);
         return coursesLogic.searchCourses(courseId, courseName);
     }
     
-
+    
     /**
      * Preconditions: <br>
      * * All parameters are non-null.

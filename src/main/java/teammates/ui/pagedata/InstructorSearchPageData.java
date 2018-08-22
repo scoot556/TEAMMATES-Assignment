@@ -8,17 +8,21 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import teammates.common.datatransfer.CourseSearchResultBundle;
 import teammates.common.datatransfer.FeedbackResponseCommentSearchResultBundle;
 import teammates.common.datatransfer.SectionDetailsBundle;
 import teammates.common.datatransfer.StudentSearchResultBundle;
 import teammates.common.datatransfer.TeamDetailsBundle;
+import teammates.common.datatransfer.CourseDetailsBundle;
 import teammates.common.datatransfer.attributes.AccountAttributes;
+import teammates.common.datatransfer.attributes.CourseAttributes;
 import teammates.common.datatransfer.attributes.FeedbackQuestionAttributes;
 import teammates.common.datatransfer.attributes.FeedbackResponseAttributes;
 import teammates.common.datatransfer.attributes.FeedbackResponseCommentAttributes;
 import teammates.common.datatransfer.attributes.InstructorAttributes;
 import teammates.common.datatransfer.attributes.StudentAttributes;
 import teammates.common.util.Const;
+import teammates.ui.template.CourseListSectionData;
 import teammates.ui.template.FeedbackResponseCommentRow;
 import teammates.ui.template.FeedbackSessionRow;
 import teammates.ui.template.QuestionTable;
@@ -54,19 +58,22 @@ public class InstructorSearchPageData extends PageData {
     }
 
     public void init(FeedbackResponseCommentSearchResultBundle frcSearchResultBundle,
-                     StudentSearchResultBundle studentSearchResultBundle,
-                     String searchKey, boolean isSearchFeedbackSessionData, boolean isSearchForStudents) {
+                     StudentSearchResultBundle studentSearchResultBundle, CourseSearchResultBundle courseSearchResultBundle,
+                     String searchKey, boolean isSearchFeedbackSessionData, boolean isSearchForStudents, boolean isSearchForCourses) {
 
         this.searchKey = searchKey;
 
         this.isSearchFeedbackSessionData = isSearchFeedbackSessionData;
         this.isSearchForStudents = isSearchForStudents;
+        this.isSearchForCourses = isSearchForCourses;
 
         this.isFeedbackSessionDataEmpty = frcSearchResultBundle.numberOfResults == 0;
         this.isStudentsEmpty = studentSearchResultBundle.numberOfResults == 0;
+        this.isCoursesEmpty = courseSearchResultBundle.numberOfResults == 0;
 
         setSearchFeedbackSessionDataTables(frcSearchResultBundle);
         setSearchStudentsTables(studentSearchResultBundle);
+        setCoursesTables(courseSearchResultBundle);
     }
 
     public String getSearchKey() {
@@ -115,6 +122,18 @@ public class InstructorSearchPageData extends PageData {
                                        courseId, createStudentRows(courseId, studentSearchResultBundle)));
         }
     }
+    
+    
+    private void setCoursesTables(CourseSearchResultBundle courseSearchResultBundle) {
+
+        searchCoursesTables = new ArrayList<>(); // 1 table for each course
+        List<String> courseIdList = getCourseIdFromCourseSearchResultBundle(courseSearchResultBundle);
+
+        for (String courseId : courseIdList) {
+            searchCoursesTables.add(new SearchCoursesTable(courseId, createCourseRows(courseId, courseSearchResultBundle)));
+        }
+    }
+    
 
     private List<FeedbackSessionRow> createFeedbackSessionRows(
                                     FeedbackResponseCommentSearchResultBundle frcSearchResultBundle) {
@@ -238,6 +257,43 @@ public class InstructorSearchPageData extends PageData {
         }
         return rows;
     }
+    
+
+    private List<CourseListSectionData> createCourseRows(String courseId, CourseSearchResultBundle courseSearchResultBundle){
+        List<CourseListSectionData> rows = new ArrayList<>();
+        List<CourseAttributes> coursesInRows = filterCourseByID(courseId, courseSearchResultBundle);
+        
+        Map<String, Set<String>> sectionNameToTeamNameMap = new HashMap<>();
+        Map<String, List<CourseAttributes>> courseNameToMap = new HashMap<>();
+        Map<String, String> emailToPhotoUrlMap = new HashMap<>();
+        
+        for(CourseAttributes course : coursesInRows) {
+            String courseName = course.getName();
+            String courseID = course.id;
+            
+            courseNameToMap.computeIfAbsent(courseName, key -> new ArrayList<>())
+                           .add(course);
+            
+            sectionNameToTeamNameMap.computeIfAbsent(courseID, key -> new HashSet<>())
+                                    .add(courseName);
+        }
+        List<SectionDetailsBundle> sections = new ArrayList<>();
+        sectionNameToTeamNameMap.forEach((courseID, courseNameList) -> {
+            SectionDetailsBundle sdb = new SectionDetailsBundle();
+            sdb.name = courseID;
+            ArrayList<CourseDetailsBundle> teams = new ArrayList<>();
+            for(String teamName : courseNameList) {
+                CourseDetailsBundle cdb = new CourseDetailsBundle();
+            }
+        });
+        
+    
+    
+    }
+    
+    
+    
+    
 
     private List<String> getCourseIdsFromStudentSearchResultBundle(
                                     StudentSearchResultBundle studentSearchResultBundle) {
@@ -251,6 +307,19 @@ public class InstructorSearchPageData extends PageData {
         }
         return courses;
     }
+    
+    
+   private List<String> getCourseIdFromCourseSearchResultBundle(CourseSearchResultBundle courseSearchResultBundle){
+       List<String> courses = new ArrayList<>();
+       
+       for (CourseAttributes course : courseSearchResultBundle.courseList) {
+           String courseRes = course.id;
+           if(!courses.contains(courseRes)) {
+               courses.add(courseRes);
+           }
+       }
+       return courses;
+   }
 
     /**
      * Filters students from studentSearchResultBundle by course ID.
@@ -268,6 +337,22 @@ public class InstructorSearchPageData extends PageData {
             }
         }
         return students;
+    }
+    
+    
+    
+    private List<CourseAttributes> filterCourseByID(
+                                    String courseId,
+                                    CourseSearchResultBundle courseSearchResultBundle){
+        
+        List<CourseAttributes> courses = new ArrayList<>();
+        
+        for (CourseAttributes course : courseSearchResultBundle.courseList) {
+            if(courseId.equals(course.id)) {
+                courses.add(course);
+            }
+        }
+        return courses;
     }
 
 }
