@@ -151,7 +151,12 @@ PAGINATION
 #StudentListPaginationLinks nav ul li {
     display: inline-block;
 }
-#StudentListPaginationLinks nav ul li a {
+#StudentListPaginationLinks nav ul li * {
     padding: 3px 10px;
 }
+#StudentListPaginationLinks nav ul li.active * {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
 
