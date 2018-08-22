@@ -138,3 +138,25 @@ FORMS
     border-radius: 0px;
 }
 
+/**
+============================================
+PAGINATION
+============================================*/
+#StudentListPaginationLinks {}
+#StudentListPaginationLinks nav {}
+#StudentListPaginationLinks nav ul{
+    padding: 0;
+    margin: 0;
+}
+#StudentListPaginationLinks nav ul li {
+    display: inline-block;
+}
+#StudentListPaginationLinks nav ul li * {
+    padding: 3px 10px;
+}
+#StudentListPaginationLinks nav ul li.active * {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+
