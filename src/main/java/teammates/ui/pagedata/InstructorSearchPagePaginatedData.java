@@ -1,18 +1,32 @@
 package teammates.ui.pagedata;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
+import teammates.common.datatransfer.FeedbackResponseCommentSearchResultBundle;
+import teammates.common.datatransfer.SectionDetailsBundle;
+import teammates.common.datatransfer.StudentSearchResultBundle;
+import teammates.common.datatransfer.TeamDetailsBundle;
 import teammates.common.datatransfer.attributes.AccountAttributes;
-import teammates.ui.template.PaginationLink;
+import teammates.common.datatransfer.attributes.InstructorAttributes;
+import teammates.common.datatransfer.attributes.StudentAttributes;
+import teammates.common.util.Const;
 import teammates.ui.template.SearchStudentsTable;
+import teammates.ui.template.StudentListSectionData;
+import teammates.ui.template.StudentListStudentData;
+import teammates.ui.template.StudentListTeamData;
 
 public class InstructorSearchPagePaginatedData extends InstructorSearchPageData {
+	public static final int[] GIVEN_ITEMS_PER_PAGE = new int[] { 5, 10, 25, 50 };
 
-	private int itemsPerPage = 0;
+	private int itemsPerPage = 1;
 	private int pageNumber = 1;
 	
-	private List<PaginationLink> paginationLinks = new ArrayList<>();
+	private int numPages = 1;
 	
 	
 	public InstructorSearchPagePaginatedData(AccountAttributes account, String sessionToken, int itemsPerPage, int pageNumber) {
@@ -29,14 +43,48 @@ public class InstructorSearchPagePaginatedData extends InstructorSearchPageData 
 		return pageNumber;
 	}
 	
-	public List<PaginationLink> getPaginationLinks() {
-		return paginationLinks;
+	public int[] getGivenItemsPerPage() {
+		return GIVEN_ITEMS_PER_PAGE;
+	}
+	
+	public int getNumPages() {
+		return numPages;
 	}
 
 	@Override
 	public List<SearchStudentsTable> getSearchStudentsTables() {
 		return searchStudentsTables;
 	}
+	
+	@Override
+	protected List<StudentAttributes> filterStudentsByCourse(
+            String courseId,
+            StudentSearchResultBundle studentSearchResultBundle) {
+		
+		List<StudentAttributes> students = super.filterStudentsByCourse(courseId, studentSearchResultBundle);
+		return paginateStudents(students, this.pageNumber, this.itemsPerPage);
+	}
+	
+	
+	protected List<StudentAttributes> paginateStudents(List<StudentAttributes> studentsInCourse, int pageNumber,
+			int itemsPerPage) {
+		
+		int numPages = (int) Math.ceil((double)studentsInCourse.size() / (double) itemsPerPage);
+		int startIndex = itemsPerPage * (pageNumber - 1);
+		int lastIndex = startIndex + itemsPerPage - 1;
+		lastIndex = lastIndex >= studentsInCourse.size() ? studentsInCourse.size() - 1 : lastIndex;
+		
+		List<StudentAttributes> paginatedStudents = new ArrayList<>();
+		for (int i = startIndex; i <= lastIndex; i++) {
+			paginatedStudents.add(studentsInCourse.get(i));
+		}
+		
+		this.numPages = numPages;
+		
+		return paginatedStudents;
+	}
+	
+	
 	
 	
 
