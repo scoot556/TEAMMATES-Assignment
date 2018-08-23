@@ -57,8 +57,8 @@ public class AdminSearchPageData extends PageData {
     /*
      * Search result tables
      */
-    private AdminSearchInstructorTable instructorTable;
-    private AdminSearchStudentTable studentTable;
+    protected AdminSearchInstructorTable instructorTable;
+    protected AdminSearchStudentTable studentTable;
 
     public AdminSearchPageData(AccountAttributes account, String sessionToken) {
         super(account, sessionToken);
@@ -89,7 +89,7 @@ public class AdminSearchPageData extends PageData {
         return studentResultBundle.studentList;
     }
 
-    private AdminSearchInstructorTable createInstructorTable() {
+    protected AdminSearchInstructorTable createInstructorTable() {
         List<AdminSearchInstructorRow> rows = new ArrayList<>();
 
         for (InstructorAttributes instructor : instructorResultBundle.instructorList) {
@@ -99,7 +99,7 @@ public class AdminSearchPageData extends PageData {
         return new AdminSearchInstructorTable(rows);
     }
 
-    private AdminSearchInstructorRow createInstructorRow(InstructorAttributes instructor) {
+    protected AdminSearchInstructorRow createInstructorRow(InstructorAttributes instructor) {
         String id = createId(instructor);
         String name = instructor.name;
         String courseName = courseIdToCourseNameMap.get(instructor.courseId);
@@ -127,7 +127,7 @@ public class AdminSearchPageData extends PageData {
         return "instructor_" + id;
     }
 
-    private String createViewRecentActionsId(InstructorAttributes instructor) {
+    protected String createViewRecentActionsId(InstructorAttributes instructor) {
         String availableIdString = "";
 
         boolean isSearchingUsingGoogleId = instructor.googleId != null && !instructor.googleId.trim().isEmpty();
@@ -144,7 +144,7 @@ public class AdminSearchPageData extends PageData {
         return availableIdString;
     }
 
-    private AdminSearchStudentTable createStudentTable() {
+    protected AdminSearchStudentTable createStudentTable() {
         List<AdminSearchStudentRow> rows = new ArrayList<>();
 
         for (StudentAttributes student : studentResultBundle.studentList) {
@@ -154,7 +154,7 @@ public class AdminSearchPageData extends PageData {
         return new AdminSearchStudentTable(rows);
     }
 
-    private AdminSearchStudentRow createStudentRow(StudentAttributes student) {
+    protected AdminSearchStudentRow createStudentRow(StudentAttributes student) {
         String id = createId(student);
         String name = student.name;
         String institute = studentInstituteMap.get(student.getIdentificationString());
@@ -192,7 +192,7 @@ public class AdminSearchPageData extends PageData {
         return "student_" + id;
     }
 
-    private String createViewRecentActionsId(StudentAttributes student) {
+    protected String createViewRecentActionsId(StudentAttributes student) {
         String availableIdString = "";
 
         boolean isSearchingUsingGoogleId = student.googleId != null && !student.googleId.trim().isEmpty();
@@ -209,7 +209,7 @@ public class AdminSearchPageData extends PageData {
         return availableIdString;
     }
 
-    private AdminSearchStudentLinks createStudentLinks(StudentAttributes student) {
+    protected AdminSearchStudentLinks createStudentLinks(StudentAttributes student) {
         String detailsPageLink = studentRecordsPageLinkMap.get(student.getIdentificationString());
         String homePageLink = studentIdToHomePageLinkMap.get(student.googleId);
         String courseJoinLink = Config.getAppUrl(student.getRegistrationUrl()).toAbsoluteString();
@@ -217,7 +217,7 @@ public class AdminSearchPageData extends PageData {
         return new AdminSearchStudentLinks(detailsPageLink, homePageLink, courseJoinLink);
     }
 
-    private List<AdminSearchStudentFeedbackSession> createFeedbackSessionsList(
+    protected List<AdminSearchStudentFeedbackSession> createFeedbackSessionsList(
                                     StudentAttributes student, FeedbackSessionState fsState) {
 
         List<AdminSearchStudentFeedbackSession> sessions = new ArrayList<>();
