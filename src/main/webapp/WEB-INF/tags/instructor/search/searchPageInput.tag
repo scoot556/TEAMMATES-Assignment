@@ -50,6 +50,13 @@
               Questions, responses, comments on responses
             </label>
           </li>
+          
+          <li>
+          	<input type="checkbox" id="search-courses" type="checkbox" name="searchcourses" value="true"
+          	<c:if test="${data.searchForCourses}">checked</c:if>> &nbsp;
+          	<label for="search-courses" >Courses</label>
+          </li>
+          
         </ul>
       </div>
     </div>
