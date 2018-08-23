@@ -1,11 +1,13 @@
 package teammates.ui.controller;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import teammates.common.datatransfer.FeedbackResponseCommentSearchResultBundle;
 import teammates.common.datatransfer.StudentSearchResultBundle;
+import teammates.common.datatransfer.attributes.CourseAttributes;
 import teammates.common.datatransfer.attributes.InstructorAttributes;
 import teammates.common.util.Const;
 import teammates.common.util.StatusMessage;
@@ -55,9 +57,17 @@ public class InstructorSearchPageAction extends Action {
         if (isSearchFeedbackSessionData) {
             numberOfSearchOptions++;
         }
+        
+        boolean isSearchForCourses = getRequestParamAsBoolean("searchcourses");
+        if (isSearchForCourses) {
+        	numberOfSearchOptions++;
+        }
+        
 
         FeedbackResponseCommentSearchResultBundle frCommentSearchResults = new FeedbackResponseCommentSearchResultBundle();
         StudentSearchResultBundle studentSearchResults = new StudentSearchResultBundle();
+        List<CourseAttributes> courses = new ArrayList<>();
+        
         int totalResultsSize = 0;
 
         if (searchKey.isEmpty() || numberOfSearchOptions == 0) {
@@ -71,6 +81,9 @@ public class InstructorSearchPageAction extends Action {
             }
             if (isSearchForStudents) {
                 studentSearchResults = logic.searchStudents(searchKey, instructors);
+            }
+            if (isSearchForCourses) {
+            	courses = logic.searchCourses(searchKey);
             }
 
             totalResultsSize = frCommentSearchResults.numberOfResults + studentSearchResults.numberOfResults;
@@ -90,7 +103,8 @@ public class InstructorSearchPageAction extends Action {
 
         //InstructorSearchPageData data = new InstructorSearchPageData(account, sessionToken);
         InstructorSearchPagePaginatedData data = new InstructorSearchPagePaginatedData(account, sessionToken, itemsPerPage, pageNumber);
-        data.init(frCommentSearchResults, studentSearchResults, searchKey, isSearchFeedbackSessionData, isSearchForStudents);
+        data.init(frCommentSearchResults, studentSearchResults, courses, searchKey, 
+        		isSearchFeedbackSessionData, isSearchForStudents, isSearchForCourses);
         return createShowPageResult(Const.ViewURIs.INSTRUCTOR_SEARCH, data);
     }
 }
