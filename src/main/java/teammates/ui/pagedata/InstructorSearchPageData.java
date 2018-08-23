@@ -52,7 +52,7 @@ public class InstructorSearchPageData extends PageData {
     private List<SearchFeedbackSessionDataTable> searchFeedbackSessionDataTables;
     private List<SearchStudentsTable> searchStudentsTables;
     private List<SearchCoursesTable> searchCoursesTables;
-
+    
     public InstructorSearchPageData(AccountAttributes account, String sessionToken) {
         super(account, sessionToken);
     }
@@ -104,7 +104,7 @@ public class InstructorSearchPageData extends PageData {
         return searchStudentsTables;
     }
 
-    private void setSearchFeedbackSessionDataTables(
+    protected void setSearchFeedbackSessionDataTables(
                                     FeedbackResponseCommentSearchResultBundle frcSearchResultBundle) {
 
         searchFeedbackSessionDataTables = new ArrayList<>();
@@ -112,7 +112,7 @@ public class InstructorSearchPageData extends PageData {
                                                createFeedbackSessionRows(frcSearchResultBundle)));
     }
 
-    private void setSearchStudentsTables(StudentSearchResultBundle studentSearchResultBundle) {
+    protected void setSearchStudentsTables(StudentSearchResultBundle studentSearchResultBundle) {
 
         searchStudentsTables = new ArrayList<>(); // 1 table for each course
         List<String> courseIdList = getCourseIdsFromStudentSearchResultBundle(studentSearchResultBundle);
@@ -135,7 +135,7 @@ public class InstructorSearchPageData extends PageData {
     }
     
 
-    private List<FeedbackSessionRow> createFeedbackSessionRows(
+    protected List<FeedbackSessionRow> createFeedbackSessionRows(
                                     FeedbackResponseCommentSearchResultBundle frcSearchResultBundle) {
 
         List<FeedbackSessionRow> rows = new ArrayList<>();
@@ -149,7 +149,7 @@ public class InstructorSearchPageData extends PageData {
         return rows;
     }
 
-    private List<QuestionTable> createQuestionTables(
+    protected List<QuestionTable> createQuestionTables(
                                     String fsName,
                                     FeedbackResponseCommentSearchResultBundle frcSearchResultBundle) {
 
@@ -168,7 +168,7 @@ public class InstructorSearchPageData extends PageData {
         return questionTables;
     }
 
-    private List<ResponseRow> createResponseRows(
+    protected List<ResponseRow> createResponseRows(
                                     FeedbackQuestionAttributes question,
                                     FeedbackResponseCommentSearchResultBundle frcSearchResultBundle) {
 
@@ -186,7 +186,7 @@ public class InstructorSearchPageData extends PageData {
         return rows;
     }
 
-    private List<FeedbackResponseCommentRow> createFeedbackResponseCommentRows(
+    protected List<FeedbackResponseCommentRow> createFeedbackResponseCommentRows(
                                     FeedbackResponseAttributes responseEntry,
                                     FeedbackResponseCommentSearchResultBundle frcSearchResultBundle,
                                     FeedbackQuestionAttributes question) {
@@ -210,7 +210,7 @@ public class InstructorSearchPageData extends PageData {
         return rows;
     }
 
-    private List<StudentListSectionData> createStudentRows(String courseId,
+    protected List<StudentListSectionData> createStudentRows(String courseId,
                                                            StudentSearchResultBundle studentSearchResultBundle) {
         List<StudentListSectionData> rows = new ArrayList<>();
         List<StudentAttributes> studentsInCourse = filterStudentsByCourse(
@@ -281,8 +281,13 @@ public class InstructorSearchPageData extends PageData {
         sectionNameToTeamNameMap.forEach((courseID, courseNameList) -> {
             SectionDetailsBundle sdb = new SectionDetailsBundle();
             sdb.name = courseID;
+            
+            
             ArrayList<CourseDetailsBundle> teams = new ArrayList<>();
-            for(String teamName : courseNameList) {
+            
+            for(String courseName : courseNameList) {
+                
+                
                 CourseDetailsBundle cdb = new CourseDetailsBundle();
             }
         });
@@ -295,7 +300,7 @@ public class InstructorSearchPageData extends PageData {
     
     
 
-    private List<String> getCourseIdsFromStudentSearchResultBundle(
+    protected List<String> getCourseIdsFromStudentSearchResultBundle(
                                     StudentSearchResultBundle studentSearchResultBundle) {
         List<String> courses = new ArrayList<>();
 
@@ -325,7 +330,7 @@ public class InstructorSearchPageData extends PageData {
      * Filters students from studentSearchResultBundle by course ID.
      * @return students whose course ID is equal to the courseId given in the parameter
      */
-    private List<StudentAttributes> filterStudentsByCourse(
+    protected List<StudentAttributes> filterStudentsByCourse(
                                     String courseId,
                                     StudentSearchResultBundle studentSearchResultBundle) {
 
