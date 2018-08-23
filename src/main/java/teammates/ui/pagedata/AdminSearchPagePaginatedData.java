@@ -13,7 +13,7 @@ import teammates.ui.template.AdminSearchStudentTable;
 
 public class AdminSearchPagePaginatedData extends AdminSearchPageData {
 	
-	public static final int[] GIVEN_ITEMS_PER_PAGE = new int[] { 1,3,5 };
+	public static final int[] GIVEN_ITEMS_PER_PAGE = new int[] {5, 10, 25, 50 };
 	
 	private int studentItemsPerPage = 1;
 	private int studentPageNumber = 1;
