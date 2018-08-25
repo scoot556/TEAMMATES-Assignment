@@ -937,6 +937,9 @@ public final class Const {
 
         public static final String LOGOUT = "/logout";
 
+        //Instructor Reports Page link
+        public static final String INSTRUCTOR_REPORTS_PAGE = "/page/instructorReportsPage";
+        
         public static final String INSTRUCTOR_HOME_PAGE = "/page/instructorHomePage";
         public static final String INSTRUCTOR_COURSES_PAGE = "/page/instructorCoursesPage";
         public static final String INSTRUCTOR_COURSE_ADD = "/page/instructorCourseAdd";
@@ -1148,6 +1151,10 @@ public final class Const {
 
         /* We omit adding the 'page' prefix to views because all of them are "pages" */
 
+        //Instructor custom reports page
+        public static final String INSTRUCTOR_REPORTS = "/jsp/instructorReports.jsp"; 
+    	public static final String INSTRUCTOR_REPORTS_AJAX_COURSE_TABLE = "/jsp/instructorReportsAjaxCourse.jsp";
+        
         public static final String INSTRUCTOR_HOME = "/jsp/instructorHome.jsp";
         public static final String INSTRUCTOR_HOME_AJAX_COURSE_TABLE = "/jsp/instructorHomeAjaxCourse.jsp";
         public static final String INSTRUCTOR_FEEDBACK_RESPONSE_COMMENTS_ADD =
@@ -1222,7 +1229,7 @@ public final class Const {
         public static final String JS_UNIT_TEST = "/test/allJsUnitTests.jsp";
         public static final String MASHUP = "/test/mashup.jsp";
         public static final String TABLE_SORT = "/test/tableSort.jsp";
-        public static final String TIMEZONE = "/test/timezone.jsp";
+        public static final String TIMEZONE = "/test/timezone.jsp";        
     }
 
     /* These are status messages that may be shown to the user */
