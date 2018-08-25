@@ -17,6 +17,12 @@
     <search:searchPageInput />
     <br>
     <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}" />
+    
+    <c:if test="${not data.coursesEmpty}">
+      <search:coursesSearchResults courses="${data.courses}">
+      	Found Courses
+      </search:coursesSearchResults>
+    </c:if>
   
     <c:if test="${not data.feedbackSessionDataEmpty}">
       <search:feedbackSessionDataSearchResults feedbackSessionDataTables="${data.searchFeedbackSessionDataTables}">
