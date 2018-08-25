@@ -26,7 +26,6 @@ public class StudentHomePageAction extends Action {
         //If return true continue else logout and redirect
         gateKeeper.isRMIT(gateKeeper.getCurrentUser().id);
 
-
         String recentlyJoinedCourseId = getRequestParamValue(Const.ParamsNames.CHECK_PERSISTENCE_COURSE);
 
         List<CourseDetailsBundle> courses = new ArrayList<>();
