@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700'); 
 
 body {
-    padding-top: 40px;
+    padding-bottom: 100px;
+    padding-top: 0;
 }
 
 .container {
@@ -69,6 +70,10 @@ nav.navbar.navbar-inverse.navbar-fixed-top {
     background: #1f2158;
 }
 
+#searchContainer {
+    margin-top: 6px;
+}
+
 
 /**
 --------------------------------------------
@@ -132,4 +137,45 @@ FORMS
 .form-control {
     -webkit-border-radius: 0px;
     border-radius: 0px;
+}
+
+/**
+============================================
+LOGIN CSS FROM W3
+============================================*/
+
+.inputLogin{
+	width: 100%;
+	border: 0px;
+	background: transparent;
+	text-align: right;
+}
+
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+	background: #ececec;
+}
+
+.dropdown-menu>li>a:hover .inputlogin, .dropdown-menu>li>a:focus .inputlogin {
+	background: #ececec;
+}
+
+/**
+============================================
+PAGINATION
+============================================*/
+.pagination-links {}
+.pagination-links nav {}
+.pagination-links nav ul{
+    padding: 0;
+    margin: 0;
+}
+.pagination-links nav ul li {
+    display: inline-block;
+}
+.pagination-links nav ul li * {
+    padding: 3px 10px;
+}
+.pagination-links nav ul li.active * {
+    font-weight: bold;
+    text-decoration: underline;
 }

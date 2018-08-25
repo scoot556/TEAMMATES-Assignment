@@ -752,4 +752,8 @@ public final class CoursesLogic {
                 .builder(courseId, courseName, ZoneId.of(courseTimeZone))
                 .build();
     }
+
+	public List<CourseAttributes> searchCourses(String searchKey) {
+		return coursesDb.searchCourses(searchKey);
+	}
 }

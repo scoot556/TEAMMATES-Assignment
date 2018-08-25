@@ -14,20 +14,26 @@
 
 <ti:instructorPage title="Search" jsIncludes="${jsIncludes}">
 
-  <search:searchPageInput />
-  <br>
-  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}" />
-
-  <c:if test="${not data.feedbackSessionDataEmpty}">
-    <search:feedbackSessionDataSearchResults feedbackSessionDataTables="${data.searchFeedbackSessionDataTables}">
-      Questions, responses, comments on responses
-    </search:feedbackSessionDataSearchResults>
-  </c:if>
-
-  <c:if test="${not data.studentsEmpty}">
-    <search:studentsSearchResults searchStudentsTables="${data.searchStudentsTables}">
-      Students
-    </search:studentsSearchResults>
-  </c:if>
+    <search:searchPageInput />
+    <br>
+    <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}" />
+    
+    <c:if test="${not data.coursesEmpty}">
+      <search:coursesSearchResults courses="${data.courses}">
+      	Found Courses
+      </search:coursesSearchResults>
+    </c:if>
+  
+    <c:if test="${not data.feedbackSessionDataEmpty}">
+      <search:feedbackSessionDataSearchResults feedbackSessionDataTables="${data.searchFeedbackSessionDataTables}">
+        Questions, responses, comments on responses
+      </search:feedbackSessionDataSearchResults>
+    </c:if>
+  
+    <c:if test="${not data.studentsEmpty}">
+      <search:studentsSearchResults searchStudentsTables="${data.searchStudentsTables}">
+        Students
+      </search:studentsSearchResults>
+    </c:if>
 
 </ti:instructorPage>

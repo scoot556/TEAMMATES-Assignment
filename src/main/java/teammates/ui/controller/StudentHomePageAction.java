@@ -20,9 +20,11 @@ public class StudentHomePageAction extends Action {
 
     @Override
     public ActionResult execute() {
+        //continue if no problem
         gateKeeper.verifyLoggedInUserPrivileges();
         
-        //Put RMIT Regex
+        //If return true continue else logout and redirect
+        gateKeeper.isRMIT(gateKeeper.getCurrentUser().id);
 
         String recentlyJoinedCourseId = getRequestParamValue(Const.ParamsNames.CHECK_PERSISTENCE_COURSE);
 

@@ -60,7 +60,21 @@
           </a>
         </li>
       </ul>
-      <ul class="nav navbar-nav pull-right"></ul>
+      <ul class="nav navbar-nav pull-right" id="searchContainer">
+         <li>
+             <form method="get" action="/page/instructorSearchPage" name="search_form">
+               <input type="text" name="searchkey"
+                value=""
+                title="Search for comment"
+                placeholder="Search Here"
+                class="form-control" id="searchBox">
+                
+                <input type="hidden" name="<%=Const.ParamsNames.SEARCH_STUDENTS%>" value="true" />
+                <input type="hidden" name="<%=Const.ParamsNames.SEARCH_FEEDBACK_SESSION_DATA%>" value="true"/>
+                <input type="hidden" name="user" value="${data.account.googleId}">             
+             </form>
+         </li>
+      </ul>
     </div>
   </div>
 </div>

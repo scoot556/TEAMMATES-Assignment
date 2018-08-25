@@ -11,8 +11,10 @@
   </div>
 
   <div class="panel-body">
+  
     <c:forEach items="${searchStudentsTables}" var="searchStudentsTable" varStatus="i">
       <search:searchStudentsTable studentTable="${searchStudentsTable}" courseIdx="${i.index}"/>
     </c:forEach>
+    
   </div>
 </div>

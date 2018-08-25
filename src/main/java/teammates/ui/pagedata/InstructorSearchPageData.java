@@ -13,6 +13,7 @@ import teammates.common.datatransfer.SectionDetailsBundle;
 import teammates.common.datatransfer.StudentSearchResultBundle;
 import teammates.common.datatransfer.TeamDetailsBundle;
 import teammates.common.datatransfer.attributes.AccountAttributes;
+import teammates.common.datatransfer.attributes.CourseAttributes;
 import teammates.common.datatransfer.attributes.FeedbackQuestionAttributes;
 import teammates.common.datatransfer.attributes.FeedbackResponseAttributes;
 import teammates.common.datatransfer.attributes.FeedbackResponseCommentAttributes;
@@ -36,14 +37,19 @@ public class InstructorSearchPageData extends PageData {
     /* Whether checkbox is checked for search input */
     private boolean isSearchFeedbackSessionData;
     private boolean isSearchForStudents;
+    private boolean isSearchForCourses;
 
     /* Whether search results are empty */
     private boolean isFeedbackSessionDataEmpty;
     private boolean isStudentsEmpty;
+    private boolean isCoursesEmpty;
 
     /* Tables containing search results */
-    private List<SearchFeedbackSessionDataTable> searchFeedbackSessionDataTables;
-    private List<SearchStudentsTable> searchStudentsTables;
+    protected List<SearchFeedbackSessionDataTable> searchFeedbackSessionDataTables;
+    protected List<SearchStudentsTable> searchStudentsTables;
+    
+    /* course */
+    protected List<CourseAttributes> courses = new ArrayList<>();
 
     public InstructorSearchPageData(AccountAttributes account, String sessionToken) {
         super(account, sessionToken);
@@ -51,18 +57,24 @@ public class InstructorSearchPageData extends PageData {
 
     public void init(FeedbackResponseCommentSearchResultBundle frcSearchResultBundle,
                      StudentSearchResultBundle studentSearchResultBundle,
-                     String searchKey, boolean isSearchFeedbackSessionData, boolean isSearchForStudents) {
+                     List<CourseAttributes> courses,
+                     String searchKey, boolean isSearchFeedbackSessionData, boolean isSearchForStudents, boolean isSearchForCourses) {
 
         this.searchKey = searchKey;
 
         this.isSearchFeedbackSessionData = isSearchFeedbackSessionData;
         this.isSearchForStudents = isSearchForStudents;
+        this.isSearchForCourses = isSearchForCourses;
 
         this.isFeedbackSessionDataEmpty = frcSearchResultBundle.numberOfResults == 0;
         this.isStudentsEmpty = studentSearchResultBundle.numberOfResults == 0;
 
         setSearchFeedbackSessionDataTables(frcSearchResultBundle);
         setSearchStudentsTables(studentSearchResultBundle);
+        
+        this.courses = courses;
+        this.isCoursesEmpty = courses.isEmpty();
+        
     }
 
     public String getSearchKey() {
@@ -76,6 +88,10 @@ public class InstructorSearchPageData extends PageData {
     public boolean isStudentsEmpty() {
         return isStudentsEmpty;
     }
+    
+    public boolean isCoursesEmpty() {
+    	return isCoursesEmpty;
+    }
 
     public boolean isSearchFeedbackSessionData() {
         return isSearchFeedbackSessionData;
@@ -85,15 +101,24 @@ public class InstructorSearchPageData extends PageData {
         return isSearchForStudents;
     }
 
-    public List<SearchFeedbackSessionDataTable> getSearchFeedbackSessionDataTables() {
+    public boolean isSearchForCourses() {
+		return isSearchForCourses;
+	}
+
+	public List<SearchFeedbackSessionDataTable> getSearchFeedbackSessionDataTables() {
         return searchFeedbackSessionDataTables;
     }
 
     public List<SearchStudentsTable> getSearchStudentsTables() {
         return searchStudentsTables;
     }
+    
+    // GET COURSES
+    public List<CourseAttributes> getCourses() {
+		return courses;
+	}
 
-    private void setSearchFeedbackSessionDataTables(
+	protected void setSearchFeedbackSessionDataTables(
                                     FeedbackResponseCommentSearchResultBundle frcSearchResultBundle) {
 
         searchFeedbackSessionDataTables = new ArrayList<>();
@@ -101,7 +126,7 @@ public class InstructorSearchPageData extends PageData {
                                                createFeedbackSessionRows(frcSearchResultBundle)));
     }
 
-    private void setSearchStudentsTables(StudentSearchResultBundle studentSearchResultBundle) {
+    protected void setSearchStudentsTables(StudentSearchResultBundle studentSearchResultBundle) {
 
         searchStudentsTables = new ArrayList<>(); // 1 table for each course
         List<String> courseIdList = getCourseIdsFromStudentSearchResultBundle(studentSearchResultBundle);
@@ -112,7 +137,7 @@ public class InstructorSearchPageData extends PageData {
         }
     }
 
-    private List<FeedbackSessionRow> createFeedbackSessionRows(
+    protected List<FeedbackSessionRow> createFeedbackSessionRows(
                                     FeedbackResponseCommentSearchResultBundle frcSearchResultBundle) {
 
         List<FeedbackSessionRow> rows = new ArrayList<>();
@@ -126,7 +151,7 @@ public class InstructorSearchPageData extends PageData {
         return rows;
     }
 
-    private List<QuestionTable> createQuestionTables(
+    protected List<QuestionTable> createQuestionTables(
                                     String fsName,
                                     FeedbackResponseCommentSearchResultBundle frcSearchResultBundle) {
 
@@ -145,7 +170,7 @@ public class InstructorSearchPageData extends PageData {
         return questionTables;
     }
 
-    private List<ResponseRow> createResponseRows(
+    protected List<ResponseRow> createResponseRows(
                                     FeedbackQuestionAttributes question,
                                     FeedbackResponseCommentSearchResultBundle frcSearchResultBundle) {
 
@@ -163,7 +188,7 @@ public class InstructorSearchPageData extends PageData {
         return rows;
     }
 
-    private List<FeedbackResponseCommentRow> createFeedbackResponseCommentRows(
+    protected List<FeedbackResponseCommentRow> createFeedbackResponseCommentRows(
                                     FeedbackResponseAttributes responseEntry,
                                     FeedbackResponseCommentSearchResultBundle frcSearchResultBundle,
                                     FeedbackQuestionAttributes question) {
@@ -187,7 +212,7 @@ public class InstructorSearchPageData extends PageData {
         return rows;
     }
 
-    private List<StudentListSectionData> createStudentRows(String courseId,
+    protected List<StudentListSectionData> createStudentRows(String courseId,
                                                            StudentSearchResultBundle studentSearchResultBundle) {
         List<StudentListSectionData> rows = new ArrayList<>();
         List<StudentAttributes> studentsInCourse = filterStudentsByCourse(
@@ -235,7 +260,7 @@ public class InstructorSearchPageData extends PageData {
         return rows;
     }
 
-    private List<String> getCourseIdsFromStudentSearchResultBundle(
+    protected List<String> getCourseIdsFromStudentSearchResultBundle(
                                     StudentSearchResultBundle studentSearchResultBundle) {
         List<String> courses = new ArrayList<>();
 
@@ -252,7 +277,7 @@ public class InstructorSearchPageData extends PageData {
      * Filters students from studentSearchResultBundle by course ID.
      * @return students whose course ID is equal to the courseId given in the parameter
      */
-    private List<StudentAttributes> filterStudentsByCourse(
+    protected List<StudentAttributes> filterStudentsByCourse(
                                     String courseId,
                                     StudentSearchResultBundle studentSearchResultBundle) {
 
