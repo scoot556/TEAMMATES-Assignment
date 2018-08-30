@@ -31,6 +31,26 @@
         questionWithResponses="${questionWithResponses}"/>
   </c:forEach>
 
+<div class="form-horizontal">
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<span class="text-preserve=space">
+				<p>Submit PDF</p>
+			</span>
+		</div>
+		
+		<div class="panel-body">
+			<p class="text-muted"> Only upload .PDF files<br>Other files will not be accepted</p>
+			<form action="UploadDownloadFileServlet" method="post" enctype="multipart/form-data">
+			Select PDF to Upload:<input type="file" name="fileName" accept=".pdf">
+			<br>
+			<input type="submit" value="Upload">
+			</form>
+		</div>
+	</div>
+</div>
+  
+
   <div class="bold align-center">
     <c:if test="${data.moderation}">
       <input name="moderatedperson" value="${moderatedPersonEmail}" type="hidden">
