@@ -181,3 +181,29 @@ PAGINATION
     text-decoration: underline;
 }
 
+
+/**
+============================================
+REPORTS PAGE
+============================================*/
+table.course-details-table {
+}
+
+table.course-details-table td:first-child {
+    padding-right: 40px;
+}
+
+table.course-feedbacksession-table {
+}
+
+table.course-feedbacksession-table th:first-child,
+table.course-feedbacksession-table td:first-child {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 40px;
+    max-width: 480px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+
