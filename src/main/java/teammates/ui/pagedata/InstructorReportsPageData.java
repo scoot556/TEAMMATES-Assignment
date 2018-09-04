@@ -2,30 +2,122 @@ package teammates.ui.pagedata;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
+import teammates.common.datatransfer.CourseDetailsBundle;
 import teammates.common.datatransfer.CourseSummaryBundle;
+import teammates.common.datatransfer.FeedbackSessionDetailsBundle;
+import teammates.common.datatransfer.FeedbackSessionStats;
 import teammates.common.datatransfer.attributes.AccountAttributes;
+import teammates.common.datatransfer.attributes.CourseAttributes;
+import teammates.common.datatransfer.attributes.FeedbackSessionAttributes;
 import teammates.common.util.Const;
 import teammates.ui.template.CourseTable;
 
 public class InstructorReportsPageData extends PageData {
-
+	
+	
+	public static class Table {
+		
+		public static class FeedbackSessionTable {
+			public String name;
+			public FeedbackSessionStats stats;
+			
+			public String getName() {
+				return name;
+			}
+			public String getResponseRate() {
+				return String.format("%d / %d", stats.submittedTotal, stats.expectedTotal);
+			}
+		}
+		
+	    public CourseDetailsBundle courseDetails;
+	    public List<FeedbackSessionTable> feedbackSessions;
+		public CourseDetailsBundle getCourseDetails() {
+			return courseDetails;
+		}
+		public List<FeedbackSessionTable> getFeedbackSessions() {
+			return feedbackSessions;
+		}
+	}
+	
     private boolean isSortingDisabled;
     private List<CourseTable> courseTables;
     private String sortCriteria;
+    private List<CourseDetailsBundle> courseDetailsList;
+    private List<InstructorReportsPageData.Table> coursesTabTableData;
+    
+    private int numberOfCourses = 0;
+    private int studentsThatAcceptedInvitation = 0;
+    private int numStudentNotAcceptedInvitation = 0;
+    private int numActiveSessions = 0;
+    private double feedbackRate = 0.0;
 	
 	
     public InstructorReportsPageData(AccountAttributes account, String sessionToken) {
         super(account, sessionToken);
     }
     
-    public void init(List<CourseSummaryBundle> courseList, String sortCriteria) {
-        this.sortCriteria = sortCriteria;
-        this.isSortingDisabled = courseList.size() < 2;
-        setCourseTables(courseList);
+    public void init(
+    	List<CourseDetailsBundle> courseDetailsList,
+		int numberOfCourses, 
+		int studentsThatAcceptedInvitation,
+		int numStudentNotAcceptedInvitation,
+		int numActiveSessions,
+		double feedbackRate
+    ) {
+        
+        this.numberOfCourses = numberOfCourses;
+        this.studentsThatAcceptedInvitation = studentsThatAcceptedInvitation;
+        this.numStudentNotAcceptedInvitation = numStudentNotAcceptedInvitation;
+        this.numActiveSessions = numActiveSessions;
+        this.courseDetailsList = courseDetailsList;
+        this.feedbackRate = feedbackRate;
+        
+        this.coursesTabTableData = courseDetailsList.stream().map(courseDetails -> {
+        	InstructorReportsPageData.Table table = new InstructorReportsPageData.Table();
+        	table.courseDetails = courseDetails;
+        	table.feedbackSessions = courseDetails.feedbackSessions.stream().map(feedbackSession -> {
+        		Table.FeedbackSessionTable feedbackSessionTable = new Table.FeedbackSessionTable();
+        		feedbackSessionTable.name = feedbackSession.feedbackSession.getFeedbackSessionName();
+        		feedbackSessionTable.stats = feedbackSession.stats;
+        		return feedbackSessionTable;
+        	}).collect(Collectors.toList());
+        	return table;
+        }).collect(Collectors.toList());
+        
     }
     
-    public String getSortCriteria() {
+    public double getFeedbackRate() {
+		return feedbackRate;
+	}
+
+	public List<InstructorReportsPageData.Table> getCoursesTabTableData() {
+		return coursesTabTableData;
+	}
+
+	public List<CourseDetailsBundle> getCourseDetailsList() {
+		return courseDetailsList;
+	}
+
+	public int getNumberOfCourses() {
+		return numberOfCourses;
+	}
+
+	public int getStudentsThatAcceptedInvitation() {
+		return studentsThatAcceptedInvitation;
+	}
+
+	public int getNumStudentNotAcceptedInvitation() {
+		return numStudentNotAcceptedInvitation;
+	}
+
+	public int getNumActiveSessions() {
+		return numActiveSessions;
+	}
+
+	public String getSortCriteria() {
         return sortCriteria;
     }
 
@@ -66,13 +158,5 @@ public class InstructorReportsPageData extends PageData {
      */
     public String getEditCopyActionLink() {
         return getInstructorFeedbackEditCopyActionLink(Const.ActionURIs.INSTRUCTOR_REPORTS_PAGE);
-    }
-
-    
-    private void setCourseTables(List<CourseSummaryBundle> courses) {
-        courseTables = new ArrayList<>();
-        for (CourseSummaryBundle courseDetails : courses) {
-            courseTables.add(new CourseTable(courseDetails.course, null, null));
-        }
     }
 }

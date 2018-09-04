@@ -1,12 +1,20 @@
 package teammates.ui.controller;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
+import teammates.common.datatransfer.CourseDetailsBundle;
 import teammates.common.datatransfer.CourseSummaryBundle;
+import teammates.common.datatransfer.FeedbackSessionDetailsBundle;
+import teammates.common.datatransfer.attributes.AccountAttributes;
+import teammates.common.datatransfer.attributes.CourseAttributes;
 import teammates.common.datatransfer.attributes.FeedbackSessionAttributes;
 import teammates.common.datatransfer.attributes.InstructorAttributes;
+import teammates.common.datatransfer.attributes.StudentAttributes;
 import teammates.common.exception.EntityDoesNotExistException;
 import teammates.common.util.Assumption;
 import teammates.common.util.Const;
@@ -16,83 +24,102 @@ import teammates.common.util.StatusMessageColor;
 import teammates.ui.pagedata.InstructorHomePageData;
 import teammates.ui.pagedata.InstructorReportsAjaxPageData;
 import teammates.ui.pagedata.InstructorReportsPageData;
+import teammates.ui.pagedata.PageData;
 
 public class InstructorReportsPageAction extends Action {
+	
     @Override
     public ActionResult execute() throws EntityDoesNotExistException {
-        if (!account.isInstructor && isPersistenceIssue()) {
-            statusToUser.add(new StatusMessage(Const.StatusMessages.INSTRUCTOR_PERSISTENCE_ISSUE,
-                                               StatusMessageColor.WARNING));
-            statusToAdmin = "instructorReports " + Const.StatusMessages.INSTRUCTOR_PERSISTENCE_ISSUE;
-            return createShowPageResult(Const.ViewURIs.INSTRUCTOR_REPORTS, new InstructorReportsPageData(account, sessionToken));
-        }
-
-        gateKeeper.verifyInstructorPrivileges(account);
-
-        String courseToLoad = getRequestParamValue(Const.ParamsNames.COURSE_TO_LOAD);
-        return courseToLoad == null ? loadPage() : loadCourse(courseToLoad);
+    	gateKeeper.verifyInstructorPrivileges(account);
+    	
+    	// get number of courses
+    	List<CourseAttributes> courses = logic.getCoursesForInstructor(account.googleId);
+    	int numberOfCourses = courses.size();
+    	
+    	// get number of student enrolled
+    	List<StudentAttributes> studentsThatAcceptedInvitation = new ArrayList<>();
+    	for (CourseAttributes course : courses) {
+    		List<StudentAttributes> studentsForCourse = logic.getStudentsForCourse(course.getId());
+    		studentsThatAcceptedInvitation.addAll(studentsForCourse);
+    	}
+    	int numStudentsThatAcceptedInvitation = studentsThatAcceptedInvitation.size();
+    	
+    	
+    	// get number of students not enrolled
+    	List<StudentAttributes> studentsNotAcceptedInvitation = new ArrayList<>();
+    	for (CourseAttributes course : courses) {
+    		List<StudentAttributes> studentsNotRegistered = logic.getUnregisteredStudentsForCourse(course.getId());
+    		studentsNotAcceptedInvitation.addAll(studentsNotRegistered);
+    	}
+    	int numStudentNotAcceptedInvitation = studentsNotAcceptedInvitation.size();
+    	
+    	
+    	// active sessions
+    	List<FeedbackSessionAttributes> activeSessions = logic.getFeedbackSessionsListForInstructor(account.googleId, true);
+    	int numActiveSessions = activeSessions.size();
+    	
+    	// calculate feedback rate
+    	
+    	
+    	
+    	// get all courses
+    	Map<String, CourseSummaryBundle> coursesBundle = logic.getCourseSummariesWithoutStatsForInstructor(account.googleId, true);
+    	List<CourseSummaryBundle> coursesSummaries = new ArrayList<>(coursesBundle.values());
+    	
+    	
+    	// build course details
+    	List<CourseDetailsBundle> courseDetailsList = coursesSummaries.stream().map(b -> {
+    		CourseDetailsBundle details = null;
+    		String courseId = b.course.getId();
+    		List<FeedbackSessionAttributes> feedbackSessions = logic.getFeedbackSessionsForCourse(courseId);
+    		try {
+    			// may throw and return null
+    			details = logic.getCourseDetails(courseId); 
+    			
+    			// convert list of FeedbackSessionAttributes to FeedbackSessionDetailsBundle
+    			details.feedbackSessions = feedbackSessions.stream().map(feedbackSession -> {
+    				FeedbackSessionDetailsBundle feedbackSessionBundle = null;
+    				try {
+    					feedbackSessionBundle = logic.getFeedbackSessionDetails(feedbackSession.getFeedbackSessionName(), courseId);
+    				} catch (EntityDoesNotExistException e) {
+    					feedbackSessionBundle = new FeedbackSessionDetailsBundle(feedbackSession);
+    				}
+    				return feedbackSessionBundle;
+    			}).collect(Collectors.toList());
+    			
+    			return details;
+    		} 
+    		catch(EntityDoesNotExistException e){
+    			return null;
+    		}
+    	}).collect(Collectors.toList());
+    	
+    	
+    	double totalStudentsReceivedFeedback = 0.0;
+    	double totalStudentsSubmittedFeedback = 0.0;
+    	for (CourseDetailsBundle bundle : courseDetailsList) {
+    		totalStudentsReceivedFeedback += bundle.feedbackSessions.stream().map(fs -> fs.stats.expectedTotal).reduce(0, (prev, accum) -> prev + accum);
+    		totalStudentsSubmittedFeedback += bundle.feedbackSessions.stream().map(fs -> fs.stats.submittedTotal).reduce(0, (prev, accum) -> prev + accum);
+    	}
+    	double feedbackRate = totalStudentsReceivedFeedback == 0 ? 0 : totalStudentsSubmittedFeedback / totalStudentsReceivedFeedback;
+    	feedbackRate = Math.round(feedbackRate * 10000.0) / 10000.0; // 4 decimal places only
+    	feedbackRate *= 100;
+    	
+    	// build viewmodel
+    	InstructorReportsPageData data = new InstructorReportsPageData(account, sessionToken);
+    	data.init(
+			courseDetailsList,
+			numberOfCourses, 
+			numStudentsThatAcceptedInvitation, 
+			numStudentNotAcceptedInvitation, 
+			numActiveSessions,
+			feedbackRate
+    	);
+    	
+        return createShowPageResult(
+        	Const.ViewURIs.INSTRUCTOR_REPORTS, data
+        );
     }
 
-    private ActionResult loadCourse(String courseToLoad) throws EntityDoesNotExistException {
-        int index = Integer.parseInt(getRequestParamValue("index"));
-
-        InstructorAttributes instructor = logic.getInstructorForGoogleId(courseToLoad, account.googleId);
-
-        CourseSummaryBundle course = logic.getCourseSummaryWithFeedbackSessions(instructor);
-        FeedbackSessionAttributes.sortFeedbackSessionsByCreationTimeDescending(course.feedbackSessions);
-
-        InstructorReportsAjaxPageData data = new InstructorReportsAjaxPageData(account, sessionToken);
-        data.init(index, course, instructor);
-
-        statusToAdmin = "instructorReports Course Load:<br>" + courseToLoad;
-
-        return createShowPageResult(Const.ViewURIs.INSTRUCTOR_HOME_AJAX_COURSE_TABLE, data);
-    }
-
-    private ActionResult loadPage() {
-        boolean shouldOmitArchived = true;
-        Map<String, CourseSummaryBundle> courses = logic.getCourseSummariesWithoutStatsForInstructor(
-                                                                 account.googleId, shouldOmitArchived);
-
-        ArrayList<CourseSummaryBundle> courseList = new ArrayList<>(courses.values());
-
-        String sortCriteria = getSortCriteria();
-        sortCourse(courseList, sortCriteria);
-
-        InstructorReportsPageData data = new InstructorReportsPageData(account, sessionToken);
-        data.init(courseList, sortCriteria);
-
-        if (logic.isNewInstructor(account.googleId)) {
-            statusToUser.add(new StatusMessage(StatusMessages.HINT_FOR_NEW_INSTRUCTOR, StatusMessageColor.INFO));
-        }
-        statusToAdmin = "instructorHome Page Load<br>" + "Total Courses: " + courseList.size();
-
-        return createShowPageResult(Const.ViewURIs.INSTRUCTOR_REPORTS, data);
-    }
-
-    private String getSortCriteria() {
-        String sortCriteria = getRequestParamValue(Const.ParamsNames.COURSE_SORTING_CRITERIA);
-        if (sortCriteria == null) {
-            sortCriteria = Const.DEFAULT_SORT_CRITERIA;
-        }
-
-        return sortCriteria;
-    }
-
-    private void sortCourse(List<CourseSummaryBundle> courseList, String sortCriteria) {
-        switch (sortCriteria) {
-        case Const.SORT_BY_COURSE_ID:
-            CourseSummaryBundle.sortSummarizedCoursesByCourseId(courseList);
-            break;
-        case Const.SORT_BY_COURSE_NAME:
-            CourseSummaryBundle.sortSummarizedCoursesByCourseName(courseList);
-            break;
-        case Const.SORT_BY_COURSE_CREATION_DATE:
-            CourseSummaryBundle.sortSummarizedCoursesByCreationDate(courseList);
-            break;
-        default:
-            Assumption.fail("Invalid course sorting criteria.");
-            break;
-        }
-    }
+    
 }
