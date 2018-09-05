@@ -7,7 +7,7 @@
 
 <%@ attribute name="moderatedPersonEmail" required="true" %>
 
-<form method="post" name="form_submit_response" action="${data.submitAction}">
+<form method="post" name="form_submit_response" enctype="multipart/form-data" action="${data.submitAction}">
   <input type="hidden" name="<%= Const.ParamsNames.FEEDBACK_SESSION_NAME %>" value="${data.bundle.feedbackSession.feedbackSessionName}">
   <input type="hidden" name="<%= Const.ParamsNames.COURSE_ID %>" value="${data.bundle.feedbackSession.courseId}">
   <input type="hidden" name="<%= Const.ParamsNames.SESSION_TOKEN %>" value="${data.sessionToken}">
@@ -41,11 +41,8 @@
 		
 		<div class="panel-body">
 			<p class="text-muted"> Only upload .PDF files<br>Other files will not be accepted</p>
-			<form action="UploadDownloadFileServlet" method="post" enctype="multipart/form-data">
 			Select PDF to Upload:<input type="file" name="fileName" accept=".pdf">
 			<br>
-			<input type="submit" value="Upload">
-			</form>
 		</div>
 	</div>
 </div>
