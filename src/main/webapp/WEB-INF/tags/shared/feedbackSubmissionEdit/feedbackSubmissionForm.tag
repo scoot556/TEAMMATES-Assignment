@@ -11,6 +11,7 @@
   <input type="hidden" name="<%= Const.ParamsNames.FEEDBACK_SESSION_NAME %>" value="${data.bundle.feedbackSession.feedbackSessionName}">
   <input type="hidden" name="<%= Const.ParamsNames.COURSE_ID %>" value="${data.bundle.feedbackSession.courseId}">
   <input type="hidden" name="<%= Const.ParamsNames.SESSION_TOKEN %>" value="${data.sessionToken}">
+  <input type="hidden" name="FileUploadServlet" value="Upload">
 
   <c:choose>
     <c:when test="${not empty data.account.googleId}">
@@ -35,12 +36,13 @@
 	<div class="panel panel-primary">
 		<div class="panel-heading">
 			<span class="text-preserve=space">
-				<p>Submit PDF</p>
+				Submit PDF
 			</span>
 		</div>
 		
 		<div class="panel-body">
-			<p class="text-muted"> Only upload .PDF files<br>Other files will not be accepted</p>
+			<p class="text-muted"> Only upload .PDF files
+			<br>Other files will not be accepted</p>
 			Select PDF to Upload:<input type="file" name="fileName" accept=".pdf">
 			<br>
 		</div>
