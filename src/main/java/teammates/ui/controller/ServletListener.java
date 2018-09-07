@@ -10,9 +10,9 @@ import javax.servlet.annotation.WebListener;
 public class ServletListener implements ServletContextListener {
 
     public void contextInitialized(ServletContextEvent servletContextEvent) {
-        String rootPath = System.getProperty("catalina.home");
+        String rootPath = System.getProperty("src/main/webapp/PDF");
         ServletContext ctx = servletContextEvent.getServletContext();
-        String relPath = ctx.getInitParameter("tempfile.dir");
+        String relPath = ctx.getInitParameter("C:\\Users\\scott\\SickCairns\\src\\main\\webapp\\PDF");
         File file = new File(rootPath + File.separator + relPath);
         if(!file.exists()) file.mkdirs();
         System.out.println("File Directory created to be used for storing files");

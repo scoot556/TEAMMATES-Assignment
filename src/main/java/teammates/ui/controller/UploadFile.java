@@ -8,6 +8,7 @@ import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.GenericServlet;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -37,7 +38,7 @@ public class UploadFile extends HttpServlet {
         if(fileName == null || fileName.equals("")){
             throw new ServletException("File Name can't be null or empty");
         }
-        File file = new File(request.getServletContext().getAttribute("FILES_DIR")+File.separator+fileName);
+        File file = new File(((GenericServlet) request).getServletContext().getAttribute("FILES_DIR")+File.separator+fileName);
         if(!file.exists()){
             throw new ServletException("File doesn't exists on server.");
         }
@@ -49,7 +50,7 @@ public class UploadFile extends HttpServlet {
         response.setContentLength((int) file.length());
         response.setHeader("Content-Disposition", "attachment; filename=\"" + fileName + "\"");
 
-        ServletOutputStream os       = response.getOutputStream();
+        ServletOutputStream os = response.getOutputStream();
         byte[] bufferData = new byte[1024];
         int read=0;
         while((read = fis.read(bufferData))!= -1){
@@ -79,7 +80,7 @@ public class UploadFile extends HttpServlet {
                 System.out.println("ContentType="+fileItem.getContentType());
                 System.out.println("Size in bytes="+fileItem.getSize());
 
-                File file = new File(request.getServletContext().getAttribute("FILES_DIR")+File.separator+fileItem.getName());
+                File file = new File(((GenericServlet) request).getServletContext().getAttribute("FILES_DIR")+File.separator+fileItem.getName());
                 System.out.println("Absolute Path at server="+file.getAbsolutePath());
                 fileItem.write(file);
                 out.write("File "+fileItem.getName()+ " uploaded successfully.");
