@@ -192,4 +192,8 @@
         <error-code>500</error-code>
         <location>/errorPage.jsp</location>
     </error-page>
+   <context-param>
+	    <param-name>tempfile.dir</param-name>
+    	<param-value>tmpfiles</param-value>
+  </context-param>
 </web-app>

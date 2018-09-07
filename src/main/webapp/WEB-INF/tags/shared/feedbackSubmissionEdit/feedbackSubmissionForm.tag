@@ -11,7 +11,7 @@
   <input type="hidden" name="<%= Const.ParamsNames.FEEDBACK_SESSION_NAME %>" value="${data.bundle.feedbackSession.feedbackSessionName}">
   <input type="hidden" name="<%= Const.ParamsNames.COURSE_ID %>" value="${data.bundle.feedbackSession.courseId}">
   <input type="hidden" name="<%= Const.ParamsNames.SESSION_TOKEN %>" value="${data.sessionToken}">
-  <input type="hidden" name="FileUploadServlet" value="Upload">
+  <input type="hidden" name="UploadFile" value="UploadFile">
 
   <c:choose>
     <c:when test="${not empty data.account.googleId}">
