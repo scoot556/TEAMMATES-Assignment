@@ -265,6 +265,13 @@ public class PageData {
         link = addUserIdToUrl(link);
         return link;
     }
+    
+    //Get Instructor Reports Page Link
+    public String getInstructorReportsLink() {
+        String link = Const.ActionURIs.INSTRUCTOR_REPORTS_PAGE;
+        link = addUserIdToUrl(link);
+        return link;
+    }
 
     public String getInstructorCoursesLink() {
         String link = Const.ActionURIs.INSTRUCTOR_COURSES_PAGE;

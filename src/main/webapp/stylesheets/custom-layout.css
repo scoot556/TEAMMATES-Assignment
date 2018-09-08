@@ -139,7 +139,6 @@ FORMS
     border-radius: 0px;
 }
 
-
 /**
 ============================================
 LOGIN CSS FROM W3
@@ -164,20 +163,44 @@ LOGIN CSS FROM W3
 ============================================
 PAGINATION
 ============================================*/
-#StudentListPaginationLinks {}
-#StudentListPaginationLinks nav {}
-#StudentListPaginationLinks nav ul{
+.pagination-links {}
+.pagination-links nav {}
+.pagination-links nav ul{
     padding: 0;
     margin: 0;
 }
-#StudentListPaginationLinks nav ul li {
+.pagination-links nav ul li {
     display: inline-block;
 }
-#StudentListPaginationLinks nav ul li * {
+.pagination-links nav ul li * {
     padding: 3px 10px;
 }
-#StudentListPaginationLinks nav ul li.active * {
+.pagination-links nav ul li.active * {
     font-weight: bold;
     text-decoration: underline;
 }
 
+
+/**
+============================================
+REPORTS PAGE
+============================================*/
+table.course-details-table {
+}
+
+table.course-details-table td:first-child {
+    padding-right: 40px;
+}
+
+table.course-feedbacksession-table {
+}
+
+table.course-feedbacksession-table th:first-child,
+table.course-feedbacksession-table td:first-child {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 40px;
+    max-width: 480px;
+    display: inline-block;
+    overflow: hidden;
+}

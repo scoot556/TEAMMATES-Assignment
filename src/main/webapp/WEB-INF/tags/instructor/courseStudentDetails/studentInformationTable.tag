@@ -33,10 +33,12 @@
       </div>
     </div>
     <div class="form-group">
-      <label class="control-label">Comments: <button><i class="fa fa-thumbs-up"></i> like</button></label>
+      <label class="control-label">Comments: </label>
       <div class="" id="<%= Const.ParamsNames.COMMENTS %>">
         <p class="form-control-static">${fn:escapeXml(studentInfoTable.comments)}</p>
       </div>
+      <button><i class="fa fa-thumbs-up"></i> like</button>
     </div>
+    
   </div>
 </div>
