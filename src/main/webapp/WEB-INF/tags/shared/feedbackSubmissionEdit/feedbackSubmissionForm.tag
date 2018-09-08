@@ -11,7 +11,6 @@
   <input type="hidden" name="<%= Const.ParamsNames.FEEDBACK_SESSION_NAME %>" value="${data.bundle.feedbackSession.feedbackSessionName}">
   <input type="hidden" name="<%= Const.ParamsNames.COURSE_ID %>" value="${data.bundle.feedbackSession.courseId}">
   <input type="hidden" name="<%= Const.ParamsNames.SESSION_TOKEN %>" value="${data.sessionToken}">
-  <input type="hidden" name="UploadFile" value="Upload PDF Files">
   
 
   <c:choose>
@@ -32,7 +31,7 @@
         isShowRealQuestionNumber="${data.showRealQuestionNumber}"
         questionWithResponses="${questionWithResponses}"/>
   </c:forEach>  
-  
+
   <tsfse:pdfForm>
   </tsfse:pdfForm>
 

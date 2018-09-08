@@ -2,7 +2,7 @@
 <%@ tag description="Student PDF Upload Form" pageEncoding="UTF-8" %>
 <%@ tag import="teammates.common.util.Const"%>
 
-   <div class="form-horizontal">
+<div class="form-horizontal">
     <div class="panel panel-primary">
      <div class="panel-heading">
       <span class="text-preserve=space">
@@ -17,4 +17,4 @@
       <br>
      </div>
     </div>
-   </div>
+</div>
