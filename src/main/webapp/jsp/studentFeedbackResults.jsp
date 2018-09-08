@@ -19,6 +19,7 @@
   <feedbackResults:feedbackSessionDetailsPanel feedbackSession="${data.bundle.feedbackSession}"/>
   <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}" />
   <br>
+  <feedbackResults:PDFretriever PDFretriever="${PDFretriever}"/>
 
   <c:forEach items="${data.feedbackResultsQuestionsWithResponses}" var="questionWithResponses">
     <feedbackResults:questionWithResponses questionWithResponses="${questionWithResponses}"/>
