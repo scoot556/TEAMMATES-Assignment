@@ -422,6 +422,7 @@ public class FeedbackResponsesDb extends EntitiesDb<FeedbackResponse, FeedbackRe
         fr.setRecipientEmail(newAttributes.recipient);
         fr.setGiverSection(newAttributes.giverSection);
         fr.setRecipientSection(newAttributes.recipientSection);
+        fr.setPdfAttachmentKey(newAttributes.pdfAttachmentKey);
 
         saveEntity(fr, newAttributes);
     }
