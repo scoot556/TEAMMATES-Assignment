@@ -31,7 +31,13 @@
         questionWithResponses="${questionWithResponses}"/>
   </c:forEach>
   
-  <input type="file" name="pdf-file" accept="pdf"/>
+	<p>
+		<c:if test="${data.pdfAttachmentKey != null}">
+			<a class="btn btn-sm btn-warning" href="/serve?blob-key=${data.pdfAttachmentKey}" target="_blank">View PDF feedback<a/>
+		</c:if>
+		<input type="file" name="pdf-file" accept="pdf"/>
+	</p>
+  
 
   <div class="bold align-center">
     <c:if test="${data.moderation}">
