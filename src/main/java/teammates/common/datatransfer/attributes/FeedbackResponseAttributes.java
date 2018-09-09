@@ -43,8 +43,10 @@ public class FeedbackResponseAttributes extends EntityAttributes<FeedbackRespons
     protected transient Instant createdAt;
     protected transient Instant updatedAt;
     private String feedbackResponseId;
+    
+    public String pdfAttachmentKey;
 
-    public FeedbackResponseAttributes() {
+	public FeedbackResponseAttributes() {
         // attributes to be set after construction
     }
 
@@ -108,6 +110,10 @@ public class FeedbackResponseAttributes extends EntityAttributes<FeedbackRespons
     public Instant getUpdatedAt() {
         return updatedAt == null ? Const.TIME_REPRESENTS_DEFAULT_TIMESTAMP : updatedAt;
     }
+    
+    public String getPdfAttachmentKey() {
+		return pdfAttachmentKey;
+	}
 
     @Override
     public List<String> getInvalidityInfo() {
