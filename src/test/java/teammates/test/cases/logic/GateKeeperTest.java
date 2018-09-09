@@ -15,7 +15,7 @@ import teammates.logic.api.Logic;
  */
 public class GateKeeperTest extends BaseLogicTest {
 
-    private static GateKeeper gateKeeper = new GateKeeper();
+    protected static GateKeeper gateKeeper = new GateKeeper();
 
     @Test
     public void testGetLoginUrl() {
