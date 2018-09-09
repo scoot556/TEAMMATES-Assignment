@@ -62,6 +62,9 @@ public abstract class FeedbackSubmissionEditSaveAction extends Action {
         Assumption.assertPostParamNotNull(Const.ParamsNames.FEEDBACK_SESSION_NAME, feedbackSessionName);
 
         String pdfBlobKeyString = processUploadedPDF(request);
+        if (pdfBlobKeyString == null) {
+        	pdfBlobKeyString = getRequestParamValue("pdf-attachment-key");
+        }
         
         setAdditionalParameters();
         verifyAccessibleForSpecificUser();

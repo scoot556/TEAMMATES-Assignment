@@ -34,6 +34,7 @@
 	<p>
 		<c:if test="${data.pdfAttachmentKey != null}">
 			<a class="btn btn-sm btn-warning" href="/serve?blob-key=${data.pdfAttachmentKey}" target="_blank">View PDF feedback<a/>
+			<input type="hidden" name="pdf-attachment-key" value="${data.pdfAttachmentKey}" />
 		</c:if>
 		<input type="file" name="pdf-file" accept="pdf"/>
 	</p>
