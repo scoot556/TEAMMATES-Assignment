@@ -1,10 +1,12 @@
 package teammates.test.sickcairns;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.testng.annotations.Test;
 
 import teammates.common.datatransfer.CourseDetailsBundle;
+import teammates.common.datatransfer.attributes.FeedbackSessionAttributes;
 import teammates.common.datatransfer.attributes.InstructorAttributes;
 import teammates.common.util.Const;
 import teammates.logic.core.CoursesLogic;
@@ -27,10 +29,15 @@ public class MyInstructorReportsPageTests extends BaseActionTest {
 		InstructorAttributes instructor1ofCourse1 = createMockInstructor();
         String instructorId = instructor1ofCourse1.googleId;
         gaeSimulation.loginAsInstructor(instructorId);
+        
+        createMockFeedbacks();
 	}
 	
-	private void createMockFeedbacks() {
+	private List<FeedbackSessionAttributes> createMockFeedbacks() {
 		
+		// TODO: Create mock feedbacks
+		
+		return new ArrayList<>();
 	}
 
 	@Override
