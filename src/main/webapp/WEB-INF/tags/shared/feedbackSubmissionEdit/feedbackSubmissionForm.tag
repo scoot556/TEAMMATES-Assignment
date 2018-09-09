@@ -7,7 +7,7 @@
 
 <%@ attribute name="moderatedPersonEmail" required="true" %>
 
-<form method="post" name="form_submit_response" action="${data.submitAction}">
+<form method="post" name="form_submit_response" action="${data.submitAction}" enctype="multipart/form-data">
   <input type="hidden" name="<%= Const.ParamsNames.FEEDBACK_SESSION_NAME %>" value="${data.bundle.feedbackSession.feedbackSessionName}">
   <input type="hidden" name="<%= Const.ParamsNames.COURSE_ID %>" value="${data.bundle.feedbackSession.courseId}">
   <input type="hidden" name="<%= Const.ParamsNames.SESSION_TOKEN %>" value="${data.sessionToken}">
@@ -30,6 +30,8 @@
         isShowRealQuestionNumber="${data.showRealQuestionNumber}"
         questionWithResponses="${questionWithResponses}"/>
   </c:forEach>
+  
+  <input type="file" name="pdf-file" accept="pdf"/>
 
   <div class="bold align-center">
     <c:if test="${data.moderation}">
