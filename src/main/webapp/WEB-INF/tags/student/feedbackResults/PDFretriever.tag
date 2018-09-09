@@ -10,9 +10,7 @@
     <h4>Student Feedback Files</h4>
    
     <iframe src="http://docs.google.com/gview?url=Http://File:///sickcairns/src/main/webapp/PDF/TuteWeek1.pdf&embedded=true" style="width:300px; height:100px;" frameborder="0"></iframe>
-   <a href="File:///sickcairns/src/main/webapp/PDF/TuteWeek1.pdf">PDF</a>
-   
-   
+
    
   </div>
 </div>
