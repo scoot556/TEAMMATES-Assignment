@@ -19,6 +19,7 @@
 <input type="hidden" name="<%= Const.ParamsNames.FEEDBACK_QUESTION_RESPONSETOTAL %>-${questionWithResponses.question.qnIndx}"
     value="${questionWithResponses.numOfResponseBoxes}">
 
+
 <div class="form-horizontal">
   <div class="panel panel-primary"<c:if test="${questionWithResponses.question.moderatedQuestion}"> id="moderated-question"</c:if>>
 
@@ -70,10 +71,12 @@
       <c:if test="${questionWithResponses.question.giverTeam}">
         <p class="text-warning">Please note that you are submitting this response on behalf of your team.</p>
       </c:if>
+      
 
       <c:if test="${questionWithResponses.numOfResponseBoxes eq 0}">
         <p class="text-warning">${questionWithResponses.question.messageToDisplayIfNoRecipientAvailable}</p>
       </c:if>
+      
 
       <c:forEach items="${questionWithResponses.responses}" var="response">
         <feedbackSubmissionEdit:response response="${response}" isSessionOpenForSubmission="${isSessionOpenForSubmission}"
