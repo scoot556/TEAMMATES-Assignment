@@ -53,7 +53,7 @@ public class FeedbackResponseAttributes extends EntityAttributes<FeedbackRespons
     public FeedbackResponseAttributes(String feedbackSessionName,
             String courseId, String feedbackQuestionId,
             FeedbackQuestionType feedbackQuestionType, String giver, String giverSection,
-            String recipient, String recipientSection, Text responseMetaData) {
+            String recipient, String recipientSection, Text responseMetaData, String pdfAttachmentKey) {
         this.feedbackSessionName = feedbackSessionName;
         this.courseId = courseId;
         this.feedbackQuestionId = feedbackQuestionId;
@@ -63,6 +63,7 @@ public class FeedbackResponseAttributes extends EntityAttributes<FeedbackRespons
         this.recipient = recipient;
         this.recipientSection = recipientSection;
         this.responseMetaData = responseMetaData;
+        this.pdfAttachmentKey = pdfAttachmentKey;
     }
 
     public FeedbackResponseAttributes(FeedbackResponse fr) {
@@ -78,6 +79,7 @@ public class FeedbackResponseAttributes extends EntityAttributes<FeedbackRespons
         this.responseMetaData = fr.getResponseMetaData();
         this.createdAt = fr.getCreatedAt();
         this.updatedAt = fr.getUpdatedAt();
+        this.pdfAttachmentKey = fr.getPdfAttachmentKey();
     }
 
     public FeedbackResponseAttributes(FeedbackResponseAttributes copy) {
@@ -93,6 +95,7 @@ public class FeedbackResponseAttributes extends EntityAttributes<FeedbackRespons
         this.responseMetaData = copy.responseMetaData;
         this.createdAt = copy.createdAt;
         this.updatedAt = copy.updatedAt;
+        this.pdfAttachmentKey = copy.pdfAttachmentKey;
     }
 
     public String getId() {
@@ -137,7 +140,7 @@ public class FeedbackResponseAttributes extends EntityAttributes<FeedbackRespons
     public FeedbackResponse toEntity() {
         return new FeedbackResponse(feedbackSessionName, courseId,
                 feedbackQuestionId, feedbackQuestionType,
-                giver, giverSection, recipient, recipientSection, responseMetaData);
+                giver, giverSection, recipient, recipientSection, responseMetaData, pdfAttachmentKey);
     }
 
     @Override
