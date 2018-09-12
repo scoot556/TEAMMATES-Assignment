@@ -11,7 +11,7 @@
 			<li>Scott Djuric (s3600531)</li>
 			<li>Richard Purwowilianto (s3516805)</li>
 			<li>Joshua Orozco (s3485376)</li>
-			<li>anonymous 4th member</li>
+			<li>Taylor Cairns (s3603013)</li>
 		</ul>
 	</main>
 </t:staticPage>
