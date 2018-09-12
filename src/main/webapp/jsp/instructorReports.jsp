@@ -94,7 +94,57 @@
 			</div>
 			
 			<div class="tab-pane" id="StudentsTab">
+			
 				<h3>Students</h3>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+				      		<p> Students List: ${data.studentsThatAcceptedInvitation} </p>
+				    </div>
+				    <div class="panel-body">
+				    	<table class="student-details-table">
+				    		<tr>
+				    			<th>Name</th>
+				    			<th>Email</th>
+				    			<th>Courses</th>
+				    		</tr>
+				    		
+				    		<!--  Loop through students not working -->
+				    		<c:forEach items="${data.studentAttributes}" var="entry" varStatus="i">
+								<tr>
+					    			<td> ${entry.name } </td>
+					    			<td> ${entry.email } </td>
+					    			<td> ${entry.course } </td>
+				    			</tr>
+							</c:forEach>   		
+				    		<!--  end Loop -->	
+				    	</table>
+				    </div>
+			    </div>
+			    
+			    <div class="panel panel-primary">
+					<div class="panel-heading">
+				      		<p> Students not Enrolled: ${data.numStudentNotAcceptedInvitation} </p>
+				    </div>
+				    <div class="panel-body">
+				    	<table class="student-details-table">
+				    		<tr>
+				    			<th>Name</th>
+				    			<th>Email</th>
+				    			<th>Courses</th>
+				    		</tr>
+				    		
+				    		<!--  Loop through students not working -->
+				    		<c:forEach items="${data.studentNotAcceptedInvitation}" var="entry" varStatus="i">
+								<tr>
+					    			<td> ${entry.name } </td>
+					    			<td> ${entry.email } </td>
+					    			<td> ${entry.course } </td>
+				    			</tr>
+							</c:forEach>   		
+				    		<!--  end Loop -->	
+				    	</table>
+				    </div>
+			    </div>
 			</div>
 			
 		</div>
