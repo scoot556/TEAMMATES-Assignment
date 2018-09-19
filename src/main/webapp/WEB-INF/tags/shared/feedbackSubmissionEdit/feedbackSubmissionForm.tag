@@ -31,13 +31,39 @@
         questionWithResponses="${questionWithResponses}"/>
   </c:forEach>
   
-	<p>
+  
+<div class="form-horizontal">
+    <div class="panel panel-primary">
+     <div class="panel-heading">
+      <span class="text-preserve=space">
+       Submit PDF
+      </span>
+     </div>
+     
+      <div class="panel-body">
+        <p class="text-muted"> Only upload .PDF files
+        <br>Other files will not be accepted</p>
+        Select PDF to Upload:<input type="file" name="pdf-file" accept=".pdf">
+        <input type="hidden" name="pdf-attachment-key" value="${data.pdfAttachmentKey}" />
+       <br>
+        <c:if test="${data.pdfAttachmentKey != null}">
+         <a class="btn btn-sm btn-warning" href="/serve?blob-key=${data.pdfAttachmentKey}" target="_blank">View PDF feedback</a>
+         <input type="hidden" name="pdf-attachment-key" value="${data.pdfAttachmentKey}" />
+       </c:if>
+      </div>
+    </div>
+</div>
+ 
+ 
+    <!-- <p>
 		<c:if test="${data.pdfAttachmentKey != null}">
-			<a class="btn btn-sm btn-warning" href="/serve?blob-key=${data.pdfAttachmentKey}" target="_blank">View PDF feedback<a/>
+			<a class="btn btn-sm btn-warning" href="/serve?blob-key=${data.pdfAttachmentKey}" target="_blank">View PDF feedback</a>
 			<input type="hidden" name="pdf-attachment-key" value="${data.pdfAttachmentKey}" />
 		</c:if>
 		<input type="file" name="pdf-file" accept="pdf"/>
-	</p>
+  
+	</p> -->
+ 
   
 
   <div class="bold align-center">
