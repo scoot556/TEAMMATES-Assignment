@@ -3,6 +3,7 @@ package teammates.ui.controller;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -21,6 +22,7 @@ import teammates.common.util.Const;
 import teammates.common.util.Const.StatusMessages;
 import teammates.common.util.StatusMessage;
 import teammates.common.util.StatusMessageColor;
+import teammates.ui.datatransfer.InstructorStudentListPageCourseData;
 import teammates.ui.pagedata.InstructorHomePageData;
 import teammates.ui.pagedata.InstructorReportsAjaxPageData;
 import teammates.ui.pagedata.InstructorReportsPageData;
@@ -32,9 +34,14 @@ public class InstructorReportsPageAction extends Action {
     public ActionResult execute() throws EntityDoesNotExistException {
     	gateKeeper.verifyInstructorPrivileges(account);
     	
+    	//Get instructor
+        Boolean displayArchive = getRequestParamAsBoolean(Const.ParamsNames.DISPLAY_ARCHIVE);
+    	Map<String, InstructorAttributes> instructors = new HashMap<>();
+    	
+    	
     	// get number of courses
     	List<CourseAttributes> courses = logic.getCoursesForInstructor(account.googleId);
-    	int numberOfCourses = courses.size();
+    	int numberOfCourses = courses.size();    	
     	
     	// get number of student enrolled
     	List<StudentAttributes> studentsThatAcceptedInvitation = new ArrayList<>();
@@ -44,6 +51,8 @@ public class InstructorReportsPageAction extends Action {
     	}
     	int numStudentsThatAcceptedInvitation = studentsThatAcceptedInvitation.size();
     	
+    	//get list of student names
+    	//List<StudentAttributes> students = studentsThatAcceptedInvitation;
     	
     	// get number of students not enrolled
     	List<StudentAttributes> studentsNotAcceptedInvitation = new ArrayList<>();
@@ -60,6 +69,26 @@ public class InstructorReportsPageAction extends Action {
     	
     	// calculate feedback rate
     	
+    	//Get Instructor attributes
+        List<InstructorAttributes> instructorList = logic.getInstructorsForGoogleId(account.googleId);
+
+        for (InstructorAttributes instructor : instructorList) {
+            instructors.put(instructor.courseId, instructor);
+        }
+    	
+    	//Get courses to display
+    	List<InstructorStudentListPageCourseData> coursesToDisplay = new ArrayList<>();
+        for (CourseAttributes course : courses) {
+            InstructorAttributes instructor = instructors.get(course.getId());
+            boolean isInstructorAllowedToModify = instructor.isAllowedForPrivilege(
+                                            Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_STUDENT);
+
+            boolean isCourseDisplayed = displayArchive || !instructor.isArchived;
+            if (isCourseDisplayed) {
+                coursesToDisplay.add(new InstructorStudentListPageCourseData(course, instructor.isArchived,
+                                                                             isInstructorAllowedToModify));
+            }
+        }
     	
     	
     	// get all courses
@@ -113,7 +142,9 @@ public class InstructorReportsPageAction extends Action {
 			numStudentsThatAcceptedInvitation, 
 			numStudentNotAcceptedInvitation, 
 			numActiveSessions,
-			feedbackRate
+			feedbackRate,
+			studentsThatAcceptedInvitation,
+			studentsNotAcceptedInvitation
     	);
     	
         return createShowPageResult(

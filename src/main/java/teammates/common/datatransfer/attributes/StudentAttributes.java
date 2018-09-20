@@ -147,6 +147,11 @@ public class StudentAttributes extends EntityAttributes<CourseStudent> {
     public String getComments() {
         return comments;
     }
+    
+    //Returns course
+    public String getCourse() {
+    	return course;
+    }
 
     public boolean isEnrollInfoSameAs(StudentAttributes otherStudent) {
         return otherStudent != null && otherStudent.email.equals(this.email)
