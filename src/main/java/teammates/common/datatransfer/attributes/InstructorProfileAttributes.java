@@ -64,6 +64,118 @@ public class InstructorProfileAttributes extends EntityAttributes<InstructorProf
 	                .build();
 	    }
 	 
+	 
+	 
 
+	    @Override
+	    public List<String> getInvalidityInfo() {
+	        FieldValidator validator = new FieldValidator();
+	        List<String> errors = new ArrayList<>();
+	        
+	        addNonEmptyError(validator.getInvalidityInfoForGoogleId(googleId), errors);
+	        
+	        if(!StringHelper.isEmpty(shortName)) {
+	            addNonEmptyError(validator.getInvalidityInfoForPersonName(shortName), errors);
+	        }
+	        
+	        if(!StringHelper.isEmpty(email)) {
+	            addNonEmptyError(validator.getInvalidityInfoForEmail(email), errors);
+	        }
+	        
+	        addNonEmptyError(validator.getInvalidityInfoForGender(gender), errors);
+	        
+	        Assumption.assertNotNull(this.pictureKey);
+	        
+	        return errors;
+	    }
+
+	    @Override
+	    public InstructorProfile toEntity() {
+	        return new InstructorProfile(googleId, shortName, email, gender, 
+	                new Text(moreInfo), new BlobKey(this.pictureKey));
+	    }
+
+	    @Override
+	    public String getIdentificationString() {
+	        return this.googleId;
+	    }
+
+	    @Override
+	    public String getEntityTypeAsString() {
+	        return "InstructorProfile";
+	    }
+
+	    @Override
+	    public String getBackupIdentifier() {
+	        return "Instructor profile modified";
+	    }
+
+	    @Override
+	    public String getJsonString() {
+	        return JsonUtils.toJson(this, InstructorProfileAttributes.class);
+	    }
+
+	    @Override
+	    public void sanitizeForSaving() {
+	        this.googleId = SanitizationHelper.sanitizeGoogleId(this.googleId);
+	    }
+	 
+
+	 private static class Builder {
+	     private static final String REQUIRED_FIELD_CANNOT_BE_NULL = "Required field cannot be null";
+	     
+	     private final InstructorProfileAttributes insprofAttributes;
+	     
+	     public Builder(String googleId) {
+	         Assumption.assertNotNull(REQUIRED_FIELD_CANNOT_BE_NULL, googleId);
+	         insprofAttributes = new InstructorProfileAttributes(googleId);
+	     }
+	     
+	     public Builder withShortName(String shortName) {
+	         if (shortName != null) {
+	             insprofAttributes.shortName = SanitizationHelper.sanitizeName(shortName);
+	         }
+	         return this;
+	     }
+	     
+	     public Builder withEmail(String email) {
+	         if(email != null) {
+	             insprofAttributes.email = SanitizationHelper.sanitizeEmail(email);
+	         }
+	         return this;
+	     }
+	     
+	     public Builder withGender(String gender) {
+	         insprofAttributes.gender = isGenderValid(gender) ? gender : "other";
+	         return this;
+	     }
+	     
+	     public Builder withMoreInfo(String moreInfo) {
+	         if(moreInfo != null) {
+	             insprofAttributes.moreInfo = moreInfo;
+	         }
+	         return this;
+	     }
+	     
+	     public Builder withPictureKey(String pictureKey) {
+	         if(pictureKey != null) {
+	             insprofAttributes.pictureKey = pictureKey;
+	         }
+	         return this;
+	     }
+	     
+	     public Builder withModifiedDate(Instant modifiedDate) {
+	         insprofAttributes.modifiedDate = modifiedDate == null ? Instant.now() : modifiedDate;
+	         return this;
+	     }
+	     
+	     public InstructorProfileAttributes build() {
+	         return insprofAttributes;
+	     }
+	     
+	     private boolean isGenderValid(String gender) {
+	         return "male".equals(gender) || "female".equals(gender) || "other".equals(gender);
+	     }
+	 }
 
 }

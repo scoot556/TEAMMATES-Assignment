@@ -44,7 +44,7 @@ public class InstructorProfile extends BaseEntity {
 	
 	
 	
-	private InstructorProfile(String googleId, String shortName, String email, 
+	public InstructorProfile(String googleId, String shortName, String email, 
 			String gender, Text moreInfo, BlobKey pictureKey) {
 		this.setGoogleId(googleId);
 		this.setShortName(shortName);
