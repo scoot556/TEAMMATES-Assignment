@@ -430,6 +430,12 @@ public final class Const {
         public static final String STUDENT_PROFILE_NATIONALITY = "This is your nationality";
         public static final String STUDENT_PROFILE_MOREINFO = "You may specify miscellaneous info about yourself "
                 + "e.g. links to home page, online CV, portfolio etc.";
+        
+        public static final String INSTRUCTOR_PROFILE_PICTURE = "Upload a profile picture";
+        public static final String INSTRUCTOR_PROFILE_SHORTNAME = "This is the name you prefer to be called by";
+        public static final String INSTRUCTOR_PROFILE_EMAIL = "This is a long term contact email";
+        public static final String INSTRUCTOR_PROFILE_MOREINFO = "You may specify miscellaneous info about yourself "
+                + "e.g. links to home page, online CV, portfolio etc.";
 
         public static final String VISIBILITY_OPTIONS_RECIPIENT = "Control what feedback recipient(s) can view";
         public static final String VISIBILITY_OPTIONS_GIVER_TEAM_MEMBERS =
@@ -660,6 +666,13 @@ public final class Const {
         public static final String INSTRUCTOR_PERMISSION_SUBMIT_SESSION_IN_SECTIONS = "cansubmitsessioninsection";
         public static final String INSTRUCTOR_PERMISSION_MODIFY_SESSION_COMMENT_IN_SECTIONS =
                 "canmodifysessioncommentinsection";
+        
+        public static final String INSTRUCTOR_SHORT_NAME = "instructorshortname";
+        public static final String INSTRUCTOR_PROFILE_EMAIL = "instructorprofileemail";
+        public static final String INSTRUCTOR_PROFILE_INSTITUTION = "instructorprofileinstitute";
+        public static final String INSTRUCTOR_PROFILE_MOREINFO = "instructorprofilemoreinfo";
+        public static final String INSTRUCTOR_PROFILE_PHOTO = "instructorprofilephoto";
+        public static final String INSTRUCTOR_PROFILE_PHOTOEDIT = "editphoto";
 
         public static final String INSTRUCTOR_REMIND_STUDENT_IS_FROM = "pagenameremindstudentisfrom";
 
