@@ -191,7 +191,11 @@ public final class Const {
                         ActionURIs.STUDENT_PROFILE_CREATEUPLOADFORMURL,
                         ActionURIs.STUDENT_PROFILE_EDIT_SAVE,
                         ActionURIs.STUDENT_PROFILE_PICTURE_EDIT,
-                        ActionURIs.STUDENT_PROFILE_PICTURE_UPLOAD));
+                        ActionURIs.STUDENT_PROFILE_PICTURE_UPLOAD,
+                        ActionURIs.INSTRUCTOR_PROFILE_EDIT_SAVE,
+                        ActionURIs.INSTRUCTOR_PROFILE_PICTURE_EDIT,
+                        ActionURIs.INSTRUCTOR_PROFILE_PICTURE_UPLOAD,
+                        ActionURIs.INSTRUCTOR_PROFILE_EDIT_SAVE));
 
         public static final List<String> PAGES_ACCESSIBLE_WITHOUT_GOOGLE_LOGIN = Collections.unmodifiableList(
                 Arrays.asList(
@@ -1015,6 +1019,13 @@ public final class Const {
 
         public static final String INSTRUCTOR_FEEDBACK_SUBMISSION_EDIT_PAGE = "/page/instructorFeedbackSubmissionEditPage";
         public static final String INSTRUCTOR_FEEDBACK_SUBMISSION_EDIT_SAVE = "/page/instructorFeedbackSubmissionEditSave";
+        
+        public static final String INSTRUCTOR_PROFILE_PAGE = "/page/instructorProfilePage";
+        public static final String INSTRUCTOR_PROFILE_EDIT_SAVE = "/page/instructorProfileEditSave";
+        public static final String INSTRUCTOR_PROFILE_PICTURE = "/page/instructorProfilePic";
+        public static final String INSTRUCTOR_PROFILE_PICTURE_UPLOAD = "/page/instructorProfilePictureUpload";
+        public static final String INSTRUCTOR_PROFILE_PICTURE_EDIT = "/page/instructorProfilePictureEdit";
+        public static final String INSTRUCTOR_PROFILE_CREATEUPLOADFORMURL = "/page/instructorProfileCreateFormUrl";
 
         public static final String CREATE_IMAGE_UPLOAD_URL = "/page/createImageUploadUrl";
         public static final String IMAGE_UPLOAD = "/page/imageUpload";
