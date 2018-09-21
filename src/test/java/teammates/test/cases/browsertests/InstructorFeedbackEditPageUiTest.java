@@ -1023,7 +1023,8 @@ public class InstructorFeedbackEditPageUiTest extends BaseUiTestCase {
                         Const.DEFAULT_SECTION,
                         "alice.b.tmms@gmail.tmt",
                         Const.DEFAULT_SECTION,
-                        new Text("Response from instructor to Alice"));
+                        new Text("Response from instructor to Alice"),
+                        null);
         BackDoor.createFeedbackResponse(feedbackResponse);
 
         ______TS("check response rate before editing question");

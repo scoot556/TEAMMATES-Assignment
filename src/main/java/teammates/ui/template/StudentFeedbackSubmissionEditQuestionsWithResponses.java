@@ -7,6 +7,8 @@ public class StudentFeedbackSubmissionEditQuestionsWithResponses {
     private List<FeedbackSubmissionEditResponse> responses;
     private int numOfResponseBoxes;
     private int maxResponsesPossible;
+    
+    private String pdfAttachmentKey;
 
     public StudentFeedbackSubmissionEditQuestionsWithResponses(FeedbackSubmissionEditQuestion question,
                                     List<FeedbackSubmissionEditResponse> responses, int numOfResponseBoxes,
@@ -15,6 +17,8 @@ public class StudentFeedbackSubmissionEditQuestionsWithResponses {
         this.responses = responses;
         this.numOfResponseBoxes = numOfResponseBoxes;
         this.maxResponsesPossible = maxResponsesPossible;
+        
+        this.pdfAttachmentKey = getPdfAttachmentKeyFromResponses(responses);
     }
 
     public FeedbackSubmissionEditQuestion getQuestion() {
@@ -32,4 +36,19 @@ public class StudentFeedbackSubmissionEditQuestionsWithResponses {
     public int getMaxResponsesPossible() {
         return maxResponsesPossible;
     }
+
+	public String getPdfAttachmentKey() {
+		return pdfAttachmentKey;
+	}
+	
+	private String getPdfAttachmentKeyFromResponses(List<FeedbackSubmissionEditResponse> responses) {
+		for (FeedbackSubmissionEditResponse response : responses) {
+			if (response.getPdfAttachmentKey() != null) {
+				return response.getPdfAttachmentKey();
+			}
+		}
+		return null;
+	}
+    
+    
 }
