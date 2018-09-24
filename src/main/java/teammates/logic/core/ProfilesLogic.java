@@ -48,9 +48,23 @@ public final class ProfilesLogic {
 
     public void deletePicture(BlobKey key) {
         profilesDb.deletePicture(key);
+        insProfDb.deletePicture(key);
     }
 
     public void updateStudentProfilePicture(String googleId, String newPictureKey) throws EntityDoesNotExistException {
         profilesDb.updateStudentProfilePicture(googleId, newPictureKey);
+    }
+    
+    public void updateInstructorProfile(InstructorProfileAttributes newInstructorProfileAttributes)
+            throws InvalidParametersException, EntityDoesNotExistException {
+        insProfDb.updateInstructorProfile(newInstructorProfileAttributes);
+    }
+    
+    public void deleteInstructorProfilePicture(String googleId) throws EntityDoesNotExistException {
+        insProfDb.deleteInstructorProfilePicture(googleId);
+    }
+    
+    public void updateInstructorProfilePicture(String googleId, String newPictureKey) throws EntityDoesNotExistException {
+        insProfDb.updateInstructorProfilePicture(googleId, newPictureKey);
     }
 }
