@@ -112,6 +112,12 @@ public class ActionFactory {
         map(INSTRUCTOR_REPORTS_PAGE, InstructorReportsPageAction.class);
         
         map(INSTRUCTOR_SEARCH_PAGE, InstructorSearchPageAction.class);
+        map(INSTRUCTOR_PROFILE_PAGE, InstructorProfilePageAction.class);
+        map(INSTRUCTOR_PROFILE_PICTURE, InstructorProfilePictureAction.class);
+        map(INSTRUCTOR_PROFILE_PICTURE_UPLOAD, InstructorProfilePictureUploadAction.class);
+        map(INSTRUCTOR_PROFILE_PICTURE_EDIT, InstructorProfilePictureEditAction.class);
+        map(INSTRUCTOR_PROFILE_CREATEUPLOADFORMURL, InstructorProfileCreateFormUrlAction.class);
+        map(INSTRUCTOR_PROFILE_EDIT_SAVE, StudentProfileEditSaveAction.class);
         map(INSTRUCTOR_STUDENT_LIST_PAGE, InstructorStudentListPageAction.class);
         map(INSTRUCTOR_STUDENT_LIST_AJAX_PAGE, InstructorStudentListAjaxPageAction.class);
         map(INSTRUCTOR_STUDENT_RECORDS_PAGE, InstructorStudentRecordsPageAction.class);

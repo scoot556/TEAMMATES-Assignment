@@ -30,6 +30,7 @@ import teammates.common.datatransfer.attributes.FeedbackResponseAttributes;
 import teammates.common.datatransfer.attributes.FeedbackResponseCommentAttributes;
 import teammates.common.datatransfer.attributes.FeedbackSessionAttributes;
 import teammates.common.datatransfer.attributes.InstructorAttributes;
+import teammates.common.datatransfer.attributes.InstructorProfileAttributes;
 import teammates.common.datatransfer.attributes.StudentAttributes;
 import teammates.common.datatransfer.attributes.StudentProfileAttributes;
 import teammates.common.exception.EnrollException;
@@ -2203,5 +2204,10 @@ public class Logic {
 		Assumption.assertNotNull(searchKey);
 		return coursesLogic.searchCourses(searchKey);
 	}
+
+    public InstructorProfileAttributes getInstructorProfile(String googleId) {
+        Assumption.assertNotNull(googleId);
+        return profilesLogic.getInstructorProfile(googleId);
+    }
 
 }

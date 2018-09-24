@@ -4,9 +4,9 @@
 <%@ tag import="teammates.common.util.Const" %>
 <%@ attribute name="profile" type="teammates.ui.template.InstructorProfileEditBox" required="true" %>
 <%@ attribute name="sessionToken" required="true" %>
-<c:set var="MALE" value="<%= Const.GenderTypes.MALE %>"
-<c:set var="FEMALE" value="<%= Const.GenderTypes.FEMALE %>"
-<c:set var="OTHER" value="<%= Const.GenderTypes.OTHER %>"
+<c:set var="MALE" value="<%= Const.GenderTypes.MALE %>" />
+<c:set var="FEMALE" value="<%= Const.GenderTypes.FEMALE %>" />
+<c:set var="OTHER" value="<%= Const.GenderTypes.OTHER %>" />
 
 <div id="editProfileDiv" class="well well-plain well-narrow well-sm-wide">
   <h3 id="instructorName">
@@ -121,7 +121,7 @@
     </button>
     <br>
     <p class="text-muted text-color-disclaimer">
-      <i>* This profile will be visible to all your Instructors and Coursemates</i>
+      <i>* This profile will be visible to all your fellow Instructors and Students</i>
     </p>
     <input type="hidden" name="<%= Const.ParamsNames.USER_ID %>" value="${profile.googleId}">
     <input type="hidden" name="<%= Const.ParamsNames.SESSION_TOKEN %>" value="${sessionToken}">

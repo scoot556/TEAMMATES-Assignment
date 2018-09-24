@@ -1169,6 +1169,7 @@ public final class Const {
         public static final String INSTRUCTOR_FEEDBACK_EDIT_PAGE = "instructorFeedbackEditPage";
         public static final String INSTRUCTOR_FEEDBACK_COPY = "instructorFeedbackCopy";
         public static final String INSTRUCTOR_STUDENT_LIST_PAGE = "instructorStudentListPage";
+        public static final String INSTRUCTOR_PROFILE_PAGE = "instructorProfilePage";
     }
 
     public static class ViewURIs {
@@ -1219,6 +1220,8 @@ public final class Const {
         public static final String INSTRUCTOR_STUDENT_LIST_AJAX = "/jsp/instructorStudentListAjax.jsp";
         public static final String INSTRUCTOR_STUDENT_RECORDS = "/jsp/instructorStudentRecords.jsp";
         public static final String INSTRUCTOR_STUDENT_RECORDS_AJAX = "/jsp/instructorStudentRecordsAjax.jsp";
+        
+        public static final String INSTRUCTOR_PROFILE_PAGE = "/jsp/instructorProfilePage.jsp";
 
         public static final String STUDENT_HOME = "/jsp/studentHome.jsp";
         public static final String STUDENT_COURSE_JOIN_CONFIRMATION = "/jsp/studentCourseJoinConfirmation.jsp";
@@ -1304,6 +1307,40 @@ public final class Const {
                     + "</ol>"
                 + "</div>";
 
+        public static final String INSTRUCTOR_FIRST_TIME =
+                "<div class=\"align-left\">"
+                    + "<div class=\"align-center text-color-red text-bold\">"
+                        + "Ooops! Your Google account is not known to TEAMMATES"
+                    + "</div>"
+                    + "<br>"
+                    + "To access a course on TEAMMATES, you need to wait until an instructor adds you to "
+                    + "that course. As a confirmation, TEAMMATES will send you instructions on how to access "
+                    + "that particular course."
+                    + "<br><br>"
+                    + "If you 'joined' the course in TEAMMATES using a Google account before, but cannot login "
+                    + "anymore, these are the possible reasons:"
+                    + "<ol>"
+                        + "<li>"
+                            + "You used a different Google account to access TEAMMATES in the past. "
+                            + "In that case, you need to use the same Google account to access TEAMMATES again. "
+                            + "Logout and re-login using the other Google account. "
+                            + "If you don't remember which Google account you used previously, "
+                            + "email us from the same email account to which you receive TEAMMATES emails."
+                        + "</li>"
+                        + "<li>"
+                            + "You changed the primary email from a non-Gmail address to a Gmail address recently. "
+                            + "In that case, <a href=\"/contact.jsp\">email us</a> "
+                            + "so that we can reconfigure your account to use the new Gmail address."
+                        + "</li>"
+                        + "<li>"
+                            + "You joined this course just a few seconds ago and your data "
+                            + "may be still in the process of propagating through our servers. "
+                            + "In that case, please click on the "
+                            + "<a href=" + ActionURIs.INSTRUCTOR_HOME_PAGE + ">Home</a> link above in a few minutes. "
+                        + "</li>"
+                    + "</ol>"
+                + "</div>";
+        
         public static final String COURSE_ADDED =
                 "The course has been added. Click <a href=\"${courseEnrollLink}\">here</a> to add students to the course "
                 + "or click <a href=\"${courseEditLink}\">here</a> to add other instructors.<br>"

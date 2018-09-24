@@ -36,6 +36,10 @@ public class Account extends BaseEntity {
     @Ignore // session-specific based on whether profile retrieval is enabled
     private boolean isStudentProfileEnabled = true;
 
+    private boolean setIsInstructorProfileEnabled = true;
+
+    private Ref<InstructorProfile> instructorProfile;
+
     @SuppressWarnings("unused")
     private Account() {
         // required by Objectify
@@ -157,5 +161,19 @@ public class Account extends BaseEntity {
      */
     public void setIsStudentProfileEnabled(boolean isStudentProfileEnabled) {
         this.isStudentProfileEnabled = isStudentProfileEnabled;
+    }
+
+    public void setInstructorProfile(InstructorProfile profile) {
+        if (profile == null) {
+            setIsInstructorProfileEnabled(false);
+            return;
+        }
+        setIsInstructorProfileEnabled(true);
+        this.instructorProfile = Ref.create(profile);
+    }
+
+    private void setIsInstructorProfileEnabled(boolean isInstructorProfileEnabled) {
+        this.setIsInstructorProfileEnabled = isInstructorProfileEnabled;
+        
     }
 }

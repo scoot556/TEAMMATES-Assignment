@@ -14,7 +14,6 @@ import com.googlecode.objectify.cmd.LoadType;
 import com.googlecode.objectify.cmd.QueryKeys;
 
 import teammates.common.datatransfer.attributes.InstructorProfileAttributes;
-import teammates.common.datatransfer.attributes.StudentProfileAttributes;
 import teammates.common.exception.EntityDoesNotExistException;
 import teammates.common.exception.InvalidParametersException;
 import teammates.common.util.Assumption;
@@ -22,15 +21,16 @@ import teammates.common.util.Const;
 import teammates.common.util.Logger;
 import teammates.common.util.ThreadHelper;
 import teammates.storage.entity.Account;
-import teammates.storage.entity.StudentProfile;
+import teammates.storage.entity.InstructorProfile;
+
 
 /**
  * Handles CRUD operations for student profiles.
  *
- * @see StudentProfile
- * @see StudentProfileAttributes
+ * @see InstructorProfile
+ * @see InstructorProfileAttributes
  */
-public class ProfilesDb extends EntitiesDb<StudentProfile, StudentProfileAttributes> {
+public class InstructorProfilesDb extends EntitiesDb<InstructorProfile, InstructorProfileAttributes> {
 
     private static final Logger log = Logger.getLogger();
 
@@ -39,8 +39,8 @@ public class ProfilesDb extends EntitiesDb<StudentProfile, StudentProfileAttribu
      * corresponding to the googleId given. Returns null if the
      * profile was not found
      */
-    public StudentProfileAttributes getStudentProfile(String accountGoogleId) {
-        return makeAttributesOrNull(getStudentProfileEntityFromDb(accountGoogleId));
+    public InstructorProfileAttributes getInstructorProfile(String accountGoogleId) {
+        return makeAttributesOrNull(getInstructorProfileEntityFromDb(accountGoogleId));
     }
 
     /**
@@ -49,11 +49,11 @@ public class ProfilesDb extends EntitiesDb<StudentProfile, StudentProfileAttribu
      * with the given googleId.
      */
     // TODO: update the profile with whatever given values are valid and ignore those that are not valid.
-    public void updateStudentProfile(StudentProfileAttributes newSpa)
+    public void updateInstructorProfile(InstructorProfileAttributes newSpa)
             throws InvalidParametersException, EntityDoesNotExistException {
         validateNewProfile(newSpa);
 
-        StudentProfile profileToUpdate = getCurrentProfileFromDb(newSpa.googleId);
+        InstructorProfile profileToUpdate = getCurrentProfileFromDb(newSpa.googleId);
         if (hasNoNewChangesToProfile(newSpa, profileToUpdate)) {
             return;
         }
@@ -61,7 +61,7 @@ public class ProfilesDb extends EntitiesDb<StudentProfile, StudentProfileAttribu
         updateProfileWithNewValues(newSpa, profileToUpdate);
     }
 
-    private void validateNewProfile(StudentProfileAttributes newSpa) throws InvalidParametersException {
+    private void validateNewProfile(InstructorProfileAttributes newSpa) throws InvalidParametersException {
         Assumption.assertNotNull(Const.StatusCodes.DBLEVEL_NULL_INPUT, newSpa);
 
         if (!newSpa.isValid()) {
@@ -69,21 +69,19 @@ public class ProfilesDb extends EntitiesDb<StudentProfile, StudentProfileAttribu
         }
     }
 
-    private boolean hasNoNewChangesToProfile(StudentProfileAttributes newSpa, StudentProfile profileToUpdate) {
-        StudentProfileAttributes newSpaCopy = newSpa.getCopy();
-        StudentProfileAttributes existingProfile = StudentProfileAttributes.valueOf(profileToUpdate);
+    private boolean hasNoNewChangesToProfile(InstructorProfileAttributes newSpa, InstructorProfile profileToUpdate) {
+        InstructorProfileAttributes newSpaCopy = newSpa.getCopy();
+        InstructorProfileAttributes existingProfile = InstructorProfileAttributes.valueOf(profileToUpdate);
 
         newSpaCopy.modifiedDate = existingProfile.modifiedDate;
         return existingProfile.toString().equals(newSpaCopy.toString());
     }
 
-    private void updateProfileWithNewValues(StudentProfileAttributes newSpa, StudentProfile profileToUpdate) {
+    private void updateProfileWithNewValues(InstructorProfileAttributes newSpa, InstructorProfile profileToUpdate) {
         newSpa.sanitizeForSaving();
 
         profileToUpdate.setShortName(newSpa.shortName);
         profileToUpdate.setEmail(newSpa.email);
-        profileToUpdate.setInstitute(newSpa.institute);
-        profileToUpdate.setNationality(newSpa.nationality);
         profileToUpdate.setGender(newSpa.gender);
         profileToUpdate.setMoreInfo(new Text(newSpa.moreInfo));
         profileToUpdate.setModifiedDate(Instant.now());
@@ -102,13 +100,13 @@ public class ProfilesDb extends EntitiesDb<StudentProfile, StudentProfileAttribu
      * Deletes existing picture if key is different and updates
      * modifiedDate
      */
-    public void updateStudentProfilePicture(String googleId, String newPictureKey) throws EntityDoesNotExistException {
+    public void updateInstructorProfilePicture(String googleId, String newPictureKey) throws EntityDoesNotExistException {
         Assumption.assertNotNull(Const.StatusCodes.DBLEVEL_NULL_INPUT, googleId);
         Assumption.assertNotNull(Const.StatusCodes.DBLEVEL_NULL_INPUT, newPictureKey);
         Assumption.assertNotEmpty("GoogleId is empty", googleId);
         Assumption.assertNotEmpty("PictureKey is empty", newPictureKey);
 
-        StudentProfile profileToUpdate = getCurrentProfileFromDb(googleId);
+        InstructorProfile profileToUpdate = getCurrentProfileFromDb(googleId);
 
         boolean hasNewNonEmptyPictureKey = !newPictureKey.isEmpty()
                 && !newPictureKey.equals(profileToUpdate.getPictureKey().getKeyString());
@@ -121,10 +119,10 @@ public class ProfilesDb extends EntitiesDb<StudentProfile, StudentProfileAttribu
     }
 
     @Override
-    public void deleteEntity(StudentProfileAttributes entityToDelete) {
+    public void deleteEntity(InstructorProfileAttributes entityToDelete) {
         Assumption.assertNotNull(Const.StatusCodes.DBLEVEL_NULL_INPUT, entityToDelete);
 
-        Key<StudentProfile> keyToDelete = getEntityQueryKeys(entityToDelete).first().now();
+        Key<InstructorProfile> keyToDelete = getEntityQueryKeys(entityToDelete).first().now();
         if (keyToDelete == null) {
             ofy().delete().keys(getEntityQueryKeysForLegacyData(entityToDelete)).now();
         } else {
@@ -135,12 +133,12 @@ public class ProfilesDb extends EntitiesDb<StudentProfile, StudentProfileAttribu
     }
 
     @Override
-    public void deleteEntities(Collection<StudentProfileAttributes> entitiesToDelete) {
+    public void deleteEntities(Collection<InstructorProfileAttributes> entitiesToDelete) {
         Assumption.assertNotNull(Const.StatusCodes.DBLEVEL_NULL_INPUT, entitiesToDelete);
 
-        ArrayList<Key<StudentProfile>> keysToDelete = new ArrayList<>();
-        for (StudentProfileAttributes entityToDelete : entitiesToDelete) {
-            Key<StudentProfile> keyToDelete = getEntityQueryKeys(entityToDelete).first().now();
+        ArrayList<Key<InstructorProfile>> keysToDelete = new ArrayList<>();
+        for (InstructorProfileAttributes entityToDelete : entitiesToDelete) {
+            Key<InstructorProfile> keyToDelete = getEntityQueryKeys(entityToDelete).first().now();
             if (keyToDelete == null) {
                 keyToDelete = getEntityQueryKeysForLegacyData(entityToDelete).first().now();
             }
@@ -159,8 +157,8 @@ public class ProfilesDb extends EntitiesDb<StudentProfile, StudentProfileAttribu
      * updates the profile entity:
      *     empties the key and updates the modifiedDate.
      */
-    public void deleteStudentProfilePicture(String googleId) throws EntityDoesNotExistException {
-        StudentProfile sp = getCurrentProfileFromDb(googleId);
+    public void deleteInstructorProfilePicture(String googleId) throws EntityDoesNotExistException {
+        InstructorProfile sp = getCurrentProfileFromDb(googleId);
 
         if (!sp.getPictureKey().equals(new BlobKey(""))) {
             deletePicture(sp.getPictureKey());
@@ -177,16 +175,16 @@ public class ProfilesDb extends EntitiesDb<StudentProfile, StudentProfileAttribu
      * @return the list of all student profiles in the database.
      */
     @Deprecated
-    public List<StudentProfileAttributes> getAllStudentProfiles() {
-        return makeAttributes(getStudentProfileEntities());
+    public List<InstructorProfileAttributes> getAllInstructorProfiles() {
+        return makeAttributes(getInstructorProfileEntities());
     }
 
     //-------------------------------------------------------------------------------------------------------
     //-------------------------------------- Helper Functions -----------------------------------------------
     //-------------------------------------------------------------------------------------------------------
 
-    private StudentProfile getCurrentProfileFromDb(String googleId) throws EntityDoesNotExistException {
-        StudentProfile profileToUpdate = getStudentProfileEntityFromDb(googleId);
+    private InstructorProfile getCurrentProfileFromDb(String googleId) throws EntityDoesNotExistException {
+        InstructorProfile profileToUpdate = getInstructorProfileEntityFromDb(googleId);
 
         if (profileToUpdate == null) {
             throw new EntityDoesNotExistException(ERROR_UPDATE_NON_EXISTENT_STUDENT_PROFILE + googleId
@@ -202,15 +200,15 @@ public class ProfilesDb extends EntitiesDb<StudentProfile, StudentProfileAttribu
      * legacy account entities on the fly.
      */
     // TODO: remove this function once legacy data have been ported over
-    private StudentProfile getStudentProfileEntityForLegacyData(String googleId) {
+    private InstructorProfile getInstructorProfileEntityForLegacyData(String googleId) {
         Account account = ofy().load().type(Account.class).id(googleId).now();
 
         if (account == null) {
             return null;
         }
 
-        StudentProfile profile = new StudentProfile(account.getGoogleId());
-        account.setStudentProfile(profile);
+        InstructorProfile profile = new InstructorProfile(account.getGoogleId());
+        account.setInstructorProfile(profile);
 
         return profile;
     }
@@ -219,46 +217,46 @@ public class ProfilesDb extends EntitiesDb<StudentProfile, StudentProfileAttribu
      * Gets the profile entity associated with given googleId.
      * If the profile does not exist, it tries to get the
      * profile from the function
-     * 'getStudentProfileEntityForLegacyData'.
+     * 'getInstructorProfileEntityForLegacyData'.
      */
     // TODO: update this function once legacy data have been ported over
-    private StudentProfile getStudentProfileEntityFromDb(String googleId) {
+    private InstructorProfile getInstructorProfileEntityFromDb(String googleId) {
         Key<Account> parentKey = Key.create(Account.class, googleId);
-        Key<StudentProfile> childKey = Key.create(parentKey, StudentProfile.class, googleId);
-        StudentProfile profile = ofy().load().key(childKey).now();
+        Key<InstructorProfile> childKey = Key.create(parentKey, InstructorProfile.class, googleId);
+        InstructorProfile profile = ofy().load().key(childKey).now();
 
         if (profile == null) {
-            return getStudentProfileEntityForLegacyData(googleId);
+            return getInstructorProfileEntityForLegacyData(googleId);
         }
 
         return profile;
     }
 
     @Override
-    protected LoadType<StudentProfile> load() {
-        return ofy().load().type(StudentProfile.class);
+    protected LoadType<InstructorProfile> load() {
+        return ofy().load().type(InstructorProfile.class);
     }
 
     @Override
-    protected StudentProfile getEntity(StudentProfileAttributes attributes) {
+    protected InstructorProfile getEntity(InstructorProfileAttributes attributes) {
         // this method is never used and is here only for future expansion and completeness
-        return getStudentProfileEntityFromDb(attributes.googleId);
+        return getInstructorProfileEntityFromDb(attributes.googleId);
     }
 
     @Override
-    protected QueryKeys<StudentProfile> getEntityQueryKeys(StudentProfileAttributes attributes) {
+    protected QueryKeys<InstructorProfile> getEntityQueryKeys(InstructorProfileAttributes attributes) {
         Key<Account> parentKey = Key.create(Account.class, attributes.googleId);
-        Key<StudentProfile> childKey = Key.create(parentKey, StudentProfile.class, attributes.googleId);
+        Key<InstructorProfile> childKey = Key.create(parentKey, InstructorProfile.class, attributes.googleId);
         return load().filterKey(childKey).keys();
     }
 
-    private QueryKeys<StudentProfile> getEntityQueryKeysForLegacyData(StudentProfileAttributes attributes) {
-        Key<StudentProfile> legacyKey = Key.create(StudentProfile.class, attributes.googleId);
+    private QueryKeys<InstructorProfile> getEntityQueryKeysForLegacyData(InstructorProfileAttributes attributes) {
+        Key<InstructorProfile> legacyKey = Key.create(InstructorProfile.class, attributes.googleId);
         return load().filterKey(legacyKey).keys();
     }
 
     @Override
-    public boolean hasEntity(StudentProfileAttributes attributes) {
+    public boolean hasEntity(InstructorProfileAttributes attributes) {
         if (getEntityQueryKeys(attributes).first().now() == null) {
             return getEntityQueryKeysForLegacyData(attributes).first().now() != null;
         }
@@ -269,14 +267,14 @@ public class ProfilesDb extends EntitiesDb<StudentProfile, StudentProfileAttribu
      * Retrieves all student profile entities. This function is not scalable.
      */
     @Deprecated
-    private List<StudentProfile> getStudentProfileEntities() {
+    private List<InstructorProfile> getInstructorProfileEntities() {
         return load().list();
     }
 
     @Override
-    protected StudentProfileAttributes makeAttributes(StudentProfile entity) {
+    protected InstructorProfileAttributes makeAttributes(InstructorProfile entity) {
         Assumption.assertNotNull(Const.StatusCodes.DBLEVEL_NULL_INPUT, entity);
 
-        return StudentProfileAttributes.valueOf(entity);
+        return InstructorProfileAttributes.valueOf(entity);
     }
 }
