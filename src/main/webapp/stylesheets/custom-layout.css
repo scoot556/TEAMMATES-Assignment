@@ -139,6 +139,7 @@ FORMS
     border-radius: 0px;
 }
 
+
 /**
 ============================================
 LOGIN CSS FROM W3
@@ -180,27 +181,13 @@ PAGINATION
     text-decoration: underline;
 }
 
-
 /**
 ============================================
-REPORTS PAGE
+Reports Page
 ============================================*/
-table.course-details-table {
+
+.student-details-table{
+	border-spacing: 5px;
+	border-collapse: separate;
 }
 
-table.course-details-table td:first-child {
-    padding-right: 40px;
-}
-
-table.course-feedbacksession-table {
-}
-
-table.course-feedbacksession-table th:first-child,
-table.course-feedbacksession-table td:first-child {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    padding-right: 40px;
-    max-width: 480px;
-    display: inline-block;
-    overflow: hidden;
-}

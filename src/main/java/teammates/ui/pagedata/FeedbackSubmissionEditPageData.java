@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.mortbay.log.Log;
+
 import teammates.common.datatransfer.FeedbackSessionQuestionsBundle;
 import teammates.common.datatransfer.attributes.AccountAttributes;
 import teammates.common.datatransfer.attributes.FeedbackQuestionAttributes;
@@ -31,6 +33,7 @@ public class FeedbackSubmissionEditPageData extends PageData {
     private String registerMessage;
     private String submitAction;
     private List<StudentFeedbackSubmissionEditQuestionsWithResponses> questionsWithResponses;
+    private String pdfAttachmentKey;
 
     public FeedbackSubmissionEditPageData(AccountAttributes account, StudentAttributes student, String sessionToken) {
         super(account, student, sessionToken);
@@ -39,6 +42,11 @@ public class FeedbackSubmissionEditPageData extends PageData {
         isShowRealQuestionNumber = false;
         isHeaderHidden = false;
     }
+    
+    public String getPdfAttachmentKey() {
+    	return pdfAttachmentKey;
+    }
+    
 
     /**
      * Generates the register message with join URL containing course ID
@@ -67,6 +75,17 @@ public class FeedbackSubmissionEditPageData extends PageData {
                         ? ""
                         : String.format(Const.StatusMessages.UNREGISTERED_STUDENT, student.name, joinUrl);
         createQuestionsWithResponses();
+        setPdfAttachmentKeyFromQuestionsWithResponses(questionsWithResponses);
+    }
+    
+    private void setPdfAttachmentKeyFromQuestionsWithResponses(
+    		List<StudentFeedbackSubmissionEditQuestionsWithResponses> questionsWithResponses) {
+    	for (StudentFeedbackSubmissionEditQuestionsWithResponses q : questionsWithResponses) {
+    		if (q.getPdfAttachmentKey() != null) {
+    			this.pdfAttachmentKey = q.getPdfAttachmentKey();
+    			return;
+    		}
+    	}
     }
 
     public FeedbackSessionQuestionsBundle getBundle() {
@@ -248,9 +267,17 @@ public class FeedbackSubmissionEditPageData extends PageData {
                                                 isSessionOpenForSubmission, qnIndx, responseIndx,
                                                 questionAttributes.courseId, numOfResponseBoxes,
                                                 existingResponse.getResponseDetails(), student);
+            
+            FeedbackSubmissionEditResponse response = new FeedbackSubmissionEditResponse(
+            		responseIndx, 
+            		true, 
+            		recipientOptionsForQuestion, 
+            		submissionFormHtml, 
+            		existingResponse.getId()
+            );
+            response.setPdfAttachmentKey(existingResponse.pdfAttachmentKey);
 
-            responses.add(new FeedbackSubmissionEditResponse(responseIndx, true, recipientOptionsForQuestion,
-                                                                 submissionFormHtml, existingResponse.getId()));
+            responses.add(response);
             responseIndx++;
         }
 

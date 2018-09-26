@@ -12,8 +12,13 @@ import teammates.common.datatransfer.FeedbackSessionStats;
 import teammates.common.datatransfer.attributes.AccountAttributes;
 import teammates.common.datatransfer.attributes.CourseAttributes;
 import teammates.common.datatransfer.attributes.FeedbackSessionAttributes;
+import teammates.common.datatransfer.attributes.StudentAttributes;
 import teammates.common.util.Const;
+import teammates.common.util.SanitizationHelper;
+import teammates.ui.datatransfer.InstructorStudentListPageCourseData;
 import teammates.ui.template.CourseTable;
+import teammates.ui.template.InstructorStudentListFilterCourse;
+import teammates.ui.template.InstructorStudentListStudentsTableCourse;
 
 public class InstructorReportsPageData extends PageData {
 	
@@ -51,9 +56,16 @@ public class InstructorReportsPageData extends PageData {
     private int numberOfCourses = 0;
     private int studentsThatAcceptedInvitation = 0;
     private int numStudentNotAcceptedInvitation = 0;
+    private int totalStudents = 0;
     private int numActiveSessions = 0;
     private double feedbackRate = 0.0;
 	
+    //Total Students list
+    private List<StudentAttributes> studentAttributes; //Accepted students
+    private List<StudentAttributes> studentNotAcceptedInvitation; //Not accepted Students
+    
+    
+    //Get list of students
 	
     public InstructorReportsPageData(AccountAttributes account, String sessionToken) {
         super(account, sessionToken);
@@ -65,7 +77,9 @@ public class InstructorReportsPageData extends PageData {
 		int studentsThatAcceptedInvitation,
 		int numStudentNotAcceptedInvitation,
 		int numActiveSessions,
-		double feedbackRate
+		double feedbackRate,
+		List<StudentAttributes> studentAttributes,
+		List<StudentAttributes> studentNotAcceptedInvitation
     ) {
         
         this.numberOfCourses = numberOfCourses;
@@ -74,6 +88,8 @@ public class InstructorReportsPageData extends PageData {
         this.numActiveSessions = numActiveSessions;
         this.courseDetailsList = courseDetailsList;
         this.feedbackRate = feedbackRate;
+        this.studentAttributes = studentAttributes;
+        this.studentNotAcceptedInvitation = studentNotAcceptedInvitation;
         
         this.coursesTabTableData = courseDetailsList.stream().map(courseDetails -> {
         	InstructorReportsPageData.Table table = new InstructorReportsPageData.Table();
@@ -87,6 +103,16 @@ public class InstructorReportsPageData extends PageData {
         	return table;
         }).collect(Collectors.toList());
         
+        
+        
+    }
+    
+    public List<StudentAttributes> getStudentAttributes(){
+    	return studentAttributes;
+    }
+    
+    public List<StudentAttributes> getStudentNotAcceptedInvitation(){
+    	return studentNotAcceptedInvitation;
     }
     
     public double getFeedbackRate() {
@@ -120,6 +146,11 @@ public class InstructorReportsPageData extends PageData {
 	public String getSortCriteria() {
         return sortCriteria;
     }
+	
+	public int getTotalStudents() {
+		totalStudents = this.studentsThatAcceptedInvitation + this.numStudentNotAcceptedInvitation;
+		return totalStudents;
+	}
 
     public boolean isSortingDisabled() {
         return isSortingDisabled;
