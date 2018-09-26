@@ -668,6 +668,7 @@ public final class Const {
                 "canmodifysessioncommentinsection";
         
         public static final String INSTRUCTOR_SHORT_NAME = "instructorshortname";
+        //Instructor Profile Components
         public static final String INSTRUCTOR_PROFILE_EMAIL = "instructorprofileemail";
         public static final String INSTRUCTOR_PROFILE_INSTITUTION = "instructorprofileinstitute";
         public static final String INSTRUCTOR_PROFILE_MOREINFO = "instructorprofilemoreinfo";
