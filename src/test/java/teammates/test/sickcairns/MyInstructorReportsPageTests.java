@@ -68,7 +68,7 @@ public class MyInstructorReportsPageTests extends BaseActionTest {
         
         verifyCourseTabTableData(pageData);
         verifySummaryTabData(pageData);
-        checkIfEnrolledIsEquivalentOrMoreThanNotEnrolled(pageData);
+        verifyStudentsTabData(pageData);
 	}
 	
 	private void verifyCourseTabTableData(InstructorReportsPageData pageData) {
@@ -92,17 +92,10 @@ public class MyInstructorReportsPageTests extends BaseActionTest {
 		assertTrue(numberOfNotAcceptedStudents >= 0);
 	}
 	
-	private void checkIfEnrolledIsEquivalentOrMoreThanNotEnrolled(InstructorReportsPageData pageData) {
-		boolean isMore = false;
-		
+	private void verifyStudentsTabData(InstructorReportsPageData pageData) {
 		List<StudentAttributes> totalStudents = pageData.getStudentAttributes();
 		List<StudentAttributes> studentsNotConfirmed = pageData.getStudentNotAcceptedInvitation();
 		
-		if(totalStudents.size() >= studentsNotConfirmed.size()) {
-			//Number of students not enrolled cannot be greater then total students
-			isMore = true;
-		}
-		
-		assertTrue(isMore);
+		assertTrue(totalStudents.size() >= studentsNotConfirmed.size());
 	}
 }
