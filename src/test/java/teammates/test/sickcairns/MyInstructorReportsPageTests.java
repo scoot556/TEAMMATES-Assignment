@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import teammates.common.datatransfer.CourseDetailsBundle;
 import teammates.common.datatransfer.attributes.FeedbackSessionAttributes;
 import teammates.common.datatransfer.attributes.InstructorAttributes;
+import teammates.common.datatransfer.attributes.StudentAttributes;
 import teammates.common.util.Const;
 import teammates.logic.core.CoursesLogic;
 import teammates.test.cases.action.BaseActionTest;
@@ -21,7 +22,6 @@ import teammates.ui.pagedata.InstructorSearchPageData;
 public class MyInstructorReportsPageTests extends BaseActionTest {
 	
 	private InstructorAttributes createMockInstructor() {
-		InstructorAttributes instructor1OfCourse1 = typicalBundle.instructors.get("instructor1OfCourse1");
         return typicalBundle.instructors.get("instructor1OfCourse1");
 	}
 
@@ -68,6 +68,7 @@ public class MyInstructorReportsPageTests extends BaseActionTest {
         
         verifyCourseTabTableData(pageData);
         verifySummaryTabData(pageData);
+        checkIfEnrolledIsEquivalentOrMoreThanNotEnrolled(pageData);
 	}
 	
 	private void verifyCourseTabTableData(InstructorReportsPageData pageData) {
@@ -78,11 +79,30 @@ public class MyInstructorReportsPageTests extends BaseActionTest {
 	}
 	
 	private void verifySummaryTabData(InstructorReportsPageData pageData) {
-		fail("Not yet implemented");
+		int activeSessions = pageData.getNumActiveSessions();
+		double feedbackRate = pageData.getFeedbackRate();
+		int numberOfCourses = pageData.getNumberOfCourses();
+		int numberOfEnrolledStudents = pageData.getStudentsThatAcceptedInvitation();
+		int numberOfNotAcceptedStudents = pageData.getNumStudentNotAcceptedInvitation();
+				
+		assertTrue(activeSessions > 0);
+		assertTrue(feedbackRate > 0);
+		assertTrue(numberOfCourses > 0);
+		assertTrue(numberOfEnrolledStudents > 0);
+		assertTrue(numberOfNotAcceptedStudents >= 0);
 	}
-
 	
-  
-	
-	
+	private void checkIfEnrolledIsEquivalentOrMoreThanNotEnrolled(InstructorReportsPageData pageData) {
+		boolean isMore = false;
+		
+		List<StudentAttributes> totalStudents = pageData.getStudentAttributes();
+		List<StudentAttributes> studentsNotConfirmed = pageData.getStudentNotAcceptedInvitation();
+		
+		if(totalStudents.size() >= studentsNotConfirmed.size()) {
+			//Number of students not enrolled cannot be greater then total students
+			isMore = true;
+		}
+		
+		assertTrue(isMore);
+	}
 }
