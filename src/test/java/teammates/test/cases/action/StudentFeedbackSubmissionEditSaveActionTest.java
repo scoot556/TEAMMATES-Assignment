@@ -43,7 +43,7 @@ public class StudentFeedbackSubmissionEditSaveActionTest extends BaseActionTest 
 
     @AfterClass
     public void classTearDown() {
-        StudentsLogic.inst().deleteStudentCascade("idOfTypicalCourse1", "student6InCourse1@gmail.tmt");
+        StudentsLogic.inst().deleteStudentCascade("idOfTypicalCourse1", "student6InCourse1@student.rmit.edu.au");
     }
 
     @Override
@@ -966,7 +966,7 @@ public class StudentFeedbackSubmissionEditSaveActionTest extends BaseActionTest 
         assertEquals(
                 getPageResultDestination(
                         Const.ActionURIs.STUDENT_FEEDBACK_SUBMISSION_EDIT_PAGE,
-                        "unregisteredStudentInCourse2%40gmail.tmt",
+                        "unregisteredStudentInCourse2%40student.rmit.edu.au",
                         redirectResult.isError, unregisteredStudent.course,
                         "Unregistered+Student+Session", studentKey),
                 redirectResult.getDestinationWithParams());
@@ -1013,7 +1013,7 @@ public class StudentFeedbackSubmissionEditSaveActionTest extends BaseActionTest 
         assertEquals(
                 getPageResultDestination(
                         Const.ActionURIs.STUDENT_FEEDBACK_SUBMISSION_EDIT_PAGE,
-                        "unregisteredStudentInCourse2%40gmail.tmt",
+                        "unregisteredStudentInCourse2%40student.rmit.edu.au",
                         redirectResult.isError, unregisteredStudent.course,
                         "Unregistered+Student+Session", studentKey),
                 redirectResult.getDestinationWithParams());

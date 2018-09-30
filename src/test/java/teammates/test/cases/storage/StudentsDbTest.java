@@ -259,7 +259,7 @@ public class StudentsDbTest extends BaseComponentTestCase {
         assertNull(studentsDb.getStudentForGoogleId(s.course, s.googleId));
         int currentStudentNum = studentsDb.getAllStudents().size();
         s = createNewStudent();
-        createNewStudent("secondStudent@mail.com");
+        createNewStudent("secondStudent@student.rmit.edu.au");
         assertEquals(2 + currentStudentNum, studentsDb.getAllStudents().size());
         studentsDb.deleteStudentsForCourseWithoutDocument(s.course);
         assertEquals(currentStudentNum, studentsDb.getAllStudents().size());

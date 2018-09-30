@@ -346,7 +346,7 @@ public class FeedbackResponsesDbTest extends BaseComponentTestCase {
         ______TS("non-existent receiver");
 
         assertTrue(frDb.getFeedbackResponsesForReceiverForQuestion(
-                questionId, "non-existentStudentInCourse1@gmail.tmt").isEmpty());
+                questionId, "non-existentStudentInCourse1@student.rmit.edu.au").isEmpty());
     }
 
     @Test
@@ -403,7 +403,7 @@ public class FeedbackResponsesDbTest extends BaseComponentTestCase {
         ______TS("non-existent receiver");
 
         assertTrue(frDb.getFeedbackResponsesForReceiverForQuestionInSection(
-                                questionId, "non-existentStudentInCourse1@gmail.tmt", "Section 1").isEmpty());
+                                questionId, "non-existentStudentInCourse1@student.rmit.edu.au", "Section 1").isEmpty());
     }
 
     @Test
@@ -443,7 +443,7 @@ public class FeedbackResponsesDbTest extends BaseComponentTestCase {
         ______TS("non-existent receiver");
 
         assertTrue(frDb.getFeedbackResponsesForReceiverForCourse(
-                courseId, "non-existentStudentInCourse1@gmail.tmt").isEmpty());
+                courseId, "non-existentStudentInCourse1@student.rmit.edu.au").isEmpty());
     }
 
     @Test
@@ -483,7 +483,7 @@ public class FeedbackResponsesDbTest extends BaseComponentTestCase {
         ______TS("non-existent receiver");
 
         assertTrue(frDb.getFeedbackResponsesFromGiverForQuestion(
-                questionId, "non-existentStudentInCourse1@gmail.tmt").isEmpty());
+                questionId, "non-existentStudentInCourse1@student.rmit.edu.au").isEmpty());
     }
 
     @Test
@@ -540,7 +540,7 @@ public class FeedbackResponsesDbTest extends BaseComponentTestCase {
         ______TS("non-existent receiver");
 
         assertTrue(frDb.getFeedbackResponsesFromGiverForQuestionInSection(
-                            questionId, "non-existentstudentInCourse1@gmail.tmt", "Section 1").isEmpty());
+                            questionId, "non-existentstudentInCourse1@student.rmit.edu.au", "Section 1").isEmpty());
     }
 
     @Test
@@ -580,7 +580,7 @@ public class FeedbackResponsesDbTest extends BaseComponentTestCase {
         ______TS("non-existent giver");
 
         assertTrue(frDb.getFeedbackResponsesFromGiverForCourse(
-                courseId, "non-existentStudentInCourse1@gmail.tmt").isEmpty());
+                courseId, "non-existentStudentInCourse1@student.rmit.edu.au").isEmpty());
     }
 
     @Test

@@ -115,7 +115,7 @@ public abstract class BaseActionTest extends BaseComponentTestCase {
 
     private String[] addStudentAuthenticationInfo(String[] params) {
         StudentAttributes unregStudent =
-                StudentsLogic.inst().getStudentForEmail("idOfTypicalCourse1", "student6InCourse1@gmail.tmt");
+                StudentsLogic.inst().getStudentForEmail("idOfTypicalCourse1", "student6InCourse1@student.rmit.edu.au");
         List<String> list = new ArrayList<>();
         list.add(Const.ParamsNames.REGKEY);
         list.add(StringHelper.encrypt(unregStudent.key));
@@ -715,9 +715,9 @@ public abstract class BaseActionTest extends BaseComponentTestCase {
     }
 
     protected static void addUnregStudentToCourse1() throws Exception {
-        StudentsLogic.inst().deleteStudentCascade("idOfTypicalCourse1", "student6InCourse1@gmail.tmt");
+        StudentsLogic.inst().deleteStudentCascade("idOfTypicalCourse1", "student6InCourse1@student.rmit.edu.au");
         StudentAttributes student = StudentAttributes
-                .builder("idOfTypicalCourse1", "unregistered student6 In Course1", "student6InCourse1@gmail.tmt")
+                .builder("idOfTypicalCourse1", "unregistered student6 In Course1", "student6InCourse1@student.rmit.edu.au")
                 .withTeam("Team Unregistered")
                 .withSection("Section 3")
                 .withComments("")

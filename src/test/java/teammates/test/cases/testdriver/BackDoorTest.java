@@ -209,7 +209,7 @@ public class BackDoorTest extends BaseTestCaseWithBackDoorApiAccess {
         // another well-tested method.
 
         StudentAttributes student = StudentAttributes
-                .builder("tmapit.tcs.course", "name of tcs student", "tcsStudent@gmail.tmt")
+                .builder("tmapit.tcs.course", "name of tcs student", "tcsStudent@student.rmit.edu.au")
                 .withSection("section name")
                 .withTeam("team name")
                 .withComments("")

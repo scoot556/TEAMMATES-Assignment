@@ -47,7 +47,7 @@ public class LogMessageGeneratorTest extends BaseTestCase {
                            + "|||Unknown|||Unknown|||Unknown|||Unknown|||";
 
         assertTrue(generatedMessage.startsWith(logMessagePrefix));
-        AssertHelper.assertLogIdContainsUserId(generatedMessage, "student@email.com%CS2103");
+        AssertHelper.assertLogIdContainsUserId(generatedMessage, "student@student.rmit.edu.au%CS2103");
     }
 
     @Test
@@ -89,15 +89,15 @@ public class LogMessageGeneratorTest extends BaseTestCase {
         generatedMessage =
                 logCenter.generatePageActionLogMessage(url, paramMap, null, null, null, "Not authorized");
         AssertHelper.assertLogMessageEqualsForUnregisteredStudentUser(logMessage, generatedMessage,
-                "student@email.com", "CS2103");
+                "student@student.rmit.edu.au", "CS2103");
 
         ______TS("Not google login but with key (success)");
 
-        url = Const.ActionURIs.STUDENT_COURSE_JOIN + "?user=test@email.com&course=1";
+        url = Const.ActionURIs.STUDENT_COURSE_JOIN + "?user=test@student.rmit.edu.au&course=1";
         logMessage = "TEAMMATESLOG|||studentCourseJoin|||studentCourseJoin|||true|||Unregistered:CS2103|||Joe"
-                     + "|||Unknown|||student@email|||Join Course|||" + url;
+                     + "|||Unknown|||student@student.rmit.edu.au|||Join Course|||" + url;
         StudentAttributes student = StudentAttributes
-                .builder("CS2103", "Joe", "student@email")
+                .builder("CS2103", "Joe", "student@student.rmit.edu.au")
                 .withSection("section1")
                 .withTeam("team1")
                 .withComments("comments")
@@ -108,7 +108,7 @@ public class LogMessageGeneratorTest extends BaseTestCase {
         generatedMessage =
                 logCenter.generatePageActionLogMessage(url, paramMap, null, null, student, "Join Course");
         AssertHelper.assertLogMessageEqualsForUnregisteredStudentUser(logMessage, generatedMessage,
-                "student@email.com", "CS2103");
+                "student@student.rmit.edu.au", "CS2103");
 
         // --------------- Google login ---------------
 
@@ -211,7 +211,7 @@ public class LogMessageGeneratorTest extends BaseTestCase {
     private Map<String, String[]> generateRequestParamsWithRegKey() {
         Map<String, String[]> params = new HashMap<>();
         params.put(Const.ParamsNames.COURSE_ID, new String[] { "CS2103" });
-        params.put(Const.ParamsNames.STUDENT_EMAIL, new String[] { "student@email.com" });
+        params.put(Const.ParamsNames.STUDENT_EMAIL, new String[] { "student@student.rmit.edu.au" });
         params.put(Const.ParamsNames.REGKEY, new String[] { "KeyABC" });
         return params;
     }

@@ -30,7 +30,7 @@ public class StudentFeedbackSubmissionEditPageActionTest extends BaseActionTest 
 
     @AfterClass
     public void classTearDown() {
-        StudentsLogic.inst().deleteStudentCascade("idOfTypicalCourse1", "student6InCourse1@gmail.tmt");
+        StudentsLogic.inst().deleteStudentCascade("idOfTypicalCourse1", "student6InCourse1@student.rmit.edu.au");
     }
 
     @Override

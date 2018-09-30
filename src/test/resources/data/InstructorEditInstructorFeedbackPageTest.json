@@ -32,7 +32,7 @@
       "googleId": "student1InIEIFPTCourse",
       "name": "Student 1 in course IEIFPTCourse",
       "isInstructor": false,
-      "email": "student1InIEIFPTCourse@gmail.tmt",
+      "email": "student1InIEIFPTCourse@student.rmit.edu.au",
       "institute": "TEAMMATES Test Institute 1",
       "studentProfile": {
         "googleId": "student1InIEIFPTCourse",
@@ -49,7 +49,7 @@
       "googleId": "student2InIEIFPTCourse",
       "name": "Student 2 in IEIFPTCourse",
       "isInstructor": false,
-      "email": "student2InIEIFPTCourse@gmail.tmt",
+      "email": "student2InIEIFPTCourse@student.rmit.edu.au",
       "institute": "TEAMMATES Test Institute 1"
     }
   },
@@ -196,7 +196,7 @@
   "students": {
     "student1InCourse1": {
       "googleId": "student1InCourse1",
-      "email": "student1InIEIFPTCourse@gmail.tmt",
+      "email": "student1InIEIFPTCourse@student.rmit.edu.au",
       "course": "IEIFPTCourse",
       "name": "student1 In Course1",
       "comments": "comment for student1InCourse1",
@@ -205,7 +205,7 @@
     },
     "student2InCourse1": {
       "googleId": "student2InCourse1",
-      "email": "student2InIEIFPTCourse@gmail.tmt",
+      "email": "student2InIEIFPTCourse@student.rmit.edu.au",
       "course": "IEIFPTCourse",
       "name": "student2 In Course1",
       "comments": "comment for student2InCourse1",
@@ -488,7 +488,7 @@
       "feedbackQuestionId": "3",
       "feedbackQuestionType": "TEXT",
       "giver": "IEIFPTCoursehelper1@gmail.tmt",
-      "recipient": "student1InIEIFPTCourse@gmail.tmt",
+      "recipient": "student1InIEIFPTCourse@student.rmit.edu.au",
       "responseMetaData": {
         "value": "Helper 1 opinion about Student 1."
       },
@@ -501,7 +501,7 @@
       "feedbackQuestionId": "4",
       "feedbackQuestionType": "TEXT",
       "giver": "IEIFPTCoursehelper1@gmail.tmt",
-      "recipient": "student1InIEIFPTCourse@gmail.tmt",
+      "recipient": "student1InIEIFPTCourse@student.rmit.edu.au",
       "responseMetaData": {
         "value": "response whereby receipient should not be seen by instructors"
       },
@@ -514,7 +514,7 @@
       "feedbackQuestionId": "5",
       "feedbackQuestionType": "TEXT",
       "giver": "IEIFPTCoursehelper1@gmail.tmt",
-      "recipient": "student1InIEIFPTCourse@gmail.tmt",
+      "recipient": "student1InIEIFPTCourse@student.rmit.edu.au",
       "responseMetaData": {
         "value": "response whereby giver should not be seen by instructors"
       },

@@ -33,7 +33,7 @@ public class InstructorEditStudentFeedbackPageUiTest extends BaseUiTestCase {
     private void testModerationHint() throws Exception {
         ______TS("verify moderation hint");
 
-        submitPage = loginToInstructorEditStudentFeedbackPage("IESFPTCourseinstr", "student1InIESFPTCourse@gmail.tmt",
+        submitPage = loginToInstructorEditStudentFeedbackPage("IESFPTCourseinstr", "student1InIESFPTCourse@student.rmit.edu.au",
                 "session1InIESFPTCourse");
 
         submitPage.verifyModerationHeaderHtml("/instructorEditStudentFeedbackHint.html");
@@ -52,12 +52,12 @@ public class InstructorEditStudentFeedbackPageUiTest extends BaseUiTestCase {
 
         FeedbackQuestionAttributes fq = BackDoor.getFeedbackQuestion("IESFPTCourse", "First feedback session", 1);
         FeedbackResponseAttributes fr = BackDoor.getFeedbackResponse(fq.getId(),
-                                                  "student1InIESFPTCourse@gmail.tmt",
-                                                  "student1InIESFPTCourse@gmail.tmt");
+                                                  "student1InIESFPTCourse@student.rmit.edu.au",
+                                                  "student1InIESFPTCourse@student.rmit.edu.au");
 
         assertEquals("Student 1 self feedback.", fr.getResponseDetails().getAnswerString());
 
-        submitPage = loginToInstructorEditStudentFeedbackPage("IESFPTCourseinstr", "student1InIESFPTCourse@gmail.tmt",
+        submitPage = loginToInstructorEditStudentFeedbackPage("IESFPTCourseinstr", "student1InIESFPTCourse@student.rmit.edu.au",
                                                               "session1InIESFPTCourse");
 
         // Full HTML verification already done in InstructorFeedbackSubmitPageUiTest
@@ -73,8 +73,8 @@ public class InstructorEditStudentFeedbackPageUiTest extends BaseUiTestCase {
         fq = BackDoor.getFeedbackQuestion("IESFPTCourse", "First feedback session", 1);
 
         fr = BackDoor.getFeedbackResponse(fq.getId(),
-                                          "student1InIESFPTCourse@gmail.tmt",
-                                          "student1InIESFPTCourse@gmail.tmt");
+                                          "student1InIESFPTCourse@student.rmit.edu.au",
+                                          "student1InIESFPTCourse@student.rmit.edu.au");
 
         assertEquals("<p>Good design</p>", fr.getResponseDetails().getAnswerString());
     }
@@ -88,8 +88,8 @@ public class InstructorEditStudentFeedbackPageUiTest extends BaseUiTestCase {
 
         FeedbackQuestionAttributes fq = BackDoor.getFeedbackQuestion("IESFPTCourse", "First feedback session", 2);
         FeedbackResponseAttributes fr = BackDoor.getFeedbackResponse(fq.getId(),
-                                          "student1InIESFPTCourse@gmail.tmt",
-                                          "student1InIESFPTCourse@gmail.tmt");
+                                          "student1InIESFPTCourse@student.rmit.edu.au",
+                                          "student1InIESFPTCourse@student.rmit.edu.au");
 
         assertEquals("4", fr.getResponseDetails().getAnswerString());
 
@@ -112,13 +112,13 @@ public class InstructorEditStudentFeedbackPageUiTest extends BaseUiTestCase {
 
         FeedbackQuestionAttributes fq = BackDoor.getFeedbackQuestion("IESFPTCourse", "First feedback session", 1);
         FeedbackResponseAttributes fr = BackDoor.getFeedbackResponse(fq.getId(),
-                                          "student1InIESFPTCourse@gmail.tmt",
-                                          "student1InIESFPTCourse@gmail.tmt");
+                                          "student1InIESFPTCourse@student.rmit.edu.au",
+                                          "student1InIESFPTCourse@student.rmit.edu.au");
         assertNull(fr);
         fq = BackDoor.getFeedbackQuestion("IESFPTCourse", "First feedback session", 2);
         fr = BackDoor.getFeedbackResponse(fq.getId(),
-                                          "student1InIESFPTCourse@gmail.tmt",
-                                          "student1InIESFPTCourse@gmail.tmt");
+                                          "student1InIESFPTCourse@student.rmit.edu.au",
+                                          "student1InIESFPTCourse@student.rmit.edu.au");
         assertNull(fr);
     }
 

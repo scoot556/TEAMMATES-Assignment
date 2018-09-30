@@ -32,7 +32,7 @@
       "googleId": "student1InIESFPTCourse",
       "name": "Student 1 in course IESFPTCourse",
       "isInstructor": false,
-      "email": "student1InIESFPTCourse@gmail.tmt",
+      "email": "student1InIESFPTCourse@student.rmit.edu.au",
       "institute": "TEAMMATES Test Institute 1",
       "studentProfile": {
         "googleId": "student1InIESFPTCourse",
@@ -49,7 +49,7 @@
       "googleId": "student2InIESFPTCourse",
       "name": "Student 2 in IESFPTCourse",
       "isInstructor": false,
-      "email": "student2InIESFPTCourse@gmail.tmt",
+      "email": "student2InIESFPTCourse@student.rmit.edu.au",
       "institute": "TEAMMATES Test Institute 1"
     }
   },
@@ -196,7 +196,7 @@
   "students": {
     "student1InCourse1": {
       "googleId": "student1InCourse1",
-      "email": "student1InIESFPTCourse@gmail.tmt",
+      "email": "student1InIESFPTCourse@student.rmit.edu.au",
       "course": "IESFPTCourse",
       "name": "student1 In Course1</td></div>'\"",
       "comments": "comment for student1InCourse1</td></div>'\"",
@@ -205,7 +205,7 @@
     },
     "student2InCourse1": {
       "googleId": "student2InCourse1",
-      "email": "student2InIESFPTCourse@gmail.tmt",
+      "email": "student2InIESFPTCourse@student.rmit.edu.au",
       "course": "IESFPTCourse",
       "name": "student2 In Course1",
       "comments": "comment for student2InCourse1",
@@ -450,8 +450,8 @@
       "courseId": "IESFPTCourse",
       "feedbackQuestionId": "1",
       "feedbackQuestionType": "TEXT",
-      "giver": "student1InIESFPTCourse@gmail.tmt",
-      "recipient": "student1InIESFPTCourse@gmail.tmt",
+      "giver": "student1InIESFPTCourse@student.rmit.edu.au",
+      "recipient": "student1InIESFPTCourse@student.rmit.edu.au",
       "responseMetaData": {
         "value": "Student 1 self feedback."
       },
@@ -463,8 +463,8 @@
       "courseId": "IESFPTCourse",
       "feedbackQuestionId": "1",
       "feedbackQuestionType": "TEXT",
-      "giver": "student2InIESFPTCourse@gmail.tmt",
-      "recipient": "student2InIESFPTCourse@gmail.tmt",
+      "giver": "student2InIESFPTCourse@student.rmit.edu.au",
+      "recipient": "student2InIESFPTCourse@student.rmit.edu.au",
       "responseMetaData": {
         "value": "Student 2 self feedback."
       },
@@ -476,8 +476,8 @@
       "courseId": "IESFPTCourse",
       "feedbackQuestionId": "3",
       "feedbackQuestionType": "TEXT",
-      "giver": "student1InIESFPTCourse@gmail.tmt",
-      "recipient": "student1InIESFPTCourse@gmail.tmt",
+      "giver": "student1InIESFPTCourse@student.rmit.edu.au",
+      "recipient": "student1InIESFPTCourse@student.rmit.edu.au",
       "responseMetaData": {
         "value": "response whereby giver should not be seen by instructors"
       },
@@ -489,8 +489,8 @@
       "courseId": "IESFPTCourse",
       "feedbackQuestionId": "4",
       "feedbackQuestionType": "TEXT",
-      "giver": "student1InIESFPTCourse@gmail.tmt",
-      "recipient": "student1InIESFPTCourse@gmail.tmt",
+      "giver": "student1InIESFPTCourse@student.rmit.edu.au",
+      "recipient": "student1InIESFPTCourse@student.rmit.edu.au",
       "responseMetaData": {
         "value": "response whereby receipient should not be seen by instructors"
       },
@@ -502,8 +502,8 @@
       "courseId": "IESFPTCourse",
       "feedbackQuestionId": "5",
       "feedbackQuestionType": "TEXT",
-      "giver": "student1InIESFPTCourse@gmail.tmt",
-      "recipient": "student1InIESFPTCourse@gmail.tmt",
+      "giver": "student1InIESFPTCourse@student.rmit.edu.au",
+      "recipient": "student1InIESFPTCourse@student.rmit.edu.au",
       "responseMetaData": {
         "value": "response with everything should not be seen by instructors"
       },
@@ -515,8 +515,8 @@
       "courseId": "IESFPTCourse",
       "feedbackQuestionId": "1",
       "feedbackQuestionType": "TEXT",
-      "giver": "student1InIESFPTCourse@gmail.tmt",
-      "recipient": "student1InIESFPTCourse@gmail.tmt",
+      "giver": "student1InIESFPTCourse@student.rmit.edu.au",
+      "recipient": "student1InIESFPTCourse@student.rmit.edu.au",
       "responseMetaData": {
         "value": "Session 2 Question 1 Response 1"
       },
@@ -528,8 +528,8 @@
       "courseId": "IESFPTCourse",
       "feedbackQuestionId": "1",
       "feedbackQuestionType": "TEXT",
-      "giver": "student2InIESFPTCourse@gmail.tmt",
-      "recipient": "student2InIESFPTCourse@gmail.tmt",
+      "giver": "student2InIESFPTCourse@student.rmit.edu.au",
+      "recipient": "student2InIESFPTCourse@student.rmit.edu.au",
       "responseMetaData": {
         "value": "Session 2 Question 1 Response 2"
       },
@@ -541,8 +541,8 @@
       "courseId": "IESFPTCourse",
       "feedbackQuestionId": "1",
       "feedbackQuestionType": "TEXT",
-      "giver": "student1InIESFPTCourse@gmail.tmt",
-      "recipient": "student1InIESFPTCourse@gmail.tmt",
+      "giver": "student1InIESFPTCourse@student.rmit.edu.au",
+      "recipient": "student1InIESFPTCourse@student.rmit.edu.au",
       "responseMetaData": {
         "value": "Closed session response"
       },

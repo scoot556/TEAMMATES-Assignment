@@ -222,7 +222,7 @@
     },
     "student6InCourse1": {
       "googleId": "FSRTest.student5InCourse1",
-      "email": "FSRTest.student6InCourse1@gmail.tmt",
+      "email": "FSRTest.student6InCourse1@student.rmit.edu.au",
       "course": "FSRTest.idOfTypicalCourse1",
       "name": "student6 In Course1",
       "comments": "same googleId as student 5",
@@ -475,7 +475,7 @@
       "courseId": "FSRTest.idOfTypicalCourse1",
       "feedbackQuestionId": "2",
       "feedbackQuestionType": "TEXT",
-      "giver": "FSRTest.student6InCourse1@gmail.tmt",
+      "giver": "FSRTest.student6InCourse1@student.rmit.edu.au",
       "recipient": "FSRTest.student3InCourse1@student.rmit.edu.au",
       "responseMetaData": {
         "value": "student 6 feedback to student 3."

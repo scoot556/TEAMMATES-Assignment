@@ -372,7 +372,7 @@ public class FeedbackResponseCommentsDbTest extends BaseComponentTestCase {
         // for some reason, the id is 0 instead of null. so we explicitly set it to be null
         tempFrcaData.setId(null);
         // set this comment to have the same responseId as frcaData
-        String responseId = "1%student1InCourse1@gmail.com%student1InCourse1@gmail.com";
+        String responseId = "1%student1InCourse1@student.rmit.edu.au%student1InCourse1@student.rmit.edu.au";
         tempFrcaData.feedbackResponseId = responseId;
         frcDb.createEntity(tempFrcaData);
 

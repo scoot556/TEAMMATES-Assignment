@@ -523,7 +523,7 @@ public class StudentsLogicTest extends BaseLogicTest {
         ______TS("enrollLines with too few");
         String lineWithNoEmailInput = "Team 4 | StudentWithNoEmailInput";
         String lineWithExtraParameters = "Team 4 | StudentWithExtraParameters | "
-                + " studentWithExtraParameters@email.tmt | comment | extra_parameter";
+                + " studentWithExtraParameters@student.rmit.edu.au | comment | extra_parameter";
 
         enrollLines = headerLine + System.lineSeparator()
                 + lineWithNoEmailInput + System.lineSeparator()

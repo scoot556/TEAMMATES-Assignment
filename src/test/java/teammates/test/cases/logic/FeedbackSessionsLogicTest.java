@@ -1885,7 +1885,7 @@ public class FeedbackSessionsLogicTest extends BaseLogicTest {
         ______TS("failure: non-existent feedback session for student");
 
         try {
-            fsLogic.isFeedbackSessionFullyCompletedByStudent("nonExistentFSName", fs.getCourseId(), "random.student@email");
+            fsLogic.isFeedbackSessionFullyCompletedByStudent("nonExistentFSName", fs.getCourseId(), "random.student@student.rmit.edu.au");
             signalFailureToDetectException();
         } catch (EntityDoesNotExistException edne) {
             assertEquals("Trying to check a non-existent feedback session: "

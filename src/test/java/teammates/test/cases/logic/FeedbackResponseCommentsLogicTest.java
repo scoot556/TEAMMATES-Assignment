@@ -51,7 +51,7 @@ public class FeedbackResponseCommentsLogicTest extends BaseLogicTest {
 
         ______TS("fail: giver is not instructor");
 
-        frComment.giverEmail = "student2InCourse1@gmail.com";
+        frComment.giverEmail = "student2InCourse1@student.rmit.edu.au";
 
         verifyExceptionThrownFromCreateFrComment(frComment,
                 "User " + frComment.giverEmail + " is not a registered instructor for course "
