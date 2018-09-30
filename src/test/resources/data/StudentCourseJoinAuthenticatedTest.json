@@ -18,7 +18,7 @@
       "googleId": "student1InCourse1",
       "name": "Student 1 in course 1",
       "isInstructor": false,
-      "email": "student1InCourse1@gmail.tmt",
+      "email": "student1InCourse1@student.rmit.edu.au",
       "institute": "TEAMMATES Test Institute 1",
       "studentProfile": {
         "googleId": "student1InCourse1",
@@ -163,7 +163,7 @@
   "students": {
     "student1InCourse1": {
       "googleId": "student1InCourse1",
-      "email": "student1InCourse1@gmail.tmt",
+      "email": "student1InCourse1@student.rmit.edu.au",
       "course": "idOfTypicalCourse1",
       "name": "student1 In Course1</td></div>'\"",
       "comments": "comment for student1InCourse1</td></div>'\"",

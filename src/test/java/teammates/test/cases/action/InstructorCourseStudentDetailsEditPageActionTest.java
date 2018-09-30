@@ -75,7 +75,7 @@ public class InstructorCourseStudentDetailsEditPageActionTest extends BaseAction
         String expectedLogMessage = "TEAMMATESLOG|||instructorCourseStudentDetailsEdit|||instructorCourseStudentDetailsEdit"
                                   + "|||true|||Instructor|||Instructor 1 of Course 1|||idOfInstructor1OfCourse1"
                                   + "|||instr1@course1.tmt|||instructorCourseStudentEdit Page Load<br>Editing Student "
-                                  + "<span class=\"bold\">student1InCourse1@gmail.tmt's</span> details in Course "
+                                  + "<span class=\"bold\">student1InCourse1@student.rmit.edu.au's</span> details in Course "
                                   + "<span class=\"bold\">[idOfTypicalCourse1]</span>"
                                   + "|||/page/instructorCourseStudentDetailsEdit";
         AssertHelper.assertLogMessageEquals(expectedLogMessage, a.getLogMessage());

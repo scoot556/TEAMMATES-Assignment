@@ -43,7 +43,7 @@ public class InstructorCourseStudentDeleteActionTest extends BaseActionTest {
 
         AssertHelper.assertLogMessageEquals("TEAMMATESLOG|||instructorCourseStudentDelete|||instructorCourseStudentDelete|||"
                      + "true|||Instructor|||Instructor 1 of Course 1|||idOfInstructor1OfCourse1|||"
-                     + "instr1@course1.tmt|||Student <span class=\"bold\">student1InCourse1@gmail.tmt</span> "
+                     + "instr1@course1.tmt|||Student <span class=\"bold\">student1InCourse1@student.rmit.edu.au</span> "
                      + "in Course <span class=\"bold\">[idOfTypicalCourse1]</span> deleted.|||"
                      + "/page/instructorCourseStudentDelete", action.getLogMessage());
 

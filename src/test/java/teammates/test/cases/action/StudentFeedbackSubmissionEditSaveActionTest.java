@@ -1041,14 +1041,14 @@ public class StudentFeedbackSubmissionEditSaveActionTest extends BaseActionTest 
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, "MCQ Weight Session",
                 Const.ParamsNames.COURSE_ID, "FMcqQnUiT.CS2104",
                 Const.ParamsNames.FEEDBACK_QUESTION_ID + "-1", fq.getFeedbackQuestionId(),
-                Const.ParamsNames.FEEDBACK_RESPONSE_RECIPIENT + "-1-0", "student1InCourse1@gmail.tmt",
+                Const.ParamsNames.FEEDBACK_RESPONSE_RECIPIENT + "-1-0", "student1InCourse1@student.rmit.edu.au",
                 Const.ParamsNames.FEEDBACK_QUESTION_TYPE + "-1", "MCQ",
                 Const.ParamsNames.FEEDBACK_RESPONSE_TEXT + "-1-0", "Content",
 
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, "MCQ Weight Session",
                 Const.ParamsNames.COURSE_ID, "FMcqQnUiT.CS2104",
                 Const.ParamsNames.FEEDBACK_QUESTION_ID + "-1", fq.getFeedbackQuestionId(),
-                Const.ParamsNames.FEEDBACK_RESPONSE_RECIPIENT + "-1-1", "student1InCourse1@gmail.tmt",
+                Const.ParamsNames.FEEDBACK_RESPONSE_RECIPIENT + "-1-1", "student1InCourse1@student.rmit.edu.au",
                 Const.ParamsNames.FEEDBACK_QUESTION_TYPE + "-1", "MCQ",
                 Const.ParamsNames.FEEDBACK_RESPONSE_TEXT + "-1-1", "Teaching style"
         };
@@ -1069,7 +1069,7 @@ public class StudentFeedbackSubmissionEditSaveActionTest extends BaseActionTest 
                 r.getDestinationWithParams());
 
         // Check that invalid responses have not been added to the database.
-        assertNull(frDb.getFeedbackResponse(fq.getId(), "student2InCourse1@gmail.tmt", "student1InCourse1@gmail.tmt"));
+        assertNull(frDb.getFeedbackResponse(fq.getId(), "student2InCourse1@gmail.tmt", "student1InCourse1@student.rmit.edu.au"));
         assertNull(frDb.getFeedbackResponse(fq.getId(), "student2InCourse1@gmail.tmt", "student2InCourse1@gmail.tmt"));
     }
 

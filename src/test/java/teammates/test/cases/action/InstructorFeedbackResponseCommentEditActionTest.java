@@ -37,8 +37,8 @@ public class InstructorFeedbackResponseCommentEditActionTest extends BaseActionT
         FeedbackQuestionAttributes feedbackQuestion = feedbackQuestionsDb.getFeedbackQuestion(
                 "First feedback session", "idOfTypicalCourse1", questionNumber);
 
-        String giverEmail = "student1InCourse1@gmail.tmt";
-        String receiverEmail = "student1InCourse1@gmail.tmt";
+        String giverEmail = "student1InCourse1@student.rmit.edu.au";
+        String receiverEmail = "student1InCourse1@student.rmit.edu.au";
         FeedbackResponseAttributes feedbackResponse =
                 feedbackResponsesDb.getFeedbackResponse(feedbackQuestion.getId(), giverEmail, receiverEmail);
 
@@ -334,8 +334,8 @@ public class InstructorFeedbackResponseCommentEditActionTest extends BaseActionT
         FeedbackQuestionAttributes feedbackQuestion = fqDb.getFeedbackQuestion(
                 "First feedback session", "idOfTypicalCourse1", questionNumber);
 
-        String giverEmail = "student1InCourse1@gmail.tmt";
-        String receiverEmail = "student1InCourse1@gmail.tmt";
+        String giverEmail = "student1InCourse1@student.rmit.edu.au";
+        String receiverEmail = "student1InCourse1@student.rmit.edu.au";
         FeedbackResponseAttributes feedbackResponse = frDb.getFeedbackResponse(feedbackQuestion.getId(),
                 giverEmail, receiverEmail);
 

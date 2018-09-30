@@ -53,7 +53,7 @@ public class InstructorCourseEnrollSaveActionTest extends BaseActionTest {
                        + "Section 3 \t Team   1\tstudent  with   extra  spaces  \t"
                        + "studentWithExtraSpaces@gmail.tmt\t" + System.lineSeparator()
                        // A student to be modified
-                       + "Section 2 \t Team 1.3\tstudent1 In Course1</td></div>'\"\tstudent1InCourse1@gmail.tmt\t"
+                       + "Section 2 \t Team 1.3\tstudent1 In Course1</td></div>'\"\tstudent1InCourse1@student.rmit.edu.au\t"
                        + "New comment added" + System.lineSeparator()
                        // An existing student with no modification
                        + "Section 1 \t Team 1.1</td></div>'\"\tstudent2 In Course1\tstudent2InCourse1@gmail.tmt\t"

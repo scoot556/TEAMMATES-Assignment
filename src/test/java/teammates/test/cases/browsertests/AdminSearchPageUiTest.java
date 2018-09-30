@@ -80,7 +80,7 @@ public class AdminSearchPageUiTest extends BaseUiTestCase {
         ______TS("search for student1 email");
 
         searchPage.clearSearchBox();
-        searchContent = "searchUI.student1InCourse1@gmail.tmt";
+        searchContent = "searchUI.student1InCourse1@student.rmit.edu.au";
         searchPage.inputSearchContent(searchContent);
         searchPage.clickSearchButton();
 

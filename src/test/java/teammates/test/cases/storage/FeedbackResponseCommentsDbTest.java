@@ -199,7 +199,7 @@ public class FeedbackResponseCommentsDbTest extends BaseComponentTestCase {
     }
 
     private void testGetFeedbackResponseCommentForResponse() {
-        String responseId = "1%student1InCourse1@gmail.tmt%student1InCourse1@gmail.tmt";
+        String responseId = "1%student1InCourse1@student.rmit.edu.au%student1InCourse1@student.rmit.edu.au";
         ArrayList<FeedbackResponseCommentAttributes> frcasExpected = new ArrayList<>();
         frcasExpected.add(frcaData);
 

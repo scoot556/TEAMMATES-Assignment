@@ -137,7 +137,7 @@ public class InstructorCourseDetailsPageActionTest extends BaseActionTest {
                              + "<td>student1 In Course1&lt;&#x2f;td&gt;&lt;&#x2f;div&gt;&#39;&quot;</td>"
                              + "<td>Course1&lt;&#x2f;td&gt;&lt;&#x2f;div&gt;&#39;&quot;</td>"
                              + "<td>Joined</td>"
-                             + "<td>student1InCourse1@gmail.tmt</td>"
+                             + "<td>student1InCourse1@student.rmit.edu.au</td>"
                          + "</tr>"
                          + "<tr>"
                              + "<td>Section 1</td>"

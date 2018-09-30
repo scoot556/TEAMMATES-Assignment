@@ -588,7 +588,7 @@ public class FeedbackQuestionsLogicTest extends BaseLogicTest {
         ______TS("test question is fully answered by user");
 
         question = getQuestionFromDatastore("qn1InSession1InCourse1");
-        assertTrue(fqLogic.isQuestionFullyAnsweredByUser(question, "student1InCourse1@gmail.tmt"));
+        assertTrue(fqLogic.isQuestionFullyAnsweredByUser(question, "student1InCourse1@student.rmit.edu.au"));
 
         assertFalse(fqLogic.isQuestionFullyAnsweredByUser(question, "studentWithNoResponses@gmail.tmt"));
     }

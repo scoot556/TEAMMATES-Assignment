@@ -81,7 +81,7 @@
       "googleId": "student1InCourse1",
       "name": "Student 1 in course 1",
       "isInstructor": false,
-      "email": "student1InCourse1@gmail.tmt",
+      "email": "student1InCourse1@student.rmit.edu.au",
       "institute": "TEAMMATES Test Institute 1",
       "studentProfile": {
         "googleId": "student1InCourse1",
@@ -105,7 +105,7 @@
       "googleId": "student1InArchivedCourse",
       "name": "Student in Archived Course",
       "isInstructor": false,
-      "email": "student1InCourse1@gmail.tmt",
+      "email": "student1InCourse1@student.rmit.edu.au",
       "institute": "TEAMMATES Test Institute 1"
     }
   },
@@ -450,7 +450,7 @@
   "students": {
     "student1InCourse1": {
       "googleId": "student1InCourse1",
-      "email": "student1InCourse1@gmail.tmt",
+      "email": "student1InCourse1@student.rmit.edu.au",
       "course": "idOfTypicalCourse1",
       "name": "student1 In Course1</td></div>'\"",
       "comments": "comment for student1InCourse1</td></div>'\"",
@@ -1066,8 +1066,8 @@
       "courseId": "idOfTypicalCourse1",
       "feedbackQuestionId": "1",
       "feedbackQuestionType": "TEXT",
-      "giver": "student1InCourse1@gmail.tmt",
-      "recipient": "student1InCourse1@gmail.tmt",
+      "giver": "student1InCourse1@student.rmit.edu.au",
+      "recipient": "student1InCourse1@student.rmit.edu.au",
       "responseMetaData": {
         "value": "Student 1 self feedback."
       },
@@ -1093,7 +1093,7 @@
       "feedbackQuestionId": "2",
       "feedbackQuestionType": "TEXT",
       "giver": "student2InCourse1@gmail.tmt",
-      "recipient": "student1InCourse1@gmail.tmt",
+      "recipient": "student1InCourse1@student.rmit.edu.au",
       "responseMetaData": {
         "value": "Response from student 2 to student 1."
       },
@@ -1105,7 +1105,7 @@
       "courseId": "idOfTypicalCourse1",
       "feedbackQuestionId": "2",
       "feedbackQuestionType": "TEXT",
-      "giver": "student1InCourse1@gmail.tmt",
+      "giver": "student1InCourse1@student.rmit.edu.au",
       "recipient": "student2InCourse1@gmail.tmt",
       "responseMetaData": {
         "value": "Response from student 1 to student 2."
@@ -1144,7 +1144,7 @@
       "courseId": "idOfTypicalCourse1",
       "feedbackQuestionId": "5",
       "feedbackQuestionType": "TEXT",
-      "giver": "student1InCourse1@gmail.tmt",
+      "giver": "student1InCourse1@student.rmit.edu.au",
       "recipient": "instructor1@course1.tmt",
       "responseMetaData": {
         "value": "Response from student 1 to instructor 1"
@@ -1248,7 +1248,7 @@
       "courseId": "idOfTypicalCourse1",
       "feedbackQuestionId": "2",
       "feedbackQuestionType": "TEXT",
-      "giver": "student1InCourse1@gmail.tmt",
+      "giver": "student1InCourse1@student.rmit.edu.au",
       "recipient": "student4InCourse1@gmail.tmt",
       "responseMetaData": {
         "value": "Response from student 1 to team member (student 4)."
@@ -1291,7 +1291,7 @@
       "giverEmail": "instructor1@course1.tmt",
       "giverSection": "None",
       "receiverSection": "None",
-      "feedbackResponseId": "1%student1InCourse1@gmail.tmt%student1InCourse1@gmail.tmt",
+      "feedbackResponseId": "1%student1InCourse1@student.rmit.edu.au%student1InCourse1@student.rmit.edu.au",
       "showCommentTo": [],
       "showGiverNameTo": [],
       "isVisibilityFollowingFeedbackQuestion": false,
@@ -1307,7 +1307,7 @@
       "giverEmail": "instructor1@course1.tmt",
       "giverSection": "None",
       "receiverSection": "None",
-      "feedbackResponseId": "2%student2InCourse1@gmail.tmt%student1InCourse1@gmail.tmt",
+      "feedbackResponseId": "2%student2InCourse1@gmail.tmt%student1InCourse1@student.rmit.edu.au",
       "showCommentTo": [],
       "showGiverNameTo": [],
       "isVisibilityFollowingFeedbackQuestion": false,
@@ -1323,7 +1323,7 @@
       "giverEmail": "instructor1@course1.tmt",
       "giverSection": "None",
       "receiverSection": "None",
-      "feedbackResponseId": "3%student1InCourse1@gmail.tmt%student1InCourse1@gmail.tmt",
+      "feedbackResponseId": "3%student1InCourse1@student.rmit.edu.au%student1InCourse1@student.rmit.edu.au",
       "showCommentTo": [],
       "showGiverNameTo": [],
       "isVisibilityFollowingFeedbackQuestion": false,
