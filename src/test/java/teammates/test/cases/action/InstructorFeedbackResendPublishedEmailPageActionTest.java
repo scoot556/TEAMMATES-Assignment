@@ -54,7 +54,7 @@ public class InstructorFeedbackResendPublishedEmailPageActionTest extends BaseAc
         assertFalse(pageData.getResponseStatus().studentsWhoResponded.contains("student2InCourse1@student.rmit.edu.au"));
         assertFalse(pageData.getResponseStatus().studentsWhoDidNotRespond.contains("student3InCourse1@student.rmit.edu.au"));
         assertFalse(pageData.getResponseStatus().studentsWhoDidNotRespond.contains("student4InCourse1@student.rmit.edu.au"));
-        assertFalse(pageData.getResponseStatus().studentsWhoResponded.contains("student5InCourse1@gmail.tmt"));
+        assertFalse(pageData.getResponseStatus().studentsWhoResponded.contains("student5InCourse1@student.rmit.edu.au"));
     }
 
     @Override

@@ -174,7 +174,7 @@ public class FeedbackResponsesLogicTest extends BaseLogicTest {
 
         ______TS("success: recipient changed to something else");
 
-        responseToUpdate.recipient = "student5InCourse1@gmail.tmt";
+        responseToUpdate.recipient = "student5InCourse1@student.rmit.edu.au";
 
         frLogic.updateFeedbackResponse(responseToUpdate);
 
@@ -187,7 +187,7 @@ public class FeedbackResponsesLogicTest extends BaseLogicTest {
         ______TS("success: both giver and recipient changed (teammate changed response)");
 
         responseToUpdate = getResponseFromDatastore("response1GracePeriodFeedback");
-        responseToUpdate.giver = "student5InCourse1@gmail.tmt";
+        responseToUpdate.giver = "student5InCourse1@student.rmit.edu.au";
         responseToUpdate.recipient = "Team 1.1";
 
         assertNotNull(frLogic.getFeedbackResponse(

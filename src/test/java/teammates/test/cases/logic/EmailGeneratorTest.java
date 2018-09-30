@@ -116,7 +116,7 @@ public class EmailGeneratorTest extends BaseLogicTest {
 
         // student1 has completed the feedback session and closing alert is only sent for those who are
         // yet to complete, so we resort to student5
-        StudentAttributes student5 = studentsLogic.getStudentForEmail(course.getId(), "student5InCourse1@gmail.tmt");
+        StudentAttributes student5 = studentsLogic.getStudentForEmail(course.getId(), "student5InCourse1@student.rmit.edu.au");
 
         for (EmailWrapper email : emails) {
             if (email.getRecipient().equals(student1.email)) {

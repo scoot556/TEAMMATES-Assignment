@@ -56,7 +56,7 @@ public class InstructorCourseStudentListDownloadActionTest extends BaseActionTes
                 "\"Section 1\",\"Team 1.1</td></div>'\"\"\",\"student2 In Course1\",\"Course1\",\"Joined\",\"student2InCourse1@student.rmit.edu.au\"",
                 "\"Section 1\",\"Team 1.1</td></div>'\"\"\",\"student3 In Course1\",\"Course1\",\"Joined\",\"student3InCourse1@student.rmit.edu.au\"",
                 "\"Section 1\",\"Team 1.1</td></div>'\"\"\",\"student4 In Course1\",\"Course1\",\"Joined\",\"student4InCourse1@student.rmit.edu.au\"",
-                "\"Section 2\",\"Team 1.2\",\"student5 In Course1\",\"Course1\",\"Joined\",\"student5InCourse1@gmail.tmt\"",
+                "\"Section 2\",\"Team 1.2\",\"student5 In Course1\",\"Course1\",\"Joined\",\"student5InCourse1@student.rmit.edu.au\"",
                 ""
                 // CHECKSTYLE.ON:LineLength
         };
@@ -89,7 +89,7 @@ public class InstructorCourseStudentListDownloadActionTest extends BaseActionTes
                 "\"Section 1\",\"Team 1.1</td></div>'\"\"\",\"student2 In Course1\",\"Course1\",\"Joined\",\"student2InCourse1@student.rmit.edu.au\"",
                 "\"Section 1\",\"Team 1.1</td></div>'\"\"\",\"student3 In Course1\",\"Course1\",\"Joined\",\"student3InCourse1@student.rmit.edu.au\"",
                 "\"Section 1\",\"Team 1.1</td></div>'\"\"\",\"student4 In Course1\",\"Course1\",\"Joined\",\"student4InCourse1@student.rmit.edu.au\"",
-                "\"Section 2\",\"Team 1.2\",\"student5 In Course1\",\"Course1\",\"Joined\",\"student5InCourse1@gmail.tmt\"",
+                "\"Section 2\",\"Team 1.2\",\"student5 In Course1\",\"Course1\",\"Joined\",\"student5InCourse1@student.rmit.edu.au\"",
                 ""
                 // CHECKSTYLE.ON:LineLength
         };
@@ -124,7 +124,7 @@ public class InstructorCourseStudentListDownloadActionTest extends BaseActionTes
                 "\"Section 1\",\"Team 1.1</td></div>'\"\"\",\"student2 In Course1\",\"Course1\",\"Joined\",\"student2InCourse1@student.rmit.edu.au\"",
                 "\"Section 1\",\"Team 1.1</td></div>'\"\"\",\"student3 In Course1\",\"Course1\",\"Joined\",\"student3InCourse1@student.rmit.edu.au\"",
                 "\"Section 1\",\"Team 1.1</td></div>'\"\"\",\"student4 In Course1\",\"Course1\",\"Joined\",\"student4InCourse1@student.rmit.edu.au\"",
-                "\"Section 2\",\"Team 1.2\",\"student5 In Course1\",\"Course1\",\"Joined\",\"student5InCourse1@gmail.tmt\"",
+                "\"Section 2\",\"Team 1.2\",\"student5 In Course1\",\"Course1\",\"Joined\",\"student5InCourse1@student.rmit.edu.au\"",
                 ""
                 // CHECKSTYLE.ON:LineLength
         };

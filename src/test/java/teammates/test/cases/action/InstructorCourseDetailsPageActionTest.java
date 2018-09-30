@@ -169,7 +169,7 @@ public class InstructorCourseDetailsPageActionTest extends BaseActionTest {
                              + "<td>student5 In Course1</td>"
                              + "<td>Course1</td>"
                              + "<td>Joined</td>"
-                             + "<td>student5InCourse1@gmail.tmt</td>"
+                             + "<td>student5InCourse1@student.rmit.edu.au</td>"
                          + "</tr>"
                      + "</table>",
                      pageData.getStudentListHtmlTableAsString());
