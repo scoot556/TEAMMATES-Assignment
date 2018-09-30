@@ -247,7 +247,7 @@ public class StudentCourseJoinAuthenticatedActionTest extends BaseActionTest {
         AccountAttributes newStudentAccount = AccountAttributes.builder()
                 .withGoogleId("idOfNewStudent")
                 .withName("nameOfNewStudent")
-                .withEmail("newStudent@gmail.com")
+                .withEmail("newStudent@student.rmit.edu.au")
                 .withInstitute("TEAMMATES Test Institute 5")
                 .withIsInstructor(false)
                 .withDefaultStudentProfileAttributes("idOfNewStudent")
