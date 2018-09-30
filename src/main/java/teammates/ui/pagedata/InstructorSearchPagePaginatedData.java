@@ -56,7 +56,7 @@ public class InstructorSearchPagePaginatedData extends InstructorSearchPageData 
     public List<StudentAttributes> paginateStudents(List<StudentAttributes> studentsInCourse, int pageNumber,
             int itemsPerPage) {
         
-        int numPages = (int) Math.ceil((double)studentsInCourse.size() / (double) itemsPerPage);
+        int numPages = (int) Math.ceil((double) studentsInCourse.size() / (double) itemsPerPage);
         int startIndex = itemsPerPage * (pageNumber - 1);
         int lastIndex = startIndex + itemsPerPage - 1;
         lastIndex = lastIndex >= studentsInCourse.size() ? studentsInCourse.size() - 1 : lastIndex;
