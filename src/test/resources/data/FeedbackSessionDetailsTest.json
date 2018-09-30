@@ -219,7 +219,7 @@
     },
     "student1InCourse2": {
       "googleId": "FSDTest.student1InCourse1",
-      "email": "FSDTest.student1InCourse2@gmail.tmt",
+      "email": "FSDTest.student1InCourse2@student.rmit.edu.au",
       "course": "FSDTest.idOfTypicalCourse2",
       "name": "student1 In Course1",
       "comments": "student is in 2 courses",

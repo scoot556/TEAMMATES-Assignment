@@ -442,7 +442,7 @@ public class FeedbackSessionsLogicTest extends BaseLogicTest {
 
         // Course 2 only has an instructor session.
         // The instructor session has questions where responses are visible
-        actualSessions = fsLogic.getFeedbackSessionsForUserInCourse("idOfTypicalCourse2", "student1InCourse2@gmail.tmt");
+        actualSessions = fsLogic.getFeedbackSessionsForUserInCourse("idOfTypicalCourse2", "student1InCourse2@student.rmit.edu.au");
         assertEquals(1, actualSessions.size());
 
         ______TS("Instructor viewing");

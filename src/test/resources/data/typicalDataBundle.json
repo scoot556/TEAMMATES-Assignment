@@ -559,7 +559,7 @@
     },
     "student1InCourse2": {
       "googleId": "student1InCourse2",
-      "email": "student1InCourse2@gmail.tmt",
+      "email": "student1InCourse2@student.rmit.edu.au",
       "course": "idOfTypicalCourse2",
       "name": "student1 In Course2",
       "comments": "",
@@ -1397,7 +1397,7 @@
       "feedbackQuestionId": "1",
       "feedbackQuestionType": "TEXT",
       "giver": "instructor1@course2.tmt",
-      "recipient": "student1InCourse2@gmail.tmt",
+      "recipient": "student1InCourse2@student.rmit.edu.au",
       "responseMetaData": {
         "value": "Response from instr1InC2 to student1InC2."
       },
@@ -1476,7 +1476,7 @@
       "giverEmail": "instructor3@course.tmt",
       "giverSection": "None",
       "receiverSection": "None",
-      "feedbackResponseId": "1%instructor1@course2.tmt%student1InCourse2@gmail.tmt",
+      "feedbackResponseId": "1%instructor1@course2.tmt%student1InCourse2@student.rmit.edu.au",
       "showCommentTo": [],
       "showGiverNameTo": [],
       "isVisibilityFollowingFeedbackQuestion": false,

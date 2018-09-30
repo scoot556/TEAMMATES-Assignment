@@ -682,7 +682,7 @@ public class CoursesLogicTest extends BaseLogicTest {
                 "",
                 "",
                 "Team,Full Name,Last Name,Status,Email",
-                "\"Team 2.1\",\"student1 In Course2\",\"Course2\",\"Joined\",\"student1InCourse2@gmail.tmt\"",
+                "\"Team 2.1\",\"student1 In Course2\",\"Course2\",\"Joined\",\"student1InCourse2@student.rmit.edu.au\"",
                 "\"Team 2.1\",\"student2 In Course2\",\"Course2\",\"Joined\",\"student2InCourse1@student.rmit.edu.au\"",
                 ""
                 // CHECKSTYLE.ON:LineLength
