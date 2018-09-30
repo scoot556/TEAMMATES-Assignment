@@ -63,7 +63,7 @@ public class EmailGeneratorTest extends BaseLogicTest {
 
         StudentAttributes student1 = studentsLogic.getStudentForEmail(course.getId(), "student1InCourse1@student.rmit.edu.au");
         StudentAttributes unregisteredStudent = studentsLogic.getStudentForEmail("idOfUnregisteredCourse",
-                "student1InUnregisteredCourse@gmail.tmt");
+                "student1InUnregisteredCourse@student.rmit.edu.au");
 
         InstructorAttributes instructor1 =
                 instructorsLogic.getInstructorForEmail(course.getId(), "instructor1@course1.tmt");

@@ -144,7 +144,7 @@ public class StudentFeedbackResultsPageDataTest extends BaseComponentTestCase {
 
         assertEquals("regKeyForStuNotYetJoinCourse", student.key);
         assertEquals("idOfUnregisteredCourse", student.course);
-        assertEquals("student1InUnregisteredCourse@gmail.tmt", student.email);
+        assertEquals("student1InUnregisteredCourse@student.rmit.edu.au", student.email);
 
         assertEquals("You are viewing feedback results as "
                       + "<span class='text-danger text-bold text-large'>student1 In "
@@ -152,7 +152,7 @@ public class StudentFeedbackResultsPageDataTest extends BaseComponentTestCase {
                       + "and view results without logging in. To access other features you need "
                       + "<a href='/page/studentCourseJoinAuthentication?key="
                       + StringHelper.encrypt("regKeyForStuNotYetJoinCourse")
-                      + "&studentemail=student1InUnregisteredCourse%40gmail.tmt&courseid=idOfUnregisteredCourse' "
+                      + "&studentemail=student1InUnregisteredCourse%40student.rmit.edu.au&courseid=idOfUnregisteredCourse' "
                       + "class='link'>to login using a Google account</a> (recommended).",
                       pageData.getRegisterMessage());
     }

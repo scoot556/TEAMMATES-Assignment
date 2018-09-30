@@ -705,7 +705,7 @@ public class CoursesLogicTest extends BaseLogicTest {
                 "",
                 "",
                 "Section,Team,Full Name,Last Name,Status,Email",
-                "\"Section 1\",\"Team 1\",\"student1 In unregisteredCourse\",\"unregisteredCourse\",\"Yet to join\",\"student1InUnregisteredCourse@gmail.tmt\"",
+                "\"Section 1\",\"Team 1\",\"student1 In unregisteredCourse\",\"unregisteredCourse\",\"Yet to join\",\"student1InUnregisteredCourse@student.rmit.edu.au\"",
                 "\"Section 2\",\"Team 2\",\"student2 In unregisteredCourse\",\"unregisteredCourse\",\"Yet to join\",\"student2InUnregisteredCourse@gmail.tmt\"",
                 ""
                 // CHECKSTYLE.ON:LineLength

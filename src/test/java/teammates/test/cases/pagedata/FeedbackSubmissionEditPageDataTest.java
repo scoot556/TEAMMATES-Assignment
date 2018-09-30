@@ -104,7 +104,7 @@ public class FeedbackSubmissionEditPageDataTest extends BaseTestCase {
                       + "In unregisteredCourse</span>. You may submit feedback for sessions that are currently open "
                       + "and view results without logging in. "
                       + "To access other features you need <a href='/page/studentCourseJoinAuthentication?"
-                      + "key=regKeyForStuNotYetJoinCourse&studentemail=student1InUnregisteredCourse%40gmail.tmt&"
+                      + "key=regKeyForStuNotYetJoinCourse&studentemail=student1InUnregisteredCourse%40student.rmit.edu.au&"
                       + "courseid=idOfUnregisteredCourse' class='link'>to login using a Google account</a> "
                       + "(recommended).", pageData.getRegisterMessage());
 
