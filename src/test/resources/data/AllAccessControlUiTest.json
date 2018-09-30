@@ -434,7 +434,7 @@
     },
     "student3InCourse1": {
       "googleId": "student3InCourse1",
-      "email": "student3InCourse1@gmail.tmt",
+      "email": "student3InCourse1@student.rmit.edu.au",
       "course": "idOfTypicalCourse1.access",
       "name": "student3 In Course1",
       "comments": "",
@@ -985,7 +985,7 @@
       "courseId": "idOfTypicalCourse1.access",
       "feedbackQuestionId": "2",
       "feedbackQuestionType": "TEXT",
-      "giver": "student3InCourse1@gmail.tmt",
+      "giver": "student3InCourse1@student.rmit.edu.au",
       "recipient": "student2InCourse1.access@gmail.tmt",
       "responseMetaData": {
         "value": "Response from student 3 \"to\" student 2.\r\nMultiline test."

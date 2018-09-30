@@ -29,7 +29,7 @@ public class FeedbackSessionResultsBundleTest extends BaseTestCase {
         Map<String, String> emailNameTable = new HashMap<>();
         emailNameTable.put("student1InCourse1@student.rmit.edu.au", "Student 1 in course 1");
         emailNameTable.put("student2InCourse1@student.rmit.edu.au", "Student in two courses");
-        emailNameTable.put("student3InCourse1@gmail.tmt", "student3 In Course1");
+        emailNameTable.put("student3InCourse1@student.rmit.edu.au", "student3 In Course1");
 
         Map<String, boolean[]> visibilityTable = new HashMap<>();
         boolean[] visibility = new boolean[2];

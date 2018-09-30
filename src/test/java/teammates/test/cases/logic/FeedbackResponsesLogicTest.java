@@ -140,14 +140,14 @@ public class FeedbackResponsesLogicTest extends BaseLogicTest {
                         responseToUpdate.feedbackQuestionType,
                         responseToUpdate.giver,
                         responseToUpdate.giverSection,
-                        "student3InCourse1@gmail.tmt",
+                        "student3InCourse1@student.rmit.edu.au",
                         responseToUpdate.recipientSection,
                         responseToUpdate.responseMetaData,
                         responseToUpdate.pdfAttachmentKey);
 
         frLogic.createFeedbackResponse(existingResponse);
 
-        responseToUpdate.recipient = "student3InCourse1@gmail.tmt";
+        responseToUpdate.recipient = "student3InCourse1@student.rmit.edu.au";
 
         try {
             frLogic.updateFeedbackResponse(responseToUpdate);

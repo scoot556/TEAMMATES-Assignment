@@ -59,7 +59,7 @@ public class InstructorCourseEnrollSaveActionTest extends BaseActionTest {
                        + "Section 1 \t Team 1.1</td></div>'\"\tstudent2 In Course1\tstudent2InCourse1@student.rmit.edu.au\t"
                        + System.lineSeparator()
                        // An existing student, now with extra spaces, should cause no modification
-                       + "Section 1 \t Team   1.1</td></div>'\"\tstudent3  In   Course1  \tstudent3InCourse1@gmail.tmt\t";
+                       + "Section 1 \t Team   1.1</td></div>'\"\tstudent3  In   Course1  \tstudent3InCourse1@student.rmit.edu.au\t";
 
         String[] submissionParams = new String[] {
                 Const.ParamsNames.COURSE_ID, courseId,

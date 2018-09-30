@@ -277,7 +277,7 @@
     },
     "student3InCourse1": {
       "googleId": "FSQTT.student3InCourse1",
-      "email": "student3InCourse1@gmail.tmt",
+      "email": "student3InCourse1@student.rmit.edu.au",
       "course": "FSQTT.idOfTypicalCourse1",
       "name": "student3 In Course1",
       "comments": "",
@@ -1159,8 +1159,8 @@
       "courseId": "FSQTT.idOfTypicalCourse1",
       "feedbackQuestionId": "1",
       "feedbackQuestionType": "MSQ",
-      "giver": "student3InCourse1@gmail.tmt",
-      "recipient": "student3InCourse1@gmail.tmt",
+      "giver": "student3InCourse1@student.rmit.edu.au",
+      "recipient": "student3InCourse1@student.rmit.edu.au",
       "responseMetaData": {
         "value": "{\"isOther\":false,\"answers\":[\"\"],\"otherFieldContent\":\"\",\"questionType\":\"MSQ\"}"
       }
@@ -1225,8 +1225,8 @@
       "courseId": "FSQTT.idOfTypicalCourse1",
       "feedbackQuestionId": "3",
       "feedbackQuestionType": "MSQ",
-      "giver": "student3InCourse1@gmail.tmt",
-      "recipient": "student3InCourse1@gmail.tmt",
+      "giver": "student3InCourse1@student.rmit.edu.au",
+      "recipient": "student3InCourse1@student.rmit.edu.au",
       "responseMetaData": {
         "value": "{\"isOther\":true,\"answers\":[\"Hotdog\"],\"otherFieldContent\":\"Hotdog\",\"questionType\":\"MSQ\"}"
       }
@@ -1347,7 +1347,7 @@
       "feedbackQuestionId": "3",
       "feedbackQuestionType": "CONSTSUM",
       "giver": "instructor1@course1.tmt",
-      "recipient": "student3InCourse1@gmail.tmt",
+      "recipient": "student3InCourse1@student.rmit.edu.au",
       "responseMetaData": {
         "value": "{\"answers\":[30],\"questionType\":\"CONSTSUM\"}"
       }
@@ -1402,7 +1402,7 @@
       "feedbackQuestionId": "1",
       "feedbackQuestionType": "CONTRIB",
       "giver": "student1InCourse1@student.rmit.edu.au",
-      "recipient": "student3InCourse1@gmail.tmt",
+      "recipient": "student3InCourse1@student.rmit.edu.au",
       "responseMetaData": {
         "value": "{\"answer\":110,\"questionType\":\"CONTRIB\"}"
       }
@@ -1446,7 +1446,7 @@
       "feedbackQuestionId": "1",
       "feedbackQuestionType": "RUBRIC",
       "giver": "student1InCourse1@student.rmit.edu.au",
-      "recipient": "student3InCourse1@gmail.tmt",
+      "recipient": "student3InCourse1@student.rmit.edu.au",
       "responseMetaData": {
         "value": "{\"answer\":[0,0],\"questionType\":\"RUBRIC\"}"
       }
@@ -1479,7 +1479,7 @@
       "feedbackQuestionId": "2",
       "feedbackQuestionType": "RUBRIC",
       "giver": "student2InCourse1@student.rmit.edu.au",
-      "recipient": "student3InCourse1@gmail.tmt",
+      "recipient": "student3InCourse1@student.rmit.edu.au",
       "responseMetaData": {
         "value": "{\"answer\":[1,-1],\"questionType\":\"RUBRIC\"}"
       }
@@ -1489,7 +1489,7 @@
       "courseId": "FSQTT.idOfTypicalCourse1",
       "feedbackQuestionId": "2",
       "feedbackQuestionType": "RUBRIC",
-      "giver": "student3InCourse1@gmail.tmt",
+      "giver": "student3InCourse1@student.rmit.edu.au",
       "recipient": "student4InCourse1@gmail.tmt",
       "responseMetaData": {
         "value": "{\"answer\":[0,-1],\"questionType\":\"RUBRIC\"}"
@@ -1595,7 +1595,7 @@
       "feedbackQuestionId": "1",
       "feedbackQuestionType": "RANK_RECIPIENTS",
       "giver": "student1InCourse1@student.rmit.edu.au",
-      "recipient": "student3InCourse1@gmail.tmt",
+      "recipient": "student3InCourse1@student.rmit.edu.au",
       "responseMetaData": {
         "value": "{\"answer\":2,\"questionType\":\"RANK_RECIPIENTS\"}"
       }
@@ -1627,8 +1627,8 @@
       "courseId": "FSQTT.idOfTypicalCourse1",
       "feedbackQuestionId": "1",
       "feedbackQuestionType": "RANK_RECIPIENTS",
-      "giver": "student3InCourse1@gmail.tmt",
-      "recipient": "student3InCourse1@gmail.tmt",
+      "giver": "student3InCourse1@student.rmit.edu.au",
+      "recipient": "student3InCourse1@student.rmit.edu.au",
       "responseMetaData": {
         "value": "{\"answer\":3,\"questionType\":\"RANK_RECIPIENTS\"}"
       }
@@ -1638,7 +1638,7 @@
       "courseId": "FSQTT.idOfTypicalCourse1",
       "feedbackQuestionId": "1",
       "feedbackQuestionType": "RANK_RECIPIENTS",
-      "giver": "student3InCourse1@gmail.tmt",
+      "giver": "student3InCourse1@student.rmit.edu.au",
       "recipient": "student4InCourse1@gmail.tmt",
       "responseMetaData": {
         "value": "{\"answer\":4,\"questionType\":\"RANK_RECIPIENTS\"}"
@@ -1682,7 +1682,7 @@
       "courseId": "FSQTT.idOfTypicalCourse1",
       "feedbackQuestionId": "2",
       "feedbackQuestionType": "RANK_OPTIONS",
-      "giver": "student3InCourse1@gmail.tmt",
+      "giver": "student3InCourse1@student.rmit.edu.au",
       "recipient": "Team 1.1</td></div>'\"",
       "responseMetaData": {
         "value": "{\"answers\":[2,-999,1,1,-999],\"questionType\":\"RANK_OPTIONS\"}"

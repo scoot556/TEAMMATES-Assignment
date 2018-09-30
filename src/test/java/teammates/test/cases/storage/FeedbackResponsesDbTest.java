@@ -168,7 +168,7 @@ public class FeedbackResponsesDbTest extends BaseComponentTestCase {
         ______TS("non-existent response");
 
         assertNull(frDb.getFeedbackResponse(expected.feedbackQuestionId, "student1InCourse1@student.rmit.edu.au",
-                                            "student3InCourse1@gmail.tmt"));
+                                            "student3InCourse1@student.rmit.edu.au"));
 
         ______TS("null fqId");
 
