@@ -90,7 +90,7 @@ public class InstructorSearchPageData extends PageData {
     }
     
     public boolean isCoursesEmpty() {
-    	return isCoursesEmpty;
+        return isCoursesEmpty;
     }
 
     public boolean isSearchFeedbackSessionData() {
@@ -102,10 +102,10 @@ public class InstructorSearchPageData extends PageData {
     }
 
     public boolean isSearchForCourses() {
-		return isSearchForCourses;
-	}
+        return isSearchForCourses;
+    }
 
-	public List<SearchFeedbackSessionDataTable> getSearchFeedbackSessionDataTables() {
+    public List<SearchFeedbackSessionDataTable> getSearchFeedbackSessionDataTables() {
         return searchFeedbackSessionDataTables;
     }
 
@@ -115,10 +115,10 @@ public class InstructorSearchPageData extends PageData {
     
     // GET COURSES
     public List<CourseAttributes> getCourses() {
-		return courses;
-	}
+        return courses;
+    }
 
-	protected void setSearchFeedbackSessionDataTables(
+    protected void setSearchFeedbackSessionDataTables(
                                     FeedbackResponseCommentSearchResultBundle frcSearchResultBundle) {
 
         searchFeedbackSessionDataTables = new ArrayList<>();

@@ -46,7 +46,7 @@ public class FeedbackResponseAttributes extends EntityAttributes<FeedbackRespons
     
     public String pdfAttachmentKey;
 
-	public FeedbackResponseAttributes() {
+    public FeedbackResponseAttributes() {
         // attributes to be set after construction
     }
 
@@ -115,8 +115,8 @@ public class FeedbackResponseAttributes extends EntityAttributes<FeedbackRespons
     }
     
     public String getPdfAttachmentKey() {
-		return pdfAttachmentKey;
-	}
+        return pdfAttachmentKey;
+    }
 
     @Override
     public List<String> getInvalidityInfo() {

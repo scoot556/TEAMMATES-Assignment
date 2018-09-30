@@ -12,20 +12,20 @@ import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
 
 
 public class PDFServlet extends HttpServlet {
-	private BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
-	
-	private static final long serialVersionUID = 1L;
+    private BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
+    
+    private static final long serialVersionUID = 1L;
     public PDFServlet() {
         super();
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
-	}
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doPost(request, response);
+    }
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		BlobKey blobKey = new BlobKey(request.getParameter("blob-key"));
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        BlobKey blobKey = new BlobKey(request.getParameter("blob-key"));
         blobstoreService.serve(blobKey, response);
-	}
+    }
 
 }

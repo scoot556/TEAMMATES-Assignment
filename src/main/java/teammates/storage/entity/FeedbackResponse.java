@@ -183,11 +183,11 @@ public class FeedbackResponse extends BaseEntity {
         this.setLastUpdate(Instant.now());
     }
 
-	public String getPdfAttachmentKey() {
-		return pdfAttachmentKey;
-	}
+    public String getPdfAttachmentKey() {
+        return pdfAttachmentKey;
+    }
 
-	public void setPdfAttachmentKey(String pdfAttachmentKey) {
-		this.pdfAttachmentKey = pdfAttachmentKey;
-	}
+    public void setPdfAttachmentKey(String pdfAttachmentKey) {
+        this.pdfAttachmentKey = pdfAttachmentKey;
+    }
 }
