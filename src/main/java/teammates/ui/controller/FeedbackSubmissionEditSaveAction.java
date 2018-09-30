@@ -60,9 +60,9 @@ public abstract class FeedbackSubmissionEditSaveAction extends Action {
         Assumption.assertPostParamNotNull(Const.ParamsNames.COURSE_ID, courseId);
         Assumption.assertPostParamNotNull(Const.ParamsNames.FEEDBACK_SESSION_NAME, feedbackSessionName);
 
-        String pdfBlobKeyString = processUploadedPDF(request);
+        String pdfBlobKeyString = processUploadedPdf(request);
         if (pdfBlobKeyString == null) {
-        	pdfBlobKeyString = getRequestParamValue("pdf-attachment-key");
+            pdfBlobKeyString = getRequestParamValue("pdf-attachment-key");
         }
         
         setAdditionalParameters();
@@ -257,40 +257,40 @@ public abstract class FeedbackSubmissionEditSaveAction extends Action {
         return createSpecificRedirectResult();
     }
 
-    private String processUploadedPDF(HttpServletRequest request) {
-    	BlobInfo pdfBlob = getUploadedPDF(request);
-    	if (pdfBlob == null) {
-    		return null;
-    	}
-    	
-    	return pdfBlob.getBlobKey().getKeyString();
-	}
+    private String processUploadedPdf(HttpServletRequest request) {
+        BlobInfo pdfBlob = getUploadedPdf(request);
+        if (pdfBlob == null) {
+            return null;
+        }
+        
+        return pdfBlob.getBlobKey().getKeyString();
+    }
     
-    private BlobInfo getUploadedPDF(HttpServletRequest request) {
-    	try {
-    		Map<String, List<BlobInfo>> blobsMap = BlobstoreServiceFactory.getBlobstoreService().getBlobInfos(request);
-    		List<BlobInfo> blobs = blobsMap.get("pdf-file");
-    		if (blobs == null || blobs.isEmpty()) {
-    			return null;
-    		}
-    		
-    		BlobInfo pdfBlob = blobs.get(0);
-    		return validatePDF(pdfBlob);
-    	} catch (IllegalStateException e) {
-    		log.info(e.getMessage());
-    		return null;
-    	}
+    private BlobInfo getUploadedPdf(HttpServletRequest request) {
+        try {
+            Map<String, List<BlobInfo>> blobsMap = BlobstoreServiceFactory.getBlobstoreService().getBlobInfos(request);
+            List<BlobInfo> blobs = blobsMap.get("pdf-file");
+            if (blobs == null || blobs.isEmpty()) {
+                return null;
+            }
+            
+            BlobInfo pdfBlob = blobs.get(0);
+            return validatePdf(pdfBlob);
+        } catch (IllegalStateException e) {
+            log.info(e.getMessage());
+            return null;
+        }
     }
 
-	private BlobInfo validatePDF(BlobInfo pdfBlob) {
-		if (pdfBlob.getContentType().equals("application/pdf")) {
-			return pdfBlob;
-		}
-		
-		return null;
-	}
+    private BlobInfo validatePdf(BlobInfo pdfBlob) {
+        if (pdfBlob.getContentType().equals("application/pdf")) {
+            return pdfBlob;
+        }
+        
+        return null;
+    }
 
-	/**
+    /**
      * If the {@code response} is an existing response, check that
      * the questionId and responseId that it has
      * is in {@code data.bundle.questionResponseBundle}.

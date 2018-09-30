@@ -42,7 +42,7 @@ public class FeedbackSubmissionEditPageData extends PageData {
     }
     
     public String getPdfAttachmentKey() {
-    	return pdfAttachmentKey;
+        return pdfAttachmentKey;
     }
     
 
@@ -77,13 +77,13 @@ public class FeedbackSubmissionEditPageData extends PageData {
     }
     
     private void setPdfAttachmentKeyFromQuestionsWithResponses(
-    		List<StudentFeedbackSubmissionEditQuestionsWithResponses> questionsWithResponses) {
-    	for (StudentFeedbackSubmissionEditQuestionsWithResponses q : questionsWithResponses) {
-    		if (q.getPdfAttachmentKey() != null) {
-    			this.pdfAttachmentKey = q.getPdfAttachmentKey();
-    			return;
-    		}
-    	}
+            List<StudentFeedbackSubmissionEditQuestionsWithResponses> questionsWithResponses) {
+        for (StudentFeedbackSubmissionEditQuestionsWithResponses q : questionsWithResponses) {
+            if (q.getPdfAttachmentKey() != null) {
+                this.pdfAttachmentKey = q.getPdfAttachmentKey();
+                return;
+            }
+        }
     }
 
     public FeedbackSessionQuestionsBundle getBundle() {
@@ -267,11 +267,11 @@ public class FeedbackSubmissionEditPageData extends PageData {
                                                 existingResponse.getResponseDetails(), student);
             
             FeedbackSubmissionEditResponse response = new FeedbackSubmissionEditResponse(
-            		responseIndx, 
-            		true, 
-            		recipientOptionsForQuestion, 
-            		submissionFormHtml, 
-            		existingResponse.getId()
+                    responseIndx, 
+                    true, 
+                    recipientOptionsForQuestion, 
+                    submissionFormHtml, 
+                    existingResponse.getId()
             );
             response.setPdfAttachmentKey(existingResponse.pdfAttachmentKey);
 

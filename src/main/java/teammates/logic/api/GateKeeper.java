@@ -1,5 +1,6 @@
 package teammates.logic.api;
 
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.google.appengine.api.users.User;
@@ -20,7 +21,6 @@ import teammates.logic.core.AccountsLogic;
 import teammates.logic.core.InstructorsLogic;
 import teammates.logic.core.StudentsLogic;
 
-import java.util.regex.Matcher;
 
 /**
  * Provides access control mechanisms.
@@ -364,15 +364,15 @@ public class GateKeeper {
     }
     
     //New Method for RMIT check
-    public boolean isRMIT(String email) {
+    public boolean isRmit(String email) {
     	Pattern pattern = Pattern.compile("^s[0-9]{7}@((student.rmit.edu.au)|(rmit.edu.au))$", Pattern.CASE_INSENSITIVE); 
     	Matcher matcher = pattern.matcher(email);
     	
-    	if(matcher.matches()) {
-    		return true;
-    	}else {
-        	throw new UnauthorizedAccessException("Invalid RMIT account.");
-    	}
+        if (matcher.matches()) {
+            return true;
+        } else {
+            throw new UnauthorizedAccessException("Invalid RMIT account.");
+        }
     	
 
     }
