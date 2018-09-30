@@ -97,11 +97,11 @@ public class InstructorReportsPageData extends PageData {
         
     }
     
-    public List<StudentAttributes> getStudentAttributes(){
+    public List<StudentAttributes> getStudentAttributes() {
         return studentAttributes;
     }
     
-    public List<StudentAttributes> getStudentNotAcceptedInvitation(){
+    public List<StudentAttributes> getStudentNotAcceptedInvitation() {
         return studentNotAcceptedInvitation;
     }
     

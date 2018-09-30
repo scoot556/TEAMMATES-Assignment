@@ -107,8 +107,7 @@ public class InstructorReportsPageAction extends Action {
                 }).collect(Collectors.toList());
                 
                 return details;
-            } 
-            catch(EntityDoesNotExistException e){
+            } catch (EntityDoesNotExistException e) {
                 return null;
             }
         }).collect(Collectors.toList());
@@ -126,7 +125,7 @@ public class InstructorReportsPageAction extends Action {
         
         // build viewmodel
         InstructorReportsPageData data = new InstructorReportsPageData(account, sessionToken);
-        data.init(courseDetailsList, numberOfCourses, numStudentsThatAcceptedInvitation, numStudentNotAcceptedInvitation, numActiveSessions,feedbackRate, studentsThatAcceptedInvitation, studentsNotAcceptedInvitation);
+        data.init(courseDetailsList, numberOfCourses, numStudentsThatAcceptedInvitation, numStudentNotAcceptedInvitation, numActiveSessions, feedbackRate, studentsThatAcceptedInvitation, studentsNotAcceptedInvitation);
         
         return createShowPageResult(
             Const.ViewURIs.INSTRUCTOR_REPORTS, data

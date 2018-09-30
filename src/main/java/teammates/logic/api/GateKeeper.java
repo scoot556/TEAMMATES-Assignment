@@ -368,9 +368,9 @@ public class GateKeeper {
     	Pattern pattern = Pattern.compile("^s[0-9]{7}@((student.rmit.edu.au)|(rmit.edu.au))$", Pattern.CASE_INSENSITIVE); 
     	Matcher matcher = pattern.matcher(email);
     	
-        if(matcher.matches()) {
+        if (matcher.matches()) {
             return true;
-        }else {
+        } else {
             throw new UnauthorizedAccessException("Invalid RMIT account.");
         }
     	

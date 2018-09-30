@@ -102,8 +102,11 @@ public class AdminSearchPageAction extends Action {
         int paramValInt = defaultValue;
         String paramStr = getRequestParamValue(parameterName);
         if (paramStr != null && !paramStr.isEmpty()) {
-            try { paramValInt = Integer.parseInt(paramStr); } 
-            catch (NumberFormatException e) { paramValInt = defaultValue; }
+            try { 
+                paramValInt = Integer.parseInt(paramStr); 
+            } catch (NumberFormatException e) { 
+                paramValInt = defaultValue; 
+            }
         } 
         
         return paramValInt;

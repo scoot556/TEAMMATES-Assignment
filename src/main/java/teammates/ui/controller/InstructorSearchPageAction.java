@@ -31,16 +31,22 @@ public class InstructorSearchPageAction extends Action {
         int itemsPerPage = InstructorSearchPagePaginatedData.GIVEN_ITEMS_PER_PAGE[0]; // 5 items per page
         String itemsPerPageString = getRequestParamValue("items-per-page");
         if (itemsPerPageString != null && !itemsPerPageString.isEmpty()) {
-            try { itemsPerPage = Integer.parseInt(itemsPerPageString); } 
-            catch (NumberFormatException e) { itemsPerPage = 0; }
+            try { 
+                itemsPerPage = Integer.parseInt(itemsPerPageString); 
+            } catch (NumberFormatException e) { 
+                itemsPerPage = 0; 
+            }
         }
         
         // get from search request "page"
         int pageNumber = 1;
         String pageNumberString = getRequestParamValue("page");
         if (pageNumberString != null && !pageNumberString.isEmpty()) {
-            try { pageNumber = Integer.parseInt(pageNumberString); } 
-            catch (NumberFormatException e) { pageNumber = 1; }
+            try { 
+                pageNumber = Integer.parseInt(pageNumberString); 
+            } catch (NumberFormatException e) { 
+                pageNumber = 1; 
+            }
             pageNumber = pageNumber <= 0 ? 1 : pageNumber;
         }
         
