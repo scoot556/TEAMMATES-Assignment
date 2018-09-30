@@ -46,12 +46,12 @@ public class InstructorReportsPageData extends PageData {
     private List<CourseDetailsBundle> courseDetailsList;
     private List<InstructorReportsPageData.Table> coursesTabTableData;
     
-    private int numberOfCourses = 0;
-    private int studentsThatAcceptedInvitation = 0;
-    private int numStudentNotAcceptedInvitation = 0;
-    private int totalStudents = 0;
-    private int numActiveSessions = 0;
-    private double feedbackRate = 0.0;
+    private int numberOfCourses;
+    private int studentsThatAcceptedInvitation;
+    private int numStudentNotAcceptedInvitation;
+    private int totalStudents;
+    private int numActiveSessions;
+    private double feedbackRate;
     
     //Total Students list
     private List<StudentAttributes> studentAttributes; //Accepted students
@@ -62,6 +62,13 @@ public class InstructorReportsPageData extends PageData {
     
     public InstructorReportsPageData(AccountAttributes account, String sessionToken) {
         super(account, sessionToken);
+
+        numberOfCourses = 0;
+        studentsThatAcceptedInvitation = 0;
+        numStudentNotAcceptedInvitation = 0;
+        totalStudents = 0;
+        numActiveSessions = 0;
+        feedbackRate = 0.0;
     }
     
     public void init(
