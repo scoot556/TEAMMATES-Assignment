@@ -60,7 +60,7 @@ public abstract class FeedbackSubmissionEditSaveAction extends Action {
         Assumption.assertPostParamNotNull(Const.ParamsNames.COURSE_ID, courseId);
         Assumption.assertPostParamNotNull(Const.ParamsNames.FEEDBACK_SESSION_NAME, feedbackSessionName);
 
-        String pdfBlobKeyString = processUploadedPDF(request);
+        String pdfBlobKeyString = processUploadedPdf(request);
         if (pdfBlobKeyString == null) {
             pdfBlobKeyString = getRequestParamValue("pdf-attachment-key");
         }
@@ -257,8 +257,8 @@ public abstract class FeedbackSubmissionEditSaveAction extends Action {
         return createSpecificRedirectResult();
     }
 
-    private String processUploadedPDF(HttpServletRequest request) {
-        BlobInfo pdfBlob = getUploadedPDF(request);
+    private String processUploadedPdf(HttpServletRequest request) {
+        BlobInfo pdfBlob = getUploadedPdf(request);
         if (pdfBlob == null) {
             return null;
         }
@@ -266,7 +266,7 @@ public abstract class FeedbackSubmissionEditSaveAction extends Action {
         return pdfBlob.getBlobKey().getKeyString();
     }
     
-    private BlobInfo getUploadedPDF(HttpServletRequest request) {
+    private BlobInfo getUploadedPdf(HttpServletRequest request) {
         try {
             Map<String, List<BlobInfo>> blobsMap = BlobstoreServiceFactory.getBlobstoreService().getBlobInfos(request);
             List<BlobInfo> blobs = blobsMap.get("pdf-file");
@@ -275,14 +275,14 @@ public abstract class FeedbackSubmissionEditSaveAction extends Action {
             }
             
             BlobInfo pdfBlob = blobs.get(0);
-            return validatePDF(pdfBlob);
+            return validatePdf(pdfBlob);
         } catch (IllegalStateException e) {
             log.info(e.getMessage());
             return null;
         }
     }
 
-    private BlobInfo validatePDF(BlobInfo pdfBlob) {
+    private BlobInfo validatePdf(BlobInfo pdfBlob) {
         if (pdfBlob.getContentType().equals("application/pdf")) {
             return pdfBlob;
         }
