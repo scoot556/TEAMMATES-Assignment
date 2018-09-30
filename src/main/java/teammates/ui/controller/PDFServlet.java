@@ -1,6 +1,7 @@
 package teammates.ui.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,10 +13,10 @@ import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
 
 
 public class PDFServlet extends HttpServlet {
-    private BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
-    
     private static final long serialVersionUID = 1L;
-    
+
+    private BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
+
     public PDFServlet() {
         super();
     }

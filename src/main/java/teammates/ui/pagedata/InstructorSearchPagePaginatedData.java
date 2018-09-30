@@ -2,6 +2,7 @@ package teammates.ui.pagedata;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import teammates.common.datatransfer.StudentSearchResultBundle;
 import teammates.common.datatransfer.attributes.AccountAttributes;
 import teammates.common.datatransfer.attributes.StudentAttributes;

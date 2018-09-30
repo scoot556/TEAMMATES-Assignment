@@ -32,6 +32,14 @@ import teammates.ui.template.StudentListSectionData;
  * PageData: the data to be used in the InstructorSearchPage.
  */
 public class InstructorSearchPageData extends PageData {
+    
+    /* Tables containing search results */
+    protected List<SearchFeedbackSessionDataTable> searchFeedbackSessionDataTables;
+    protected List<SearchStudentsTable> searchStudentsTables;
+    
+    /* course */
+    protected List<CourseAttributes> courses = new ArrayList<>();
+
     private String searchKey = "";
 
     /* Whether checkbox is checked for search input */
@@ -44,12 +52,6 @@ public class InstructorSearchPageData extends PageData {
     private boolean isStudentsEmpty;
     private boolean isCoursesEmpty;
 
-    /* Tables containing search results */
-    protected List<SearchFeedbackSessionDataTable> searchFeedbackSessionDataTables;
-    protected List<SearchStudentsTable> searchStudentsTables;
-    
-    /* course */
-    protected List<CourseAttributes> courses = new ArrayList<>();
 
     public InstructorSearchPageData(AccountAttributes account, String sessionToken) {
         super(account, sessionToken);

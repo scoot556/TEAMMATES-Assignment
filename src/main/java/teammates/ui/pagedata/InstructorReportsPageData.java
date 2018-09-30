@@ -22,6 +22,7 @@ public class InstructorReportsPageData extends PageData {
             public String getName() {
                 return name;
             }
+
             public String getResponseRate() {
                 return String.format("%d / %d", stats.submittedTotal, stats.expectedTotal);
             }
@@ -29,9 +30,11 @@ public class InstructorReportsPageData extends PageData {
         
         public CourseDetailsBundle courseDetails;
         public List<FeedbackSessionTable> feedbackSessions;
+        
         public CourseDetailsBundle getCourseDetails() {
             return courseDetails;
         }
+
         public List<FeedbackSessionTable> getFeedbackSessions() {
             return feedbackSessions;
         }
