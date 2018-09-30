@@ -36,7 +36,7 @@ public class SearchFiltersTests extends BaseActionTest {
     @Override
     protected void testExecuteAndPostProcess() throws Exception {
         String[] submissionParams = new String[] {
-            "searchCourses", "true"
+                "searchCourses", "true"
         };
         
         setupAndLoginAsInstructor();

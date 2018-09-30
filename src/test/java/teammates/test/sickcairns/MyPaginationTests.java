@@ -128,8 +128,8 @@ public class MyPaginationTests extends BaseActionTest {
         int currentPage = 1;
         
         String[] submissionParams = new String[] {
-            "items-per-page", Integer.toString(itemsPerPage),
-            "page", Integer.toString(currentPage),
+                "items-per-page", Integer.toString(itemsPerPage),
+                "page", Integer.toString(currentPage),
         };
         
         setupAndLoginAsInstructor();
