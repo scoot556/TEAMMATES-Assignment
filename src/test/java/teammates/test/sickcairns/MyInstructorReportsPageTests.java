@@ -76,7 +76,7 @@ public class MyInstructorReportsPageTests extends BaseActionTest {
     }
     
     private void verifySummaryTabData(InstructorReportsPageData pageData) {
-        fail("Not yet implemented");
+        fail("Not yet implemented: " + pageData.toString());
     }
 
     

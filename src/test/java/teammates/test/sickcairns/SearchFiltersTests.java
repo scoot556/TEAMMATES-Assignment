@@ -49,7 +49,7 @@ public class SearchFiltersTests extends BaseActionTest {
         
         List<CourseAttributes> courses = pageData.getCourses();
         assertNotNull(courses);
-        assertTrue(courses.size() > 0);
+        assertTrue(!courses.isEmpty());
         
     }
     

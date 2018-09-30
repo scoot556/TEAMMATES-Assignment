@@ -22,18 +22,7 @@ import teammates.ui.template.SearchStudentsTable;
  * Class that attempts to test the pagination logic.
  */
 public class MyPaginationTests extends BaseActionTest {
-    
-    
 
-    @BeforeClass
-    public void beforeClass() {
-        
-    }
-    
-    @BeforeTest
-    public void beforeTest() {
-    }
-    
     private List<StudentAttributes> createMockStudents(int number) {
         List<StudentAttributes> mockStudents = new ArrayList<>();
         String courseId = Integer.toString(1);
