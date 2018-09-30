@@ -53,7 +53,7 @@ public class InstructorFeedbackRemindParticularStudentsPageActionTest extends Ba
         assertTrue(pageData.getResponseStatus().studentsWhoResponded.contains("student1InCourse1@student.rmit.edu.au"));
         assertFalse(pageData.getResponseStatus().studentsWhoDidNotRespond.contains("student2InCourse1@student.rmit.edu.au"));
         assertTrue(pageData.getResponseStatus().studentsWhoResponded.contains("student3InCourse1@student.rmit.edu.au"));
-        assertTrue(pageData.getResponseStatus().studentsWhoDidNotRespond.contains("student4InCourse1@gmail.tmt"));
+        assertTrue(pageData.getResponseStatus().studentsWhoDidNotRespond.contains("student4InCourse1@student.rmit.edu.au"));
         assertFalse(pageData.getResponseStatus().studentsWhoResponded.contains("student5InCourse1@gmail.tmt"));
         assertFalse(pageData.getResponseStatus().studentsWhoDidNotRespond.contains("student6InCourse1@gmail.tmt"));
 

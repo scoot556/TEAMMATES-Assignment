@@ -191,7 +191,7 @@ public class FeedbackResponsesLogicTest extends BaseLogicTest {
         responseToUpdate.recipient = "Team 1.1";
 
         assertNotNull(frLogic.getFeedbackResponse(
-                responseToUpdate.feedbackQuestionId, "student4InCourse1@gmail.tmt", "Team 1.2"));
+                responseToUpdate.feedbackQuestionId, "student4InCourse1@student.rmit.edu.au", "Team 1.2"));
 
         frLogic.updateFeedbackResponse(responseToUpdate);
 
@@ -199,7 +199,7 @@ public class FeedbackResponsesLogicTest extends BaseLogicTest {
                                                  responseToUpdate.recipient).toString(),
                      responseToUpdate.toString());
         assertNull(frLogic.getFeedbackResponse(
-                responseToUpdate.feedbackQuestionId, "student4InCourse1@gmail.tmt", "Team 1.2"));
+                responseToUpdate.feedbackQuestionId, "student4InCourse1@student.rmit.edu.au", "Team 1.2"));
 
         ______TS("failure: invalid params");
 

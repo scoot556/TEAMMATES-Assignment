@@ -195,7 +195,7 @@
     },
     "student4InCourse1": {
       "googleId": "FSDTest.student4InCourse1",
-      "email": "FSDTest.student4InCourse1@gmail.tmt",
+      "email": "FSDTest.student4InCourse1@student.rmit.edu.au",
       "course": "FSDTest.idOfTypicalCourse1",
       "name": "student4 In Course1",
       "comments": "comment for student4InCourse1",
@@ -646,7 +646,7 @@
       "courseId": "FSDTest.idOfTypicalCourse1",
       "feedbackQuestionId": "4",
       "feedbackQuestionType": "TEXT",
-      "giver": "FSDTest.student4InCourse1@gmail.tmt",
+      "giver": "FSDTest.student4InCourse1@student.rmit.edu.au",
       "recipient": "Team 1.2",
       "responseMetaData": {
         "value": "student 5 feedback to Team 1.2."
@@ -680,7 +680,7 @@
       "feedbackQuestionId": "5",
       "feedbackQuestionType": "TEXT",
       "giver": "FSDTest.student2InCourse1@student.rmit.edu.au",
-      "recipient": "FSDTest.student4InCourse1@gmail.tmt",
+      "recipient": "FSDTest.student4InCourse1@student.rmit.edu.au",
       "responseMetaData": {
         "value": "standard stu>stu, diff teams"
       }
@@ -713,7 +713,7 @@
       "feedbackQuestionId": "7",
       "feedbackQuestionType": "TEXT",
       "giver": "FSDTest.student2InCourse1@student.rmit.edu.au",
-      "recipient": "FSDTest.student4InCourse1@gmail.tmt",
+      "recipient": "FSDTest.student4InCourse1@student.rmit.edu.au",
       "responseMetaData": {
         "value": "team 1.1 > student (in Team 1.2)"
       }
@@ -734,7 +734,7 @@
       "courseId": "FSDTest.idOfTypicalCourse1",
       "feedbackQuestionId": "8",
       "feedbackQuestionType": "TEXT",
-      "giver": "FSDTest.student4InCourse1@gmail.tmt",
+      "giver": "FSDTest.student4InCourse1@student.rmit.edu.au",
       "recipient": "Team 1.1</td></div>'\"",
       "responseMetaData": {
         "value": "team 1.2 > team 1.1"

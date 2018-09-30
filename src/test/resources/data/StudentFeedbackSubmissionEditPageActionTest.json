@@ -482,7 +482,7 @@
     },
     "student4InCourse1": {
       "googleId": "student4InCourse1",
-      "email": "student4InCourse1@gmail.tmt",
+      "email": "student4InCourse1@student.rmit.edu.au",
       "course": "idOfTypicalCourse1",
       "name": "student4 In Course1",
       "comments": "",
@@ -1162,7 +1162,7 @@
       "courseId": "idOfTypicalCourse1",
       "feedbackQuestionId": "1",
       "feedbackQuestionType": "TEXT",
-      "giver": "student4InCourse1@gmail.tmt",
+      "giver": "student4InCourse1@student.rmit.edu.au",
       "recipient": "Team 1.2",
       "responseMetaData": {
         "value": "Response from team 1 by (student 4) to team 1.2."
@@ -1175,7 +1175,7 @@
       "courseId": "idOfTypicalCourse1",
       "feedbackQuestionId": "2",
       "feedbackQuestionType": "TEXT",
-      "giver": "student4InCourse1@gmail.tmt",
+      "giver": "student4InCourse1@student.rmit.edu.au",
       "recipient": "Team 1.2",
       "responseMetaData": {
         "value": "Response from team 1 by (student 4) to team 1.2."
@@ -1214,7 +1214,7 @@
       "courseId": "idOfTypicalCourse1",
       "feedbackQuestionId": "2",
       "feedbackQuestionType": "TEXT",
-      "giver": "student4InCourse1@gmail.tmt",
+      "giver": "student4InCourse1@student.rmit.edu.au",
       "recipient": "student2InCourse1@student.rmit.edu.au",
       "responseMetaData": {
         "value": "Response from student 4 to team member (student 2)."
@@ -1228,7 +1228,7 @@
       "feedbackQuestionId": "2",
       "feedbackQuestionType": "TEXT",
       "giver": "student1InCourse1@student.rmit.edu.au",
-      "recipient": "student4InCourse1@gmail.tmt",
+      "recipient": "student4InCourse1@student.rmit.edu.au",
       "responseMetaData": {
         "value": "Response from student 1 to team member (student 4)."
       },
