@@ -83,7 +83,7 @@ public class StudentFeedbackResultsPageDataTest extends BaseComponentTestCase {
                       + "currently open and view results without logging in. "
                       + "To access other features you need <a href='/page/studentCourseJoinAuthentication?"
                       + "key=" + StringHelper.encrypt(dummyKey)
-                      + "&studentemail=student1InCourse1%40gmail.tmt&courseid=idOfTypicalCourse1' class='link'>"
+                      + "&studentemail=student1InCourse1%40student.rmit.edu.au&courseid=idOfTypicalCourse1' class='link'>"
                       + "to login using a Google account</a> (recommended).",
                       pageData.getRegisterMessage());
 
