@@ -14,6 +14,9 @@ import teammates.ui.controller.InstructorReportsPageAction;
 import teammates.ui.controller.ShowPageResult;
 import teammates.ui.pagedata.InstructorReportsPageData;
 
+/**
+ * Class that attempts to test the instructor's reports page.
+ */
 public class MyInstructorReportsPageTests extends BaseActionTest {
     
     private InstructorAttributes createMockInstructor() {

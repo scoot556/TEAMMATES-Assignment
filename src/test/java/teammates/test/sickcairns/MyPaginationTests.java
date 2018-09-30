@@ -1,5 +1,10 @@
 package teammates.test.sickcairns;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import teammates.common.datatransfer.attributes.InstructorAttributes;
@@ -12,12 +17,10 @@ import teammates.ui.controller.ShowPageResult;
 import teammates.ui.pagedata.InstructorSearchPagePaginatedData;
 import teammates.ui.template.SearchStudentsTable;
 
-import java.util.ArrayList;
-import java.util.List;
 
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
-
+/**
+ * Class that attempts to test the pagination logic.
+ */
 public class MyPaginationTests extends BaseActionTest {
     
     
@@ -48,7 +51,8 @@ public class MyPaginationTests extends BaseActionTest {
         int itemsPerPage = 5;
         int pageNumber = 1;
         List<StudentAttributes> students = createMockStudents(20);
-        InstructorSearchPagePaginatedData pageData = new InstructorSearchPagePaginatedData(null, null, itemsPerPage, pageNumber);
+        InstructorSearchPagePaginatedData pageData = new InstructorSearchPagePaginatedData(
+                null, null, itemsPerPage, pageNumber);
         List<StudentAttributes> paginatedStudents = pageData.paginateStudents(students, pageNumber, itemsPerPage);
         assertEquals(itemsPerPage, paginatedStudents.size());
     }
@@ -59,7 +63,8 @@ public class MyPaginationTests extends BaseActionTest {
         int itemsPerPage = 10;
         int pageNumber = 1;
         List<StudentAttributes> students = createMockStudents(21);
-        InstructorSearchPagePaginatedData pageData = new InstructorSearchPagePaginatedData(null, null, itemsPerPage, pageNumber);
+        InstructorSearchPagePaginatedData pageData = new InstructorSearchPagePaginatedData(
+                null, null, itemsPerPage, pageNumber);
         List<StudentAttributes> paginatedStudents = pageData.paginateStudents(students, pageNumber, itemsPerPage);
         assertEquals(itemsPerPage, paginatedStudents.size());
     }
@@ -69,7 +74,8 @@ public class MyPaginationTests extends BaseActionTest {
         int itemsPerPage = 5;
         int pageNumber = 5;
         List<StudentAttributes> students = createMockStudents(23);
-        InstructorSearchPagePaginatedData pageData = new InstructorSearchPagePaginatedData(null, null, itemsPerPage, pageNumber);
+        InstructorSearchPagePaginatedData pageData = new InstructorSearchPagePaginatedData(
+                null, null, itemsPerPage, pageNumber);
         List<StudentAttributes> paginatedStudents = pageData.paginateStudents(students, pageNumber, itemsPerPage);
         assertEquals(3, paginatedStudents.size());
     }
@@ -79,7 +85,8 @@ public class MyPaginationTests extends BaseActionTest {
         int itemsPerPage = 5;
         int pageNumber = 5;
         List<StudentAttributes> students = createMockStudents(25);
-        InstructorSearchPagePaginatedData pageData = new InstructorSearchPagePaginatedData(null, null, itemsPerPage, pageNumber);
+        InstructorSearchPagePaginatedData pageData = new InstructorSearchPagePaginatedData(
+                null, null, itemsPerPage, pageNumber);
         List<StudentAttributes> paginatedStudents = pageData.paginateStudents(students, pageNumber, itemsPerPage);
         assertEquals(5, paginatedStudents.size());
     }
@@ -89,7 +96,8 @@ public class MyPaginationTests extends BaseActionTest {
         int itemsPerPage = 5;
         int pageNumber = 6;
         List<StudentAttributes> students = createMockStudents(25);
-        InstructorSearchPagePaginatedData pageData = new InstructorSearchPagePaginatedData(null, null, itemsPerPage, pageNumber);
+        InstructorSearchPagePaginatedData pageData = new InstructorSearchPagePaginatedData(
+                null, null, itemsPerPage, pageNumber);
         List<StudentAttributes> paginatedStudents = pageData.paginateStudents(students, pageNumber, itemsPerPage);
         assertEquals(0, paginatedStudents.size());
     }
@@ -99,7 +107,8 @@ public class MyPaginationTests extends BaseActionTest {
         int itemsPerPage = 50;
         int pageNumber = 1;
         List<StudentAttributes> students = createMockStudents(25);
-        InstructorSearchPagePaginatedData pageData = new InstructorSearchPagePaginatedData(null, null, itemsPerPage, pageNumber);
+        InstructorSearchPagePaginatedData pageData = new InstructorSearchPagePaginatedData(
+                null, null, itemsPerPage, pageNumber);
         List<StudentAttributes> paginatedStudents = pageData.paginateStudents(students, pageNumber, itemsPerPage);
         assertEquals(25, paginatedStudents.size());
     }

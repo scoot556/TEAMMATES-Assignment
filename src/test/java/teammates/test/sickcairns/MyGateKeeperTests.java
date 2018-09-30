@@ -5,6 +5,9 @@ import org.testng.annotations.Test;
 import teammates.common.exception.UnauthorizedAccessException;
 import teammates.test.cases.logic.GateKeeperTest;
 
+/**
+ * Test for allowing and disallowing RMIT and non-RMIT emails.
+ */
 public class MyGateKeeperTests extends GateKeeperTest {
 
     @Test

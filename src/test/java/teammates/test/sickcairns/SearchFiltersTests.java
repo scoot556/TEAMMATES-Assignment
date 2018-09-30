@@ -13,6 +13,9 @@ import teammates.ui.controller.InstructorSearchPageAction;
 import teammates.ui.controller.ShowPageResult;
 import teammates.ui.pagedata.InstructorSearchPagePaginatedData;
 
+/**
+ * Test class that tests for search filters.
+ */
 public class SearchFiltersTests extends BaseActionTest {
     
     private void createMultipleCourses(String instructorId) throws Exception {
