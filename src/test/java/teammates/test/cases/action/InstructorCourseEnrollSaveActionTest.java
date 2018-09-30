@@ -51,7 +51,7 @@ public class InstructorCourseEnrollSaveActionTest extends BaseActionTest {
                        + "Section 3 \t Team 1\tJean Wong\tjean@email.tmt\tExchange student" + System.lineSeparator()
                        // A new student with extra spaces in the team and name
                        + "Section 3 \t Team   1\tstudent  with   extra  spaces  \t"
-                       + "studentWithExtraSpaces@gmail.tmt\t" + System.lineSeparator()
+                       + "studentWithExtraSpaces@student.rmit.edu.au\t" + System.lineSeparator()
                        // A student to be modified
                        + "Section 2 \t Team 1.3\tstudent1 In Course1</td></div>'\"\tstudent1InCourse1@student.rmit.edu.au\t"
                        + "New comment added" + System.lineSeparator()
@@ -97,7 +97,7 @@ public class InstructorCourseEnrollSaveActionTest extends BaseActionTest {
         verifyStudentEnrollmentStatus(newStudent, pageData.getEnrollResultPanelList());
 
         StudentAttributes newStudentWithExtraSpaces = StudentAttributes
-                .builder(courseId, "student with extra spaces", "studentWithExtraSpaces@gmail.tmt")
+                .builder(courseId, "student with extra spaces", "studentWithExtraSpaces@student.rmit.edu.au")
                 .withSection("Section 3")
                 .withTeam("Team 1")
                 .withComments("")
