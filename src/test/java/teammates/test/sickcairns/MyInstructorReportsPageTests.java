@@ -15,70 +15,70 @@ import teammates.ui.controller.ShowPageResult;
 import teammates.ui.pagedata.InstructorReportsPageData;
 
 public class MyInstructorReportsPageTests extends BaseActionTest {
-	
-	private InstructorAttributes createMockInstructor() {
-		InstructorAttributes instructor1OfCourse1 = typicalBundle.instructors.get("instructor1OfCourse1");
+    
+    private InstructorAttributes createMockInstructor() {
+        InstructorAttributes instructor1OfCourse1 = typicalBundle.instructors.get("instructor1OfCourse1");
         return typicalBundle.instructors.get("instructor1OfCourse1");
-	}
+    }
 
-	private void setupAndLoginAsInstructor() throws Exception {
-		InstructorAttributes instructor1ofCourse1 = createMockInstructor();
+    private void setupAndLoginAsInstructor() throws Exception {
+        InstructorAttributes instructor1ofCourse1 = createMockInstructor();
         String instructorId = instructor1ofCourse1.googleId;
         gaeSimulation.loginAsInstructor(instructorId);
         
         createMockFeedbacks();
-	}
-	
-	private List<FeedbackSessionAttributes> createMockFeedbacks() {
-		
-		// TODO: Create mock feedbacks
-		
-		return new ArrayList<>();
-	}
+    }
+    
+    private List<FeedbackSessionAttributes> createMockFeedbacks() {
+        
+        // TODO: Create mock feedbacks
+        
+        return new ArrayList<>();
+    }
 
-	@Override
-	protected String getActionUri() {
-		return Const.ActionURIs.INSTRUCTOR_REPORTS_PAGE;
-	}
+    @Override
+    protected String getActionUri() {
+        return Const.ActionURIs.INSTRUCTOR_REPORTS_PAGE;
+    }
 
-	@Override
-	protected InstructorReportsPageAction getAction(String... params) {
-		return (InstructorReportsPageAction) gaeSimulation.getActionObject(getActionUri(), params);
-	}
-	
-	@Override
-	protected void testAccessControl() throws Exception {
-		String[] submissionParams = new String[] {};
+    @Override
+    protected InstructorReportsPageAction getAction(String... params) {
+        return (InstructorReportsPageAction) gaeSimulation.getActionObject(getActionUri(), params);
+    }
+    
+    @Override
+    protected void testAccessControl() throws Exception {
+        String[] submissionParams = new String[] {};
         verifyOnlyInstructorsCanAccess(submissionParams);
-	}
+    }
 
-	@Test
-	@Override
-	protected void testExecuteAndPostProcess() throws Exception {
-		String[] submissionParams = new String[] {};
-		setupAndLoginAsInstructor();
-		
-		InstructorReportsPageAction action = getAction(submissionParams);
-		ShowPageResult pageResult = getShowPageResult(action);
+    @Test
+    @Override
+    protected void testExecuteAndPostProcess() throws Exception {
+        String[] submissionParams = new String[] {};
+        setupAndLoginAsInstructor();
+        
+        InstructorReportsPageAction action = getAction(submissionParams);
+        ShowPageResult pageResult = getShowPageResult(action);
         InstructorReportsPageData pageData = (InstructorReportsPageData) pageResult.data;
         
         verifyCourseTabTableData(pageData);
         verifySummaryTabData(pageData);
-	}
-	
-	private void verifyCourseTabTableData(InstructorReportsPageData pageData) {
-		List<CourseDetailsBundle> courseDetailsList = pageData.getCourseDetailsList();
-		List<InstructorReportsPageData.Table> coursesTabTableData = pageData.getCoursesTabTableData();
-		
-		assertEquals(courseDetailsList.size(), coursesTabTableData.size());
-	}
-	
-	private void verifySummaryTabData(InstructorReportsPageData pageData) {
-		fail("Not yet implemented");
-	}
+    }
+    
+    private void verifyCourseTabTableData(InstructorReportsPageData pageData) {
+        List<CourseDetailsBundle> courseDetailsList = pageData.getCourseDetailsList();
+        List<InstructorReportsPageData.Table> coursesTabTableData = pageData.getCoursesTabTableData();
+        
+        assertEquals(courseDetailsList.size(), coursesTabTableData.size());
+    }
+    
+    private void verifySummaryTabData(InstructorReportsPageData pageData) {
+        fail("Not yet implemented");
+    }
 
-	
+    
   
-	
-	
+    
+    
 }
