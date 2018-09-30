@@ -9,6 +9,8 @@ public class FeedbackSubmissionEditResponse {
     private String submissionFormHtml;
     private String responseId;
 
+	private String pdfAttachmentKey;
+
     public FeedbackSubmissionEditResponse(int responseIndx, boolean isExistingResponse,
                                     List<String> recipientOptionsForQuestion, String submissionFormHtml, String responseId) {
 
@@ -37,5 +39,13 @@ public class FeedbackSubmissionEditResponse {
 
     public String getResponseId() {
         return responseId;
+    }
+    
+    public String getPdfAttachmentKey() {
+    	return pdfAttachmentKey;
+    }
+    
+    public void setPdfAttachmentKey(String pdfAttachmentKey) {
+    	this.pdfAttachmentKey = pdfAttachmentKey;
     }
 }
