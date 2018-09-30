@@ -9,7 +9,6 @@ import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.mortbay.log.Log;
 
 import com.google.appengine.api.blobstore.BlobInfo;
 import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
@@ -278,7 +277,7 @@ public abstract class FeedbackSubmissionEditSaveAction extends Action {
     		BlobInfo pdfBlob = blobs.get(0);
     		return validatePDF(pdfBlob);
     	} catch (IllegalStateException e) {
-    		Log.info(e.getMessage());
+    		log.info(e.getMessage());
     		return null;
     	}
     }
