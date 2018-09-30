@@ -24,7 +24,6 @@ public class SearchFiltersTests extends BaseActionTest {
     }
     
     private InstructorAttributes createMockInstructor() {
-        InstructorAttributes instructor1OfCourse1 = typicalBundle.instructors.get("instructor1OfCourse1");
         return typicalBundle.instructors.get("instructor1OfCourse1");
     }
     
