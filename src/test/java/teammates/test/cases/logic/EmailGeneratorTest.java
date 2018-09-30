@@ -359,7 +359,7 @@ public class EmailGeneratorTest extends BaseLogicTest {
                 .build();
 
         StudentAttributes student = StudentAttributes
-                .builder("", "Student Name", "student@email.tmt")
+                .builder("", "Student Name", "student@student.rmit.edu.au")
                 .withKey("skxxxxxxxxxks")
                 .build();
 

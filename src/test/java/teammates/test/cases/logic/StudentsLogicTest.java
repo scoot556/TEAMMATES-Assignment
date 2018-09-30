@@ -454,7 +454,7 @@ public class StudentsLogicTest extends BaseLogicTest {
 
         String headerLine = "Team | Name | Email";
         String lineWithInvalidTeamName = invalidTeamName + "| John | john@email.tmt";
-        String lineWithInvalidStudentName = "Team 1 |" + invalidStudentName + "| student@email.tmt";
+        String lineWithInvalidStudentName = "Team 1 |" + invalidStudentName + "| student@student.rmit.edu.au";
         String lineWithInvalidEmail = "Team 1 | James |" + "James_invalid_email.tmt";
         String lineWithInvalidStudentNameAndEmail =
                 "Team 2 |" + invalidStudentName + "|" + "student_invalid_email.tmt";
@@ -540,7 +540,7 @@ public class StudentsLogicTest extends BaseLogicTest {
 
         ______TS("enrollLines with some empty fields");
 
-        String lineWithTeamNameEmpty = " | StudentWithTeamFieldEmpty | student@email.tmt";
+        String lineWithTeamNameEmpty = " | StudentWithTeamFieldEmpty | student@student.rmit.edu.au";
         String lineWithStudentNameEmpty = "Team 5 |  | no_name@email.tmt";
         String lineWithEmailEmpty = "Team 5 | StudentWithEmailFieldEmpty | |";
 
