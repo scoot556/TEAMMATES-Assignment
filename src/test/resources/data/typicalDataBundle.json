@@ -119,7 +119,7 @@
       "googleId": "student1InTestingSanitizationCourse",
       "name": "Stud1<script> alert('hi!'); </script>",
       "isInstructor": false,
-      "email": "normal@sanitization.tmt",
+      "email": "normal@student.rmit.edu.au",
       "institute": "inst<script> alert('hi!'); </script>",
       "studentProfile": {
         "googleId": "student1InTestingSanitizationCourse",
@@ -605,7 +605,7 @@
     },
     "student1InTestingSanitizationCourse": {
       "googleId": "student1InTestingSanitizationCourse",
-      "email": "normal@sanitization.tmt",
+      "email": "normal@student.rmit.edu.au",
       "course": "idOfTestingSanitizationCourse",
       "name": "Stud1<script> alert('hi!'); </script>",
       "comments": "<script> alert('hi!'); </script>",

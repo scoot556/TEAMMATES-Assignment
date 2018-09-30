@@ -77,7 +77,7 @@
       "googleId": "searchUI.student1InTestingSanitizationCourse",
       "name": "Stud1<script> alert('hi!'); </script>",
       "isInstructor": false,
-      "email": "searchUI.normal@sanitization.tmt",
+      "email": "searchUI.normal@student.rmit.edu.au",
       "institute": "inst<script> alert('hi!'); </script>",
       "studentProfile": {
         "googleId": "student1InTestingSanitizationCourse",
@@ -264,7 +264,7 @@
     },
     "student1InTestingSanitizationCourse": {
       "googleId": "searchUI.student1InTestingSanitizationCourse",
-      "email": "searchUI.normal@sanitization.tmt",
+      "email": "searchUI.normal@student.rmit.edu.au",
       "course": "searchUI.idOfTestingSanitizationCourse",
       "name": "Stud1<script> alert(\"hi!\"); </script>",
       "comments": "<script> alert('hi!'); </script>",
@@ -536,8 +536,8 @@
       "courseId": "searchUI.idOfTestingSanitizationCourse",
       "feedbackQuestionId": "1",
       "feedbackQuestionType": "TEXT",
-      "giver": "searchUI.normal@sanitization.tmt",
-      "recipient": "searchUI.normal@sanitization.tmt",
+      "giver": "searchUI.normal@student.rmit.edu.au",
+      "recipient": "searchUI.normal@student.rmit.edu.au",
       "responseMetaData": {
         "value": "Feedback reponse. Testing quotation marks '\" Testing unclosed tags </td></div> Testing script injection <script> alert('hello'); </script>"
       },
@@ -650,7 +650,7 @@
       "giverEmail": "searchUI.instructor1@sanitization.tmt",
       "giverSection": "None",
       "receiverSection": "Section'\"/></td>",
-      "feedbackResponseId": "1%searchUI.normal@sanitization.tmt%searchUI.normal@sanitization.tmt",
+      "feedbackResponseId": "1%searchUI.normal@student.rmit.edu.au%searchUI.normal@student.rmit.edu.au",
       "showCommentTo": [],
       "showGiverNameTo": [],
       "isVisibilityFollowingFeedbackQuestion": false,

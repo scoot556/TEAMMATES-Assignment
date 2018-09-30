@@ -46,7 +46,7 @@
       "googleId": "CSListUiT.student1InTestingSanitizationCourse",
       "name": "Stud1<script> alert('hi!'); </script>",
       "isInstructor": false,
-      "email": "CSListUiT.normal@sanitization.tmt",
+      "email": "CSListUiT.normal@student.rmit.edu.au",
       "institute": "inst<script> alert('hi!'); </script>",
       "studentProfile": {
         "googleId": "student1InTestingSanitizationCourse",
@@ -349,7 +349,7 @@
     },
     "student1InTestingSanitizationCourse": {
       "googleId": "CSListUiT.student1InTestingSanitizationCourse",
-      "email": "CSListUiT.normal@sanitization.tmt",
+      "email": "CSListUiT.normal@student.rmit.edu.au",
       "course": "CSListUiT.idOfTestingSanitizationCourse",
       "name": "Stud1<script> alert('hi!'); </script>",
       "comments": "<script> alert('hi!'); </script>",

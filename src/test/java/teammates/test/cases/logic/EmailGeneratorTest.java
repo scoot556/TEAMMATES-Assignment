@@ -224,7 +224,7 @@ public class EmailGeneratorTest extends BaseLogicTest {
         FeedbackSessionAttributes session = fsLogic.getFeedbackSession("Normal feedback session name",
                                                                        "idOfTestingSanitizationCourse");
         CourseAttributes course = coursesLogic.getCourse(session.getCourseId());
-        StudentAttributes student1 = studentsLogic.getStudentForEmail(course.getId(), "normal@sanitization.tmt");
+        StudentAttributes student1 = studentsLogic.getStudentForEmail(course.getId(), "normal@student.rmit.edu.au");
         InstructorAttributes instructor1 =
                 instructorsLogic.getInstructorForEmail(course.getId(), "instructor1@sanitization.tmt");
 
@@ -400,7 +400,7 @@ public class EmailGeneratorTest extends BaseLogicTest {
         ______TS("student course join email: sanitization required");
 
         CourseAttributes course = coursesLogic.getCourse("idOfTestingSanitizationCourse");
-        StudentAttributes student1 = studentsLogic.getStudentForEmail(course.getId(), "normal@sanitization.tmt");
+        StudentAttributes student1 = studentsLogic.getStudentForEmail(course.getId(), "normal@student.rmit.edu.au");
 
         EmailWrapper email = new EmailGenerator().generateStudentCourseJoinEmail(course, student1);
         String subject = String.format(EmailType.STUDENT_COURSE_JOIN.getSubject(), course.getName(), course.getId());

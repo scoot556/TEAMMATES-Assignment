@@ -130,7 +130,7 @@ public class StudentCourseDetailsPageActionTest extends BaseActionTest {
         expectedLogMessage = "TEAMMATESLOG|||studentCourseDetailsPage|||studentCourseDetailsPage|||true|||"
                 + "Student|||" + SanitizationHelper.sanitizeForHtml("Stud1<script> alert('hi!'); </script>")
                 + "|||student1InTestingSanitizationCourse|||"
-                + "normal@sanitization.tmt|||studentCourseDetails Page Load<br>"
+                + "normal@student.rmit.edu.au|||studentCourseDetails Page Load<br>"
                 + "Viewing team details for <span class=\"bold\">[idOfTestingSanitizationCourse] "
                 + SanitizationHelper.sanitizeForHtml("Testing<script> alert('hi!'); </script>")
                 + "</span>|||/page/studentCourseDetailsPage";
