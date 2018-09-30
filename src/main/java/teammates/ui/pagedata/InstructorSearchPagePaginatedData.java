@@ -17,7 +17,11 @@ public class InstructorSearchPagePaginatedData extends InstructorSearchPageData 
     private int numPages = 1;
     
     
-    public InstructorSearchPagePaginatedData(AccountAttributes account, String sessionToken, int itemsPerPage, int pageNumber) {
+    public InstructorSearchPagePaginatedData(
+            AccountAttributes account, 
+            String sessionToken, 
+            int itemsPerPage, 
+            int pageNumber) {
         super(account, sessionToken);
         this.itemsPerPage = itemsPerPage;
         this.pageNumber = pageNumber;

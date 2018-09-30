@@ -60,7 +60,9 @@ public class InstructorSearchPageData extends PageData {
     public void init(FeedbackResponseCommentSearchResultBundle frcSearchResultBundle,
                      StudentSearchResultBundle studentSearchResultBundle,
                      List<CourseAttributes> courses,
-                     String searchKey, boolean isSearchFeedbackSessionData, boolean isSearchForStudents, boolean isSearchForCourses) {
+                     String searchKey, boolean isSearchFeedbackSessionData, 
+                     boolean isSearchForStudents, 
+                     boolean isSearchForCourses) {
 
         this.searchKey = searchKey;
 

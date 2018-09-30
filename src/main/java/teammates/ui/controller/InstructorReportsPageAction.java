@@ -82,7 +82,8 @@ public class InstructorReportsPageAction extends Action {
         
         
         // get all courses
-        Map<String, CourseSummaryBundle> coursesBundle = logic.getCourseSummariesWithoutStatsForInstructor(account.googleId, true);
+        Map<String, CourseSummaryBundle> coursesBundle = logic.getCourseSummariesWithoutStatsForInstructor(
+                account.googleId, true);
         List<CourseSummaryBundle> coursesSummaries = new ArrayList<>(coursesBundle.values());
         
         
@@ -99,7 +100,8 @@ public class InstructorReportsPageAction extends Action {
                 details.feedbackSessions = feedbackSessions.stream().map(feedbackSession -> {
                     FeedbackSessionDetailsBundle feedbackSessionBundle = null;
                     try {
-                        feedbackSessionBundle = logic.getFeedbackSessionDetails(feedbackSession.getFeedbackSessionName(), courseId);
+                        feedbackSessionBundle = logic.getFeedbackSessionDetails(
+                                feedbackSession.getFeedbackSessionName(), courseId);
                     } catch (EntityDoesNotExistException e) {
                         feedbackSessionBundle = new FeedbackSessionDetailsBundle(feedbackSession);
                     }
@@ -116,16 +118,27 @@ public class InstructorReportsPageAction extends Action {
         double totalStudentsReceivedFeedback = 0.0;
         double totalStudentsSubmittedFeedback = 0.0;
         for (CourseDetailsBundle bundle : courseDetailsList) {
-            totalStudentsReceivedFeedback += bundle.feedbackSessions.stream().map(fs -> fs.stats.expectedTotal).reduce(0, (prev, accum) -> prev + accum);
-            totalStudentsSubmittedFeedback += bundle.feedbackSessions.stream().map(fs -> fs.stats.submittedTotal).reduce(0, (prev, accum) -> prev + accum);
+            totalStudentsReceivedFeedback += bundle.feedbackSessions.stream()
+                .map(fs -> fs.stats.expectedTotal).reduce(0, (prev, accum) -> prev + accum);
+            totalStudentsSubmittedFeedback += bundle.feedbackSessions.stream()
+                .map(fs -> fs.stats.submittedTotal).reduce(0, (prev, accum) -> prev + accum);
         }
-        double feedbackRate = totalStudentsReceivedFeedback == 0 ? 0 : totalStudentsSubmittedFeedback / totalStudentsReceivedFeedback;
+        double feedbackRate = totalStudentsReceivedFeedback == 0 
+                ? 0 : totalStudentsSubmittedFeedback / totalStudentsReceivedFeedback;
         feedbackRate = Math.round(feedbackRate * 10000.0) / 10000.0; // 4 decimal places only
         feedbackRate *= 100;
         
         // build viewmodel
         InstructorReportsPageData data = new InstructorReportsPageData(account, sessionToken);
-        data.init(courseDetailsList, numberOfCourses, numStudentsThatAcceptedInvitation, numStudentNotAcceptedInvitation, numActiveSessions, feedbackRate, studentsThatAcceptedInvitation, studentsNotAcceptedInvitation);
+        data.init(
+                courseDetailsList,
+                numberOfCourses,
+                numStudentsThatAcceptedInvitation,
+                numStudentNotAcceptedInvitation,
+                numActiveSessions,
+                feedbackRate,
+                studentsThatAcceptedInvitation,
+                studentsNotAcceptedInvitation);
         
         return createShowPageResult(
             Const.ViewURIs.INSTRUCTOR_REPORTS, data

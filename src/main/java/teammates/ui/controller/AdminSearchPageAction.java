@@ -65,15 +65,22 @@ public class AdminSearchPageAction extends Action {
         data.searchKey = SanitizationHelper.sanitizeForHtml(searchKey);
 
         data.studentResultBundle = logic.searchStudentsInWholeSystem(searchKey);
-        data = (AdminSearchPagePaginatedData) putFeedbackSessionLinkIntoMap(data.studentResultBundle.studentList, data);
-        data = (AdminSearchPagePaginatedData) putStudentHomePageLinkIntoMap(data.studentResultBundle.studentList, data);
-        data = (AdminSearchPagePaginatedData) putStudentRecordsPageLinkIntoMap(data.studentResultBundle.studentList, data);
-        data = (AdminSearchPagePaginatedData) putStudentInstituteIntoMap(data.studentResultBundle.studentList, data);
+        data = (AdminSearchPagePaginatedData) putFeedbackSessionLinkIntoMap(
+                data.studentResultBundle.studentList, data);
+        data = (AdminSearchPagePaginatedData) putStudentHomePageLinkIntoMap(
+                data.studentResultBundle.studentList, data);
+        data = (AdminSearchPagePaginatedData) putStudentRecordsPageLinkIntoMap(
+                data.studentResultBundle.studentList, data);
+        data = (AdminSearchPagePaginatedData) putStudentInstituteIntoMap(
+                data.studentResultBundle.studentList, data);
 
         data.instructorResultBundle = logic.searchInstructorsInWholeSystem(searchKey);
-        data = (AdminSearchPagePaginatedData) putInstructorInstituteIntoMap(data.instructorResultBundle.instructorList, data);
-        data = (AdminSearchPagePaginatedData) putInstructorHomePageLinkIntoMap(data.instructorResultBundle.instructorList, data);
-        data = (AdminSearchPagePaginatedData) putInstructorCourseJoinLinkIntoMap(data.instructorResultBundle.instructorList, data);
+        data = (AdminSearchPagePaginatedData) putInstructorInstituteIntoMap(
+                data.instructorResultBundle.instructorList, data);
+        data = (AdminSearchPagePaginatedData) putInstructorHomePageLinkIntoMap(
+                data.instructorResultBundle.instructorList, data);
+        data = (AdminSearchPagePaginatedData) putInstructorCourseJoinLinkIntoMap(
+                data.instructorResultBundle.instructorList, data);
 
         data = (AdminSearchPagePaginatedData) putCourseNameIntoMap(
             data.studentResultBundle.studentList,
