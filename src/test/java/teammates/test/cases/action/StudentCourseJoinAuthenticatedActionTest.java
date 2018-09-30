@@ -256,7 +256,7 @@ public class StudentCourseJoinAuthenticatedActionTest extends BaseActionTest {
         accountsDb.createAccount(newStudentAccount);
 
         StudentAttributes newStudentAttributes = StudentAttributes
-                .builder(student1InCourse1.course, "nameOfNewStudent", "newStudent@course1.com")
+                .builder(student1InCourse1.course, "nameOfNewStudent", "newStudent@student.rmit.edu.au")
                 .withSection(student1InCourse1.section)
                 .withTeam(student1InCourse1.team)
                 .withComments("This is a new student")
