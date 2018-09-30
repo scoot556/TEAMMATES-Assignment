@@ -12,34 +12,6 @@ import teammates.ui.template.CourseTable;
 
 public class InstructorReportsPageData extends PageData {
     
-    
-    public static class Table {
-        
-        public static class FeedbackSessionTable {
-            public String name;
-            public FeedbackSessionStats stats;
-            
-            public String getName() {
-                return name;
-            }
-
-            public String getResponseRate() {
-                return String.format("%d / %d", stats.submittedTotal, stats.expectedTotal);
-            }
-        }
-        
-        public CourseDetailsBundle courseDetails;
-        public List<FeedbackSessionTable> feedbackSessions;
-        
-        public CourseDetailsBundle getCourseDetails() {
-            return courseDetails;
-        }
-
-        public List<FeedbackSessionTable> getFeedbackSessions() {
-            return feedbackSessions;
-        }
-    }
-    
     private boolean isSortingDisabled;
     private List<CourseTable> courseTables;
     private String sortCriteria;
@@ -56,9 +28,32 @@ public class InstructorReportsPageData extends PageData {
     //Total Students list
     private List<StudentAttributes> studentAttributes; //Accepted students
     private List<StudentAttributes> studentNotAcceptedInvitation; //Not accepted Students
-    
-    
-    //Get list of students
+
+    public static class Table {
+        public CourseDetailsBundle courseDetails;
+        public List<FeedbackSessionTable> feedbackSessions;
+        
+        public static class FeedbackSessionTable {
+            public String name;
+            public FeedbackSessionStats stats;
+            
+            public String getName() {
+                return name;
+            }
+
+            public String getResponseRate() {
+                return String.format("%d / %d", stats.submittedTotal, stats.expectedTotal);
+            }
+        }
+        
+        public CourseDetailsBundle getCourseDetails() {
+            return courseDetails;
+        }
+
+        public List<FeedbackSessionTable> getFeedbackSessions() {
+            return feedbackSessions;
+        }
+    }
     
     public InstructorReportsPageData(AccountAttributes account, String sessionToken) {
         super(account, sessionToken);
