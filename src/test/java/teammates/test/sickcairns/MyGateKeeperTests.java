@@ -8,7 +8,7 @@ import teammates.test.cases.logic.GateKeeperTest;
 public class MyGateKeeperTests extends GateKeeperTest {
 
     @Test
-    public void test_validRmitEmail() throws Exception {
+    public void testvalidRmitEmail() throws Exception {
         boolean isRmit = false;
         gaeSimulation.loginUser("s3516805@student.rmit.edu.au");
         String user = gateKeeper.getCurrentUser().id;
@@ -21,7 +21,7 @@ public class MyGateKeeperTests extends GateKeeperTest {
     }
     
     @Test
-    public void test_validRmitEmail_2() throws Exception {
+    public void testvalidRmitEmail2() throws Exception {
         boolean isRmit = false;
         gaeSimulation.loginUser("s3516805@rmit.edu.au");
         String user = gateKeeper.getCurrentUser().id;
@@ -34,7 +34,7 @@ public class MyGateKeeperTests extends GateKeeperTest {
     }
 
     @Test(expectedExceptions = UnauthorizedAccessException.class)
-    public void test_invalidRmitEmail() throws Exception {
+    public void testinvalidRmitEmail() throws Exception {
         boolean isRmit = false;
         gaeSimulation.loginUser("abcde@student.rmit.edu");
         String user = gateKeeper.getCurrentUser().id;
@@ -46,7 +46,7 @@ public class MyGateKeeperTests extends GateKeeperTest {
     }
     
     @Test(expectedExceptions = UnauthorizedAccessException.class)
-    public void test_invalidRmitEmail_2() throws Exception {
+    public void testinvalidRmitEmail2() throws Exception {
         boolean isRmit = false;
         gaeSimulation.loginUser("sampleEmail@gmail.com");
         String user = gateKeeper.getCurrentUser().id;

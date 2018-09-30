@@ -44,7 +44,7 @@ public class MyPaginationTests extends BaseActionTest {
     }
     
     @Test
-    public void test_pagination_20students_5itemPerPage_page1_displays_5items() throws Exception {
+    public void testpagination20students5itemPerPagepage1displays5items() throws Exception {
         int itemsPerPage = 5;
         int pageNumber = 1;
         List<StudentAttributes> students = createMockStudents(20);
@@ -55,7 +55,7 @@ public class MyPaginationTests extends BaseActionTest {
     
     
     @Test
-    public void test_pagination_21students_10itemsPerPage_page1_returns_10items() {
+    public void testpagination21students10itemsPerPagepage1returns10items() {
         int itemsPerPage = 10;
         int pageNumber = 1;
         List<StudentAttributes> students = createMockStudents(21);
@@ -65,7 +65,7 @@ public class MyPaginationTests extends BaseActionTest {
     }
     
     @Test
-    public void test_pagination_23students_5itemsPerPage_page5_returns_3items() {
+    public void testpagination23students5itemsPerPagepage5returns3items() {
         int itemsPerPage = 5;
         int pageNumber = 5;
         List<StudentAttributes> students = createMockStudents(23);
@@ -75,7 +75,7 @@ public class MyPaginationTests extends BaseActionTest {
     }
     
     @Test
-    public void test_pagination_25students_5itemsPerPage_page5_returns_3items() {
+    public void testpagination25students5itemsPerPagepage5returns3items() {
         int itemsPerPage = 5;
         int pageNumber = 5;
         List<StudentAttributes> students = createMockStudents(25);
@@ -85,7 +85,7 @@ public class MyPaginationTests extends BaseActionTest {
     }
     
     @Test
-    public void test_pagination_25_students_5itemsPerPage_page6_returns_0items() {
+    public void testpagination25students5itemsPerPagepage6returns0items() {
         int itemsPerPage = 5;
         int pageNumber = 6;
         List<StudentAttributes> students = createMockStudents(25);
@@ -95,7 +95,7 @@ public class MyPaginationTests extends BaseActionTest {
     }
     
     @Test
-    public void test_pagination_25students_50itemsPerPage_page1_returns_25items() {
+    public void testpagination25students50itemsPerPagepage1returns25items() {
         int itemsPerPage = 50;
         int pageNumber = 1;
         List<StudentAttributes> students = createMockStudents(25);
