@@ -364,7 +364,7 @@ public class GateKeeper {
     }
     
     //New Method for RMIT check
-    public boolean isRMIT(String email) {
+    public boolean isRmit(String email) {
     	Pattern pattern = Pattern.compile("^s[0-9]{7}@((student.rmit.edu.au)|(rmit.edu.au))$", Pattern.CASE_INSENSITIVE); 
     	Matcher matcher = pattern.matcher(email);
     	

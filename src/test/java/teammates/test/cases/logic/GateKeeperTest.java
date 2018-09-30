@@ -78,7 +78,7 @@ public class GateKeeperTest extends BaseLogicTest {
     	gaeSimulation.loginUser("s3516805@student.rmit.edu.au");
     	String user = gateKeeper.getCurrentUser().id;
     	
-    	if(gateKeeper.isRMIT(user)) {
+    	if(gateKeeper.isRmit(user)) {
     		isRMIT = true;
     	}
     	
@@ -91,7 +91,7 @@ public class GateKeeperTest extends BaseLogicTest {
     	gaeSimulation.loginUser("s3516805@rmit.edu.au");
     	String user = gateKeeper.getCurrentUser().id;
     	
-    	if(gateKeeper.isRMIT(user)) {
+    	if(gateKeeper.isRmit(user)) {
     		isRMIT = true;
     	}
     	
@@ -104,7 +104,7 @@ public class GateKeeperTest extends BaseLogicTest {
     	gaeSimulation.loginUser("abcde@student.rmit.edu");
     	String user = gateKeeper.getCurrentUser().id;
 
-    	if(gateKeeper.isRMIT(user)) {
+    	if(gateKeeper.isRmit(user)) {
     		isRMIT = true;
     	}
     	assertFalse(isRMIT);
@@ -116,7 +116,7 @@ public class GateKeeperTest extends BaseLogicTest {
     	gaeSimulation.loginUser("sampleEmail@gmail.com");
     	String user = gateKeeper.getCurrentUser().id;
 
-    	if(gateKeeper.isRMIT(user)) {
+    	if(gateKeeper.isRmit(user)) {
     		isRMIT = true;
     	}
     	assertFalse(isRMIT);
