@@ -119,7 +119,7 @@ public class StudentHomePageActionTest extends BaseActionTest {
 
         expectedLogMessage = "TEAMMATESLOG|||studentHomePage|||studentHomePage|||true"
                              + "|||Student(M)|||Student in two courses|||student2InCourse1"
-                             + "|||student2InCourse1@gmail.tmt"
+                             + "|||student2InCourse1@student.rmit.edu.au"
                              + "|||studentHome Page Load<br>Total courses: 2"
                              + "|||/page/studentHomePage";
         AssertHelper.assertLogMessageEqualsInMasqueradeMode(expectedLogMessage, a.getLogMessage(), adminUserId);

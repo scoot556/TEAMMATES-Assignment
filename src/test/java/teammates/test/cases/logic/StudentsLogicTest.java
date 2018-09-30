@@ -243,7 +243,7 @@ public class StudentsLogicTest extends BaseLogicTest {
                 .withComments("")
                 .build());
         studentList.add(StudentAttributes
-                .builder(courseId, "student2 In Course1", "student2InCourse1@gmail.tmt")
+                .builder(courseId, "student2 In Course1", "student2InCourse1@student.rmit.edu.au")
                 .withSection("Section 2")
                 .withTeam("Team 1.4")
                 .withComments("")

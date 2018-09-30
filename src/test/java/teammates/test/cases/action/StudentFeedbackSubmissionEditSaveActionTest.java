@@ -1069,8 +1069,8 @@ public class StudentFeedbackSubmissionEditSaveActionTest extends BaseActionTest 
                 r.getDestinationWithParams());
 
         // Check that invalid responses have not been added to the database.
-        assertNull(frDb.getFeedbackResponse(fq.getId(), "student2InCourse1@gmail.tmt", "student1InCourse1@student.rmit.edu.au"));
-        assertNull(frDb.getFeedbackResponse(fq.getId(), "student2InCourse1@gmail.tmt", "student2InCourse1@gmail.tmt"));
+        assertNull(frDb.getFeedbackResponse(fq.getId(), "student2InCourse1@student.rmit.edu.au", "student1InCourse1@student.rmit.edu.au"));
+        assertNull(frDb.getFeedbackResponse(fq.getId(), "student2InCourse1@student.rmit.edu.au", "student2InCourse1@student.rmit.edu.au"));
     }
 
     @Test

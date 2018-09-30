@@ -182,7 +182,7 @@ public class FeedbackResponsesLogicTest extends BaseLogicTest {
                                                  responseToUpdate.recipient).toString(),
                      responseToUpdate.toString());
         assertNull(frLogic.getFeedbackResponse(
-                responseToUpdate.feedbackQuestionId, responseToUpdate.giver, "student2InCourse1@gmail.tmt"));
+                responseToUpdate.feedbackQuestionId, responseToUpdate.giver, "student2InCourse1@student.rmit.edu.au"));
 
         ______TS("success: both giver and recipient changed (teammate changed response)");
 

@@ -117,7 +117,7 @@ public class InstructorFeedbackResponseCommentDeleteActionTest extends BaseActio
         feedbackQuestion = feedbackQuestionsDb.getFeedbackQuestion(
                 "First feedback session", "idOfTypicalCourse1", questionNumber);
 
-        giverEmail = "student2InCourse1@gmail.tmt";
+        giverEmail = "student2InCourse1@student.rmit.edu.au";
         feedbackResponse = feedbackResponsesDb.getFeedbackResponse(feedbackQuestion.getId(), giverEmail,
                                                                    receiverEmail);
         feedbackResponseComment = typicalBundle.feedbackResponseComments.get("comment1FromT1C1ToR1Q2S1C1");

@@ -327,7 +327,7 @@
     },
     "student2InCourse1": {
       "googleId": "student2InCourse1",
-      "email": "student2InCourse1@gmail.tmt",
+      "email": "student2InCourse1@student.rmit.edu.au",
       "course": "idOfTypicalCourse1",
       "name": "student2 In Course1",
       "comments": "",
@@ -372,7 +372,7 @@
     },
     "student2InCourse2": {
       "googleId": "student2InCourse1",
-      "email": "student2InCourse1@gmail.tmt",
+      "email": "student2InCourse1@student.rmit.edu.au",
       "course": "idOfTypicalCourse2",
       "name": "student2 In Course2",
       "comments": "#####This is the same student as student2InCourse1 but using different name and email #####",
@@ -761,8 +761,8 @@
       "courseId": "idOfTypicalCourse1",
       "feedbackQuestionId": "1",
       "feedbackQuestionType": "TEXT",
-      "giver": "student2InCourse1@gmail.tmt",
-      "recipient": "student2InCourse1@gmail.tmt",
+      "giver": "student2InCourse1@student.rmit.edu.au",
+      "recipient": "student2InCourse1@student.rmit.edu.au",
       "responseMetaData": {
         "value": "I'm cool'"
       }
@@ -772,7 +772,7 @@
       "courseId": "idOfTypicalCourse1",
       "feedbackQuestionId": "2",
       "feedbackQuestionType": "TEXT",
-      "giver": "student2InCourse1@gmail.tmt",
+      "giver": "student2InCourse1@student.rmit.edu.au",
       "recipient": "student1InCourse1@student.rmit.edu.au",
       "responseMetaData": {
         "value": "Response from student 2 to student 1."
@@ -784,7 +784,7 @@
       "feedbackQuestionId": "2",
       "feedbackQuestionType": "TEXT",
       "giver": "student1InCourse1@student.rmit.edu.au",
-      "recipient": "student2InCourse1@gmail.tmt",
+      "recipient": "student2InCourse1@student.rmit.edu.au",
       "responseMetaData": {
         "value": "Response from student 1 to student 2."
       }
@@ -795,7 +795,7 @@
       "feedbackQuestionId": "2",
       "feedbackQuestionType": "TEXT",
       "giver": "student3InCourse1@gmail.tmt",
-      "recipient": "student2InCourse1@gmail.tmt",
+      "recipient": "student2InCourse1@student.rmit.edu.au",
       "responseMetaData": {
         "value": "Response from student 3 \"to\" student 2.\r\nMultiline test."
       }
@@ -839,7 +839,7 @@
       "feedbackQuestionId": "2",
       "feedbackQuestionType": "TEXT",
       "giver": "student4InCourse1@gmail.tmt",
-      "recipient": "student2InCourse1@gmail.tmt",
+      "recipient": "student2InCourse1@student.rmit.edu.au",
       "responseMetaData": {
         "value": "Response from student 4 to team member (student 2)."
       }
