@@ -1,8 +1,6 @@
 package teammates.ui.controller;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,22 +9,14 @@ import java.util.stream.Collectors;
 import teammates.common.datatransfer.CourseDetailsBundle;
 import teammates.common.datatransfer.CourseSummaryBundle;
 import teammates.common.datatransfer.FeedbackSessionDetailsBundle;
-import teammates.common.datatransfer.attributes.AccountAttributes;
 import teammates.common.datatransfer.attributes.CourseAttributes;
 import teammates.common.datatransfer.attributes.FeedbackSessionAttributes;
 import teammates.common.datatransfer.attributes.InstructorAttributes;
 import teammates.common.datatransfer.attributes.StudentAttributes;
 import teammates.common.exception.EntityDoesNotExistException;
-import teammates.common.util.Assumption;
 import teammates.common.util.Const;
-import teammates.common.util.Const.StatusMessages;
-import teammates.common.util.StatusMessage;
-import teammates.common.util.StatusMessageColor;
 import teammates.ui.datatransfer.InstructorStudentListPageCourseData;
-import teammates.ui.pagedata.InstructorHomePageData;
-import teammates.ui.pagedata.InstructorReportsAjaxPageData;
 import teammates.ui.pagedata.InstructorReportsPageData;
-import teammates.ui.pagedata.PageData;
 
 public class InstructorReportsPageAction extends Action {
 	

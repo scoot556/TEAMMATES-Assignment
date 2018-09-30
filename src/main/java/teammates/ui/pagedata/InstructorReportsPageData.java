@@ -1,24 +1,14 @@
 package teammates.ui.pagedata;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 import teammates.common.datatransfer.CourseDetailsBundle;
-import teammates.common.datatransfer.CourseSummaryBundle;
-import teammates.common.datatransfer.FeedbackSessionDetailsBundle;
 import teammates.common.datatransfer.FeedbackSessionStats;
 import teammates.common.datatransfer.attributes.AccountAttributes;
-import teammates.common.datatransfer.attributes.CourseAttributes;
-import teammates.common.datatransfer.attributes.FeedbackSessionAttributes;
 import teammates.common.datatransfer.attributes.StudentAttributes;
 import teammates.common.util.Const;
-import teammates.common.util.SanitizationHelper;
-import teammates.ui.datatransfer.InstructorStudentListPageCourseData;
 import teammates.ui.template.CourseTable;
-import teammates.ui.template.InstructorStudentListFilterCourse;
-import teammates.ui.template.InstructorStudentListStudentsTableCourse;
 
 public class InstructorReportsPageData extends PageData {
 	

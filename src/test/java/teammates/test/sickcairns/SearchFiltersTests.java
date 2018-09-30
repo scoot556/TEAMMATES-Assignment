@@ -9,7 +9,6 @@ import teammates.common.datatransfer.attributes.InstructorAttributes;
 import teammates.common.util.Const;
 import teammates.logic.core.CoursesLogic;
 import teammates.test.cases.action.BaseActionTest;
-import teammates.ui.controller.Action;
 import teammates.ui.controller.InstructorSearchPageAction;
 import teammates.ui.controller.ShowPageResult;
 import teammates.ui.pagedata.InstructorSearchPagePaginatedData;

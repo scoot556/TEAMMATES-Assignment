@@ -12,7 +12,6 @@ import teammates.common.datatransfer.attributes.InstructorAttributes;
 import teammates.common.util.Const;
 import teammates.common.util.StatusMessage;
 import teammates.common.util.StatusMessageColor;
-import teammates.ui.pagedata.InstructorSearchPageData;
 import teammates.ui.pagedata.InstructorSearchPagePaginatedData;
 
 /**

@@ -1,24 +1,11 @@
 package teammates.ui.pagedata;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import teammates.common.datatransfer.FeedbackResponseCommentSearchResultBundle;
-import teammates.common.datatransfer.SectionDetailsBundle;
 import teammates.common.datatransfer.StudentSearchResultBundle;
-import teammates.common.datatransfer.TeamDetailsBundle;
 import teammates.common.datatransfer.attributes.AccountAttributes;
-import teammates.common.datatransfer.attributes.InstructorAttributes;
 import teammates.common.datatransfer.attributes.StudentAttributes;
-import teammates.common.util.Const;
 import teammates.ui.template.SearchStudentsTable;
-import teammates.ui.template.StudentListSectionData;
-import teammates.ui.template.StudentListStudentData;
-import teammates.ui.template.StudentListTeamData;
 
 public class InstructorSearchPagePaginatedData extends InstructorSearchPageData {
 	public static final int[] GIVEN_ITEMS_PER_PAGE = new int[] { 5, 10, 25, 50 };
