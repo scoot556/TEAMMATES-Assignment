@@ -73,7 +73,7 @@ public class GateKeeperTest extends BaseLogicTest {
     }
     
     @Test
-    public void test_validRMITEmail() throws Exception{
+    public void test_validRmitEmail() throws Exception{
     	boolean isRMIT = false;
     	gaeSimulation.loginUser("s3516805@student.rmit.edu.au");
     	String user = gateKeeper.getCurrentUser().id;
@@ -86,7 +86,7 @@ public class GateKeeperTest extends BaseLogicTest {
     }
     
     @Test
-    public void test_validRMITEmail_2() throws Exception{
+    public void test_validRmitEmail_2() throws Exception{
     	boolean isRMIT = false;
     	gaeSimulation.loginUser("s3516805@rmit.edu.au");
     	String user = gateKeeper.getCurrentUser().id;
@@ -99,7 +99,7 @@ public class GateKeeperTest extends BaseLogicTest {
     }
 
     @Test(expectedExceptions = UnauthorizedAccessException.class)
-    public void test_invalidRMITEmail() throws Exception{
+    public void test_invalidRmitEmail() throws Exception{
     	boolean isRMIT = false;
     	gaeSimulation.loginUser("abcde@student.rmit.edu");
     	String user = gateKeeper.getCurrentUser().id;
@@ -111,7 +111,7 @@ public class GateKeeperTest extends BaseLogicTest {
     }
     
     @Test(expectedExceptions = UnauthorizedAccessException.class)
-    public void test_invalidRMITEmail_2() throws Exception{
+    public void test_invalidRmitEmail_2() throws Exception{
     	boolean isRMIT = false;
     	gaeSimulation.loginUser("sampleEmail@gmail.com");
     	String user = gateKeeper.getCurrentUser().id;
