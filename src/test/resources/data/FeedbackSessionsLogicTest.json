@@ -532,7 +532,7 @@
     },
     "student1InArchivedCourse": {
       "googleId": "student1InArchivedCourse",
-      "email": "student1InArchivedCourse@gmail.tmt",
+      "email": "student1InArchivedCourse@student.rmit.edu.au",
       "course": "idOfArchivedCourse",
       "name": "student1 In Course1",
       "comments": "",
@@ -1275,7 +1275,7 @@
       "feedbackQuestionId": "1",
       "feedbackQuestionType": "TEXT",
       "giver": "instructorOfArchiveCourse@archiveCourse.tmt",
-      "recipient": "student1InArchivedCourse@gmail.tmt",
+      "recipient": "student1InArchivedCourse@student.rmit.edu.au",
       "responseMetaData": {
         "value": "Response from instructor to student"
       },
