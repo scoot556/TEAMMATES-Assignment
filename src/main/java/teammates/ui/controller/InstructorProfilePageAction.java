@@ -2,7 +2,7 @@ package teammates.ui.controller;
 
 import teammates.common.util.Const;
 import teammates.common.util.Logger;
-import teammates.ui.pagedata.StudentProfilePageData;
+import teammates.ui.pagedata.InstructorProfilePageData;
 
 /**
  * Action: showing the profile page for a student in a course.
@@ -21,11 +21,11 @@ public class InstructorProfilePageAction extends Action {
 
         if (account.studentProfile == null) {
             log.severe("Student Profile returned as null for " + account.toString());
-            return createRedirectResult(Const.ActionURIs.STUDENT_HOME_PAGE);
+            return createRedirectResult(Const.ActionURIs.INSTRUCTOR_HOME_PAGE);
         }
 
-        StudentProfilePageData data = new StudentProfilePageData(account, sessionToken, isEditingPhoto);
-        statusToAdmin = "studentProfile Page Load <br> Profile: " + account.googleId;
+        InstructorProfilePageData data = new InstructorProfilePageData(account, sessionToken, isEditingPhoto);
+        statusToAdmin = "instructorProfile Page Load <br> Profile: " + account.googleId;
 
         return createShowPageResult(Const.ViewURIs.STUDENT_PROFILE_PAGE, data);
     }

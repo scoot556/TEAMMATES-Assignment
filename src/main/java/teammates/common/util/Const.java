@@ -939,6 +939,14 @@ public final class Const {
 
         //Instructor Reports Page link
         public static final String INSTRUCTOR_REPORTS_PAGE = "/page/instructorReportsPage";
+
+        //Instructor Profile Page link
+        public static final String INSTRUCTOR_PROFILE_PAGE = "/page/instructorProfilePage";
+        public static final String INSTRUCTOR_PROFILE_EDIT_SAVE = "/page/instructorProfileEditSave";
+        public static final String INSTRUCTOR_PROFILE_PICTURE = "/page/instructorProfilePic";
+        public static final String INSTRUCTOR_PROFILE_PICTURE_UPLOAD = "/page/instructorProfilePictureUpload";
+        public static final String INSTRUCTOR_PROFILE_PICTURE_EDIT = "/page/instructorProfilePictureEdit";
+        public static final String INSTRUCTOR_PROFILE_CREATEUPLOADFORMURL = "/page/instructorProfileCreateFormUrl";
         
         public static final String INSTRUCTOR_HOME_PAGE = "/page/instructorHomePage";
         public static final String INSTRUCTOR_COURSES_PAGE = "/page/instructorCoursesPage";
@@ -966,7 +974,6 @@ public final class Const {
         public static final String INSTRUCTOR_SEARCH_PAGE = "/page/instructorSearchPage";
         public static final String INSTRUCTOR_STUDENT_LIST_PAGE = "/page/instructorStudentListPage";
         public static final String INSTRUCTOR_STUDENT_LIST_AJAX_PAGE = "/page/instructorStudentListAjaxPage";
-        public static final String INSTRUCTOR_PROFILE_PAGE = "/page/instructorProfilePage";
 
         public static final String INSTRUCTOR_STUDENT_RECORDS_PAGE = "/page/instructorStudentRecordsPage";
         public static final String INSTRUCTOR_STUDENT_RECORDS_AJAX_PAGE = "/page/instructorStudentRecordsAjaxPage";
@@ -1154,7 +1161,10 @@ public final class Const {
 
         //Instructor custom reports page
         public static final String INSTRUCTOR_REPORTS = "/jsp/instructorReports.jsp"; 
-    	public static final String INSTRUCTOR_REPORTS_AJAX_COURSE_TABLE = "/jsp/instructorReportsAjaxCourse.jsp";
+        public static final String INSTRUCTOR_REPORTS_AJAX_COURSE_TABLE = "/jsp/instructorReportsAjaxCourse.jsp";
+            
+        //Instructor profile page
+        public static final String INSTRUCTOR_PROFILE = "/jsp/instructorProfile.jsp";
         
         public static final String INSTRUCTOR_HOME = "/jsp/instructorHome.jsp";
         public static final String INSTRUCTOR_HOME_AJAX_COURSE_TABLE = "/jsp/instructorHomeAjaxCourse.jsp";
@@ -1196,7 +1206,6 @@ public final class Const {
         public static final String INSTRUCTOR_STUDENT_LIST_AJAX = "/jsp/instructorStudentListAjax.jsp";
         public static final String INSTRUCTOR_STUDENT_RECORDS = "/jsp/instructorStudentRecords.jsp";
         public static final String INSTRUCTOR_STUDENT_RECORDS_AJAX = "/jsp/instructorStudentRecordsAjax.jsp";
-        public static final String INSTRUCTOR_PROFILE = "/jsp/instructorProfile.jsp";
         
         public static final String STUDENT_HOME = "/jsp/studentHome.jsp";
         public static final String STUDENT_COURSE_JOIN_CONFIRMATION = "/jsp/studentCourseJoinConfirmation.jsp";
