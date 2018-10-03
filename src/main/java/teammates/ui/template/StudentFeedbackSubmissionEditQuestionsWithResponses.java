@@ -37,18 +37,18 @@ public class StudentFeedbackSubmissionEditQuestionsWithResponses {
         return maxResponsesPossible;
     }
 
-	public String getPdfAttachmentKey() {
-		return pdfAttachmentKey;
-	}
-	
-	private String getPdfAttachmentKeyFromResponses(List<FeedbackSubmissionEditResponse> responses) {
-		for (FeedbackSubmissionEditResponse response : responses) {
-			if (response.getPdfAttachmentKey() != null) {
-				return response.getPdfAttachmentKey();
-			}
-		}
-		return null;
-	}
+    public String getPdfAttachmentKey() {
+        return pdfAttachmentKey;
+    }
+    
+    private String getPdfAttachmentKeyFromResponses(List<FeedbackSubmissionEditResponse> responses) {
+        for (FeedbackSubmissionEditResponse response : responses) {
+            if (response.getPdfAttachmentKey() != null) {
+                return response.getPdfAttachmentKey();
+            }
+        }
+        return null;
+    }
     
     
 }

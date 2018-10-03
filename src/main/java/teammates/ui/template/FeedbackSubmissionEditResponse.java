@@ -8,8 +8,8 @@ public class FeedbackSubmissionEditResponse {
     private List<String> recipientOptionsForQuestion;
     private String submissionFormHtml;
     private String responseId;
-
-	private String pdfAttachmentKey;
+    
+    private String pdfAttachmentKey;
 
     public FeedbackSubmissionEditResponse(int responseIndx, boolean isExistingResponse,
                                     List<String> recipientOptionsForQuestion, String submissionFormHtml, String responseId) {

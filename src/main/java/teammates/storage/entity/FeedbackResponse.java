@@ -66,7 +66,8 @@ public class FeedbackResponse extends BaseEntity {
 
     public FeedbackResponse(String feedbackSessionName, String courseId,
             String feedbackQuestionId, FeedbackQuestionType feedbackQuestionType,
-            String giverEmail, String giverSection, String recipient, String recipientSection, Text answer, String pdfAttachmentKey) {
+            String giverEmail, String giverSection, String recipient, String recipientSection, 
+            Text answer, String pdfAttachmentKey) {
         this.feedbackSessionName = feedbackSessionName;
         this.courseId = courseId;
         this.feedbackQuestionId = feedbackQuestionId;
@@ -183,11 +184,11 @@ public class FeedbackResponse extends BaseEntity {
         this.setLastUpdate(Instant.now());
     }
 
-	public String getPdfAttachmentKey() {
-		return pdfAttachmentKey;
-	}
+    public String getPdfAttachmentKey() {
+        return pdfAttachmentKey;
+    }
 
-	public void setPdfAttachmentKey(String pdfAttachmentKey) {
-		this.pdfAttachmentKey = pdfAttachmentKey;
-	}
+    public void setPdfAttachmentKey(String pdfAttachmentKey) {
+        this.pdfAttachmentKey = pdfAttachmentKey;
+    }
 }

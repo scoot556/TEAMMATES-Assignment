@@ -753,7 +753,7 @@ public final class CoursesLogic {
                 .build();
     }
 
-	public List<CourseAttributes> searchCourses(String searchKey) {
-		return coursesDb.searchCourses(searchKey);
-	}
+    public List<CourseAttributes> searchCourses(String searchKey) {
+        return coursesDb.searchCourses(searchKey);
+    }
 }

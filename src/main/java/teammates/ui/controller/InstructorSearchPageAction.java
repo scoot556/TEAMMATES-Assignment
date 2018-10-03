@@ -12,7 +12,6 @@ import teammates.common.datatransfer.attributes.InstructorAttributes;
 import teammates.common.util.Const;
 import teammates.common.util.StatusMessage;
 import teammates.common.util.StatusMessageColor;
-import teammates.ui.pagedata.InstructorSearchPageData;
 import teammates.ui.pagedata.InstructorSearchPagePaginatedData;
 
 /**
@@ -32,17 +31,23 @@ public class InstructorSearchPageAction extends Action {
         int itemsPerPage = InstructorSearchPagePaginatedData.GIVEN_ITEMS_PER_PAGE[0]; // 5 items per page
         String itemsPerPageString = getRequestParamValue("items-per-page");
         if (itemsPerPageString != null && !itemsPerPageString.isEmpty()) {
-        	try { itemsPerPage = Integer.parseInt(itemsPerPageString); } 
-        	catch (NumberFormatException e) { itemsPerPage = 0; }
+            try { 
+                itemsPerPage = Integer.parseInt(itemsPerPageString); 
+            } catch (NumberFormatException e) { 
+                itemsPerPage = 0; 
+            }
         }
         
         // get from search request "page"
         int pageNumber = 1;
         String pageNumberString = getRequestParamValue("page");
         if (pageNumberString != null && !pageNumberString.isEmpty()) {
-        	try { pageNumber = Integer.parseInt(pageNumberString); } 
-        	catch (NumberFormatException e) { pageNumber = 1; }
-        	pageNumber = pageNumber <= 0 ? 1 : pageNumber;
+            try { 
+                pageNumber = Integer.parseInt(pageNumberString); 
+            } catch (NumberFormatException e) { 
+                pageNumber = 1; 
+            }
+            pageNumber = pageNumber <= 0 ? 1 : pageNumber;
         }
         
 
@@ -60,7 +65,7 @@ public class InstructorSearchPageAction extends Action {
         
         boolean isSearchForCourses = getRequestParamAsBoolean("searchcourses");
         if (isSearchForCourses) {
-        	numberOfSearchOptions++;
+            numberOfSearchOptions++;
         }
         
 
@@ -83,7 +88,7 @@ public class InstructorSearchPageAction extends Action {
                 studentSearchResults = logic.searchStudents(searchKey, instructors);
             }
             if (isSearchForCourses) {
-            	courses = logic.searchCourses(searchKey);
+                courses = logic.searchCourses(searchKey);
             }
 
             totalResultsSize = frCommentSearchResults.numberOfResults + studentSearchResults.numberOfResults;
@@ -102,9 +107,10 @@ public class InstructorSearchPageAction extends Action {
         
 
         //InstructorSearchPageData data = new InstructorSearchPageData(account, sessionToken);
-        InstructorSearchPagePaginatedData data = new InstructorSearchPagePaginatedData(account, sessionToken, itemsPerPage, pageNumber);
+        InstructorSearchPagePaginatedData data = new InstructorSearchPagePaginatedData(
+                account, sessionToken, itemsPerPage, pageNumber);
         data.init(frCommentSearchResults, studentSearchResults, courses, searchKey, 
-        		isSearchFeedbackSessionData, isSearchForStudents, isSearchForCourses);
+                isSearchFeedbackSessionData, isSearchForStudents, isSearchForCourses);
         return createShowPageResult(Const.ViewURIs.INSTRUCTOR_SEARCH, data);
     }
 }

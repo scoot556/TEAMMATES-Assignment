@@ -37,18 +37,18 @@ public class AdminSearchPageAction extends Action {
 
         
         int studentItemsPerPage = getRequestParamAsInt("student-items-per-page", 
-        		AdminSearchPagePaginatedData.GIVEN_ITEMS_PER_PAGE[0]);
+                AdminSearchPagePaginatedData.GIVEN_ITEMS_PER_PAGE[0]);
         int studentPageNumber = getRequestParamAsInt("student-page-number", 1);
         
         int instructorItemsPerPage = getRequestParamAsInt("instructor-items-per-page", 
-        		AdminSearchPagePaginatedData.GIVEN_ITEMS_PER_PAGE[0]);
+                AdminSearchPagePaginatedData.GIVEN_ITEMS_PER_PAGE[0]);
         int instructorPageNumber = getRequestParamAsInt("instructor-page-number", 1);
         
         
         
         // AdminSearchPageData data = new AdminSearchPageData(account, sessionToken);
         AdminSearchPagePaginatedData data = new AdminSearchPagePaginatedData(account, sessionToken, 
-        		studentItemsPerPage, studentPageNumber, instructorItemsPerPage, instructorPageNumber);
+                studentItemsPerPage, studentPageNumber, instructorItemsPerPage, instructorPageNumber);
 
         if (searchKey == null || searchKey.trim().isEmpty()) {
 
@@ -65,18 +65,25 @@ public class AdminSearchPageAction extends Action {
         data.searchKey = SanitizationHelper.sanitizeForHtml(searchKey);
 
         data.studentResultBundle = logic.searchStudentsInWholeSystem(searchKey);
-        data = (AdminSearchPagePaginatedData) putFeedbackSessionLinkIntoMap(data.studentResultBundle.studentList, data);
-        data = (AdminSearchPagePaginatedData) putStudentHomePageLinkIntoMap(data.studentResultBundle.studentList, data);
-        data = (AdminSearchPagePaginatedData) putStudentRecordsPageLinkIntoMap(data.studentResultBundle.studentList, data);
-        data = (AdminSearchPagePaginatedData) putStudentInstituteIntoMap(data.studentResultBundle.studentList, data);
+        data = (AdminSearchPagePaginatedData) putFeedbackSessionLinkIntoMap(
+                data.studentResultBundle.studentList, data);
+        data = (AdminSearchPagePaginatedData) putStudentHomePageLinkIntoMap(
+                data.studentResultBundle.studentList, data);
+        data = (AdminSearchPagePaginatedData) putStudentRecordsPageLinkIntoMap(
+                data.studentResultBundle.studentList, data);
+        data = (AdminSearchPagePaginatedData) putStudentInstituteIntoMap(
+                data.studentResultBundle.studentList, data);
 
         data.instructorResultBundle = logic.searchInstructorsInWholeSystem(searchKey);
-        data = (AdminSearchPagePaginatedData) putInstructorInstituteIntoMap(data.instructorResultBundle.instructorList, data);
-        data = (AdminSearchPagePaginatedData) putInstructorHomePageLinkIntoMap(data.instructorResultBundle.instructorList, data);
-        data = (AdminSearchPagePaginatedData) putInstructorCourseJoinLinkIntoMap(data.instructorResultBundle.instructorList, data);
+        data = (AdminSearchPagePaginatedData) putInstructorInstituteIntoMap(
+                data.instructorResultBundle.instructorList, data);
+        data = (AdminSearchPagePaginatedData) putInstructorHomePageLinkIntoMap(
+                data.instructorResultBundle.instructorList, data);
+        data = (AdminSearchPagePaginatedData) putInstructorCourseJoinLinkIntoMap(
+                data.instructorResultBundle.instructorList, data);
 
         data = (AdminSearchPagePaginatedData) putCourseNameIntoMap(
-			data.studentResultBundle.studentList,
+            data.studentResultBundle.studentList,
             data.instructorResultBundle.instructorList,
             data
         );
@@ -99,11 +106,14 @@ public class AdminSearchPageAction extends Action {
     }
     
     private int getRequestParamAsInt(String parameterName, int defaultValue) {
-    	int paramValInt = defaultValue;
+        int paramValInt = defaultValue;
         String paramStr = getRequestParamValue(parameterName);
         if (paramStr != null && !paramStr.isEmpty()) {
-        	try { paramValInt = Integer.parseInt(paramStr); } 
-        	catch (NumberFormatException e) { paramValInt = defaultValue; }
+            try { 
+                paramValInt = Integer.parseInt(paramStr); 
+            } catch (NumberFormatException e) { 
+                paramValInt = defaultValue; 
+            }
         } 
         
         return paramValInt;
