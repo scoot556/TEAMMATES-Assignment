@@ -68,33 +68,33 @@ public class MyInstructorReportsPageTests extends BaseActionTest {
         verifyCourseTabTableData(pageData);
         verifySummaryTabData(pageData);
         verifyStudentsTabData(pageData);
-	}
-	
-	private void verifyCourseTabTableData(InstructorReportsPageData pageData) {
-		List<CourseDetailsBundle> courseDetailsList = pageData.getCourseDetailsList();
-		List<InstructorReportsPageData.Table> coursesTabTableData = pageData.getCoursesTabTableData();
-		
-		assertEquals(courseDetailsList.size(), coursesTabTableData.size());
-	}
-	
-	private void verifySummaryTabData(InstructorReportsPageData pageData) {
-		int activeSessions = pageData.getNumActiveSessions();
-		double feedbackRate = pageData.getFeedbackRate();
-		int numberOfCourses = pageData.getNumberOfCourses();
-		int numberOfEnrolledStudents = pageData.getStudentsThatAcceptedInvitation();
-		int numberOfNotAcceptedStudents = pageData.getNumStudentNotAcceptedInvitation();
-				
-		assertTrue(activeSessions > 0);
-		assertTrue(feedbackRate > 0);
-		assertTrue(numberOfCourses > 0);
-		assertTrue(numberOfEnrolledStudents > 0);
-		assertTrue(numberOfNotAcceptedStudents >= 0);
-	}
-	
-	private void verifyStudentsTabData(InstructorReportsPageData pageData) {
-		List<StudentAttributes> totalStudents = pageData.getStudentAttributes();
-		List<StudentAttributes> studentsNotConfirmed = pageData.getStudentNotAcceptedInvitation();
-		
-		assertTrue(totalStudents.size() >= studentsNotConfirmed.size());
-	}
+    }
+    
+    private void verifyCourseTabTableData(InstructorReportsPageData pageData) {
+        List<CourseDetailsBundle> courseDetailsList = pageData.getCourseDetailsList();
+        List<InstructorReportsPageData.Table> coursesTabTableData = pageData.getCoursesTabTableData();
+        
+        assertEquals(courseDetailsList.size(), coursesTabTableData.size());
+    }
+    
+    private void verifySummaryTabData(InstructorReportsPageData pageData) {
+        int activeSessions = pageData.getNumActiveSessions();
+        double feedbackRate = pageData.getFeedbackRate();
+        int numberOfCourses = pageData.getNumberOfCourses();
+        int numberOfEnrolledStudents = pageData.getStudentsThatAcceptedInvitation();
+        int numberOfNotAcceptedStudents = pageData.getNumStudentNotAcceptedInvitation();
+                
+        assertTrue(activeSessions > 0);
+        assertTrue(feedbackRate > 0);
+        assertTrue(numberOfCourses > 0);
+        assertTrue(numberOfEnrolledStudents > 0);
+        assertTrue(numberOfNotAcceptedStudents >= 0);
+    }
+    
+    private void verifyStudentsTabData(InstructorReportsPageData pageData) {
+        List<StudentAttributes> totalStudents = pageData.getStudentAttributes();
+        List<StudentAttributes> studentsNotConfirmed = pageData.getStudentNotAcceptedInvitation();
+        
+        assertTrue(totalStudents.size() >= studentsNotConfirmed.size());
+    }
 }

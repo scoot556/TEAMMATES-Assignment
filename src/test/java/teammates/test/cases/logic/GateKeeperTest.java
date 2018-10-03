@@ -6,7 +6,6 @@ import teammates.common.datatransfer.UserType;
 import teammates.common.datatransfer.attributes.CourseAttributes;
 import teammates.common.datatransfer.attributes.InstructorAttributes;
 import teammates.common.datatransfer.attributes.StudentAttributes;
-import teammates.common.exception.UnauthorizedAccessException;
 import teammates.logic.api.GateKeeper;
 import teammates.logic.api.Logic;
 
