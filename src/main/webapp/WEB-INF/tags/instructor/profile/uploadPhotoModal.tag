@@ -101,7 +101,7 @@
                   </label>
                   <br>
                 </div>
-                <form id="profilePictureEditForm" method="post" action="<%= Const.ActionURIs.STUDENT_PROFILE_PICTURE_EDIT %>">
+                <form id="profilePictureEditForm" method="post" action="<%= Const.ActionURIs.INSTRUCTOR_PROFILE_PICTURE_EDIT %>">
                   <input id="pictureHeight" type="hidden" name="<%= Const.ParamsNames.PROFILE_PICTURE_HEIGHT %>" value="">
                   <input id="pictureWidth" type="hidden" name="<%= Const.ParamsNames.PROFILE_PICTURE_WIDTH %>" value="">
                   <input id="cropBoxLeftX" type="hidden" name="<%= Const.ParamsNames.PROFILE_PICTURE_LEFTX %>" value="">
