@@ -37,7 +37,7 @@
   <form class="form center-block"
       role="form"
       method="post"
-      action="<%= Const.ActionURIs.STUDENT_PROFILE_EDIT_SAVE %>">
+      action="<%= Const.ActionURIs.INSTRUCTOR_PROFILE_EDIT_SAVE %>">
     <div class="form-group"
         title="<%= Const.Tooltips.STUDENT_PROFILE_SHORTNAME %>"
         data-toggle="tooltip"
