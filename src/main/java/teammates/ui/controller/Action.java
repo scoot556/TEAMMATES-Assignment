@@ -9,7 +9,9 @@ import javax.servlet.http.HttpSession;
 
 import teammates.common.datatransfer.UserType;
 import teammates.common.datatransfer.attributes.AccountAttributes;
+import teammates.common.datatransfer.attributes.InstructAccountAttributes;
 import teammates.common.datatransfer.attributes.StudentAttributes;
+import teammates.common.datatransfer.attributes.InstructorAttributes;
 import teammates.common.exception.EntityDoesNotExistException;
 import teammates.common.exception.EntityNotFoundException;
 import teammates.common.exception.InvalidOriginException;
@@ -48,6 +50,7 @@ public abstract class Action {
 
     /** This is the 'nominal' user. Need not be the logged in user */
     public AccountAttributes account;
+    
 
     /** This is the unregistered and not loggedin student's attributes. */
     public StudentAttributes student;
