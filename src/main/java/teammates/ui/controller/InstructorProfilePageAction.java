@@ -2,7 +2,6 @@ package teammates.ui.controller;
 
 import teammates.common.util.Const;
 import teammates.common.util.Logger;
-import teammates.ui.pagedata.InstructorProfilePageData;
 import teammates.ui.pagedata.StudentProfilePageData;
 
 /**
