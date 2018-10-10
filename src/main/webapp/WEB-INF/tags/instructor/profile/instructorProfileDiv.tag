@@ -157,7 +157,7 @@
     </button>
     <br>
     <p class="text-muted text-color-disclaimer">
-      <i>* This profile will be visible to all your Instructors and Coursemates</i>
+      <i>* This profile will not be visible to anyone</i>
     </p>
     <input type="hidden" name="<%= Const.ParamsNames.USER_ID %>" value="${profile.googleId}">
     <input type="hidden" name="<%= Const.ParamsNames.SESSION_TOKEN %>" value="${sessionToken}">
