@@ -12,28 +12,7 @@
     <strong>${profile.name}</strong>
   </h3>
   <br>
-  <div class="form-group row">
-    <div class="col-xs-6 col-sm-5 col-md-3 cursor-pointer"
-        title="<%= Const.Tooltips.STUDENT_PROFILE_PICTURE %>"
-        data-toggle="tooltip"
-        data-placement="top">
-      <img id="profilePic"
-          src="${profile.pictureUrl}"
-          class="profile-pic"
-          data-toggle="modal"
-          data-target="#studentPhotoUploader"
-          data-edit="${profile.editingPhoto}">
-    </div>
-    <div class="">
-      <button id="uploadEditPhoto"
-          class="btn btn-primary"
-          type="button"
-          data-toggle="modal"
-          data-target="#studentPhotoUploader">
-        Upload/Edit Photo
-      </button>
-    </div>
-  </div>
+
   <form class="form center-block"
       role="form"
       method="post"
@@ -43,7 +22,7 @@
         data-toggle="tooltip"
         data-placement="top">
       <label for="studentNickname">
-        The name you prefer to be called by Instructors
+        Full Name
       </label>
       <input id="studentShortname"
           name="<%= Const.ParamsNames.STUDENT_SHORT_NAME %>"
@@ -53,27 +32,12 @@
           value="<c:out value="${profile.shortName}"/>"
           placeholder="How the instructor should call you">
     </div>
-    <div class="form-group"
-        title="<%= Const.Tooltips.STUDENT_PROFILE_EMAIL %>"
-        data-toggle="tooltip"
-        data-placement="top">
-      <label for="studentEmail">
-        Long term contact email <em class="font-weight-normal emphasis text-muted small">- only visible to your instructors</em>
-      </label>
-      <input id="studentEmail"
-          name="<%= Const.ParamsNames.STUDENT_PROFILE_EMAIL %>"
-          class="form-control"
-          type="email"
-          data-actual-value="<c:out value="${profile.email}"/>"
-          value="<c:out value="${profile.email}"/>"
-          placeholder="Contact Email (for your instructors to contact you beyond graduation)">
-    </div>
-    <div class="form-group"
+            <div class="form-group"
         title="<%= Const.Tooltips.STUDENT_PROFILE_INSTITUTION %>"
         data-toggle="tooltip"
         data-placement="top">
       <label for="studentInstitution">
-        Institution
+        Current Place Of Employment
       </label>
       <input id="studentInstitution"
           name="<%= Const.ParamsNames.STUDENT_PROFILE_INSTITUTION %>"
@@ -83,6 +47,37 @@
           value="<c:out value="${profile.institute}"/>"
           placeholder="Your Institution">
     </div>
+       <div class="form-group"
+        title="<%= Const.Tooltips.STUDENT_PROFILE_MOREINFO %>"
+        data-toggle="tooltip"
+        data-placement="top">
+      <label for="studentNationality">
+        Personal Information
+      </label>
+      <%-- Do not add whitespace between the opening and closing tags --%>
+      <textarea id="studentMoreInfo"
+          name="<%= Const.ParamsNames.STUDENT_PROFILE_MOREINFO %>"
+          rows="4"
+          class="form-control"
+          placeholder="<%= Const.Tooltips.STUDENT_PROFILE_MOREINFO %>">${profile.moreInfo}</textarea>
+    </div>
+
+    <div class="form-group"
+        title="<%= Const.Tooltips.STUDENT_PROFILE_EMAIL %>"
+        data-toggle="tooltip"
+        data-placement="top">
+      <label for="studentEmail">
+        School Email or Business Email <em class="font-weight-normal emphasis text-muted small"></em>
+      </label>
+      <input id="studentEmail"
+          name="<%= Const.ParamsNames.STUDENT_PROFILE_EMAIL %>"
+          class="form-control"
+          type="email"
+          data-actual-value="<c:out value="${profile.email}"/>"
+          value="<c:out value="${profile.email}"/>"
+          placeholder="Contact Email (To contact you beyond graduation)">
+    </div>
+
     <div class="form-group"
         title="<%= Const.Tooltips.STUDENT_PROFILE_NATIONALITY %>"
         data-toggle="tooltip"
@@ -137,27 +132,14 @@
         </label>
       </div>
     </div>
-    <div class="form-group"
-        title="<%= Const.Tooltips.STUDENT_PROFILE_MOREINFO %>"
-        data-toggle="tooltip"
-        data-placement="top">
-      <label for="studentNationality">
-        More info about yourself
-      </label>
-      <%-- Do not add whitespace between the opening and closing tags --%>
-      <textarea id="studentMoreInfo"
-          name="<%= Const.ParamsNames.STUDENT_PROFILE_MOREINFO %>"
-          rows="4"
-          class="form-control"
-          placeholder="<%= Const.Tooltips.STUDENT_PROFILE_MOREINFO %>">${profile.moreInfo}</textarea>
-    </div>
+ 
     <br>
     <button type="submit" id="profileEditSubmit" class="btn btn-primary center-block">
       Save Profile
     </button>
     <br>
     <p class="text-muted text-color-disclaimer">
-      <i>* This profile will not be visible to anyone</i>
+      <i>* Profile data is secured</i>
     </p>
     <input type="hidden" name="<%= Const.ParamsNames.USER_ID %>" value="${profile.googleId}">
     <input type="hidden" name="<%= Const.ParamsNames.SESSION_TOKEN %>" value="${sessionToken}">

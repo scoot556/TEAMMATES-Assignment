@@ -12,7 +12,7 @@
   <script type="text/javascript" src="<%= FrontEndLibrary.JQUERY_GUILLOTINE %>"></script>
   <script type="text/javascript" src="/js/studentProfile.js"></script>
 </c:set>
-<ts:instructorPage title="Instructor Profile" cssIncludes="${cssIncludes}" jsIncludes="${jsIncludes}">
+<ts:instructorPage title="Welcome to your profile page" cssIncludes="${cssIncludes}" jsIncludes="${jsIncludes}">
   <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}" />
   <br>
   <tsp:uploadPhotoModal modal="${data.uploadPhotoModal}" sessionToken="${data.sessionToken}" />
