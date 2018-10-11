@@ -52,7 +52,7 @@
         data-toggle="tooltip"
         data-placement="top">
       <label for="studentNationality">
-        Personal Information
+        List accolades and achievements
       </label>
       <%-- Do not add whitespace between the opening and closing tags --%>
       <textarea id="studentMoreInfo"
