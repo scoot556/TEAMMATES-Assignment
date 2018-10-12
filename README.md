@@ -3,8 +3,11 @@
 
 ### RMIT SEPT
 
-Joshua Orozco s3485376
-Scott Djuric s3600531
+Joshua Orozco s3485376<br/>
+Scott Djuric s3600531<br/>
+Taylor Cairns s3603013<br/>
+Richard Purwowilianto s3516805<br/>
+
 
 [![Travis Build Status](https://travis-ci.org/TEAMMATES/teammates.svg?branch=master)](https://travis-ci.org/TEAMMATES/teammates)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/dvr6t33lqg6hsmxw/branch/master?svg=true)](https://ci.appveyor.com/project/damithc/teammates/branch/master)
