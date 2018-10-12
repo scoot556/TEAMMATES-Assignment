@@ -22,3 +22,8 @@
     </c:if>
   </div>
 </ti:instructorPage>
+<script>
+	function likeEnabled(){
+		document.getElementById("like-button").className = "fa fa-thumbs-up disabled";
+	}
+</script>
