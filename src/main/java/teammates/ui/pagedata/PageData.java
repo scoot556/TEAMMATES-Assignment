@@ -278,6 +278,7 @@ public class PageData {
         link = addUserIdToUrl(link);
         return link;
     }
+    
     //Get Instructor Profile Page Link
     public String getInstructorProfileLink() {
         String link = Const.ActionURIs.INSTRUCTOR_PROFILE_PAGE;
