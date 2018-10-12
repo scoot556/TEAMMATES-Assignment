@@ -4,6 +4,7 @@
 <%@ taglib tagdir="/WEB-INF/tags" prefix="t" %>
 <%@ taglib tagdir="/WEB-INF/tags/instructor" prefix="ti" %>
 <%@ taglib tagdir="/WEB-INF/tags/instructor/home" prefix="home" %>
+
 <c:set var="jsIncludes">
   <script type="text/javascript" src="/js/instructorHome.js"></script>
 </c:set>
@@ -20,5 +21,6 @@
       <home:coursePanel courseTable="${courseTable}" index="${i.index}" />
     </c:forEach>
     <ti:copyModal editCopyActionLink="${data.editCopyActionLink}" />
+   
   </c:if>
 </ti:instructorPage>
