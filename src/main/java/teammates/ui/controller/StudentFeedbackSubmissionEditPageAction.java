@@ -1,6 +1,5 @@
 package teammates.ui.controller;
 
-import org.mortbay.log.Log;
 
 import com.google.appengine.api.blobstore.BlobstoreFailureException;
 
@@ -10,8 +9,12 @@ import teammates.common.datatransfer.attributes.StudentAttributes;
 import teammates.common.exception.EntityDoesNotExistException;
 import teammates.common.util.Const;
 import teammates.common.util.GoogleCloudStorageHelper;
+import teammates.common.util.Logger;
 
 public class StudentFeedbackSubmissionEditPageAction extends FeedbackSubmissionEditPageAction {
+    
+    private static final Logger log = Logger.getLogger();
+    
     @Override
     protected boolean isSpecificUserJoinedCourse() {
         if (student == null) {
@@ -54,16 +57,16 @@ public class StudentFeedbackSubmissionEditPageAction extends FeedbackSubmissionE
 
     @Override
     protected ShowPageResult createSpecificShowPageResult() {
-    	String uploadUrl = "";
-    	
-    	try {
+        String uploadUrl = "";
+        
+        try {
             uploadUrl = GoogleCloudStorageHelper.getNewUploadUrl(Const.ActionURIs.STUDENT_FEEDBACK_SUBMISSION_EDIT_SAVE);
         } catch (BlobstoreFailureException e) {
-        	Log.info(e.getMessage());
+            log.info(e.getMessage());
         } catch (IllegalArgumentException e) {
-        	Log.info(e.getMessage());
+            log.info(e.getMessage());
         }
-    	
+        
         data.setSubmitAction(uploadUrl);
 
         return createShowPageResult(Const.ViewURIs.STUDENT_FEEDBACK_SUBMISSION_EDIT, data);

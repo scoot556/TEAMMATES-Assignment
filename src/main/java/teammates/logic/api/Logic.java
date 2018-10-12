@@ -2199,9 +2199,9 @@ public class Logic {
         return studentsLogic.getSectionForTeam(courseId, teamName);
     }
 
-	public List<CourseAttributes> searchCourses(String searchKey) {
-		Assumption.assertNotNull(searchKey);
-		return coursesLogic.searchCourses(searchKey);
-	}
+    public List<CourseAttributes> searchCourses(String searchKey) {
+        Assumption.assertNotNull(searchKey);
+        return coursesLogic.searchCourses(searchKey);
+    }
 
 }

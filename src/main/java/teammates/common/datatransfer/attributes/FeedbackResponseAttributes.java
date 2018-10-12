@@ -40,13 +40,13 @@ public class FeedbackResponseAttributes extends EntityAttributes<FeedbackRespons
     public Text responseMetaData;
     public String giverSection;
     public String recipientSection;
+    public String pdfAttachmentKey;
     protected transient Instant createdAt;
     protected transient Instant updatedAt;
     private String feedbackResponseId;
     
-    public String pdfAttachmentKey;
 
-	public FeedbackResponseAttributes() {
+    public FeedbackResponseAttributes() {
         // attributes to be set after construction
     }
 
@@ -115,8 +115,8 @@ public class FeedbackResponseAttributes extends EntityAttributes<FeedbackRespons
     }
     
     public String getPdfAttachmentKey() {
-		return pdfAttachmentKey;
-	}
+        return pdfAttachmentKey;
+    }
 
     @Override
     public List<String> getInvalidityInfo() {
