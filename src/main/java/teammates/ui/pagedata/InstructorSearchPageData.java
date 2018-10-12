@@ -32,6 +32,14 @@ import teammates.ui.template.StudentListSectionData;
  * PageData: the data to be used in the InstructorSearchPage.
  */
 public class InstructorSearchPageData extends PageData {
+    
+    /* Tables containing search results */
+    protected List<SearchFeedbackSessionDataTable> searchFeedbackSessionDataTables;
+    protected List<SearchStudentsTable> searchStudentsTables;
+    
+    /* course */
+    protected List<CourseAttributes> courses = new ArrayList<>();
+
     private String searchKey = "";
 
     /* Whether checkbox is checked for search input */
@@ -44,12 +52,6 @@ public class InstructorSearchPageData extends PageData {
     private boolean isStudentsEmpty;
     private boolean isCoursesEmpty;
 
-    /* Tables containing search results */
-    protected List<SearchFeedbackSessionDataTable> searchFeedbackSessionDataTables;
-    protected List<SearchStudentsTable> searchStudentsTables;
-    
-    /* course */
-    protected List<CourseAttributes> courses = new ArrayList<>();
 
     public InstructorSearchPageData(AccountAttributes account, String sessionToken) {
         super(account, sessionToken);
@@ -58,7 +60,9 @@ public class InstructorSearchPageData extends PageData {
     public void init(FeedbackResponseCommentSearchResultBundle frcSearchResultBundle,
                      StudentSearchResultBundle studentSearchResultBundle,
                      List<CourseAttributes> courses,
-                     String searchKey, boolean isSearchFeedbackSessionData, boolean isSearchForStudents, boolean isSearchForCourses) {
+                     String searchKey, boolean isSearchFeedbackSessionData, 
+                     boolean isSearchForStudents, 
+                     boolean isSearchForCourses) {
 
         this.searchKey = searchKey;
 
@@ -90,7 +94,7 @@ public class InstructorSearchPageData extends PageData {
     }
     
     public boolean isCoursesEmpty() {
-    	return isCoursesEmpty;
+        return isCoursesEmpty;
     }
 
     public boolean isSearchFeedbackSessionData() {
@@ -102,10 +106,10 @@ public class InstructorSearchPageData extends PageData {
     }
 
     public boolean isSearchForCourses() {
-		return isSearchForCourses;
-	}
+        return isSearchForCourses;
+    }
 
-	public List<SearchFeedbackSessionDataTable> getSearchFeedbackSessionDataTables() {
+    public List<SearchFeedbackSessionDataTable> getSearchFeedbackSessionDataTables() {
         return searchFeedbackSessionDataTables;
     }
 
@@ -115,10 +119,10 @@ public class InstructorSearchPageData extends PageData {
     
     // GET COURSES
     public List<CourseAttributes> getCourses() {
-		return courses;
-	}
+        return courses;
+    }
 
-	protected void setSearchFeedbackSessionDataTables(
+    protected void setSearchFeedbackSessionDataTables(
                                     FeedbackResponseCommentSearchResultBundle frcSearchResultBundle) {
 
         searchFeedbackSessionDataTables = new ArrayList<>();

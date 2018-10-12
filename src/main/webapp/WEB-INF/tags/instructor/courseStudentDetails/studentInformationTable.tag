@@ -37,8 +37,7 @@
       <div class="" id="<%= Const.ParamsNames.COMMENTS %>">
         <p class="form-control-static">${fn:escapeXml(studentInfoTable.comments)}</p>
       </div>
-      <button><i class="fa fa-thumbs-up"></i> like</button>
+      <button onclick="likeEnabled()"><i id="like-button" class="fa fa-thumbs-up"></i> like</button>
     </div>
-    
   </div>
 </div>

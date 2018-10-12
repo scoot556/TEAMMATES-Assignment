@@ -163,21 +163,21 @@ public class CoursesDb extends EntitiesDb<Course, CourseAttributes> {
                 .withCreatedAt(entity.getCreatedAt()).build();
     }
 
-	public List<CourseAttributes> searchCourses(String searchKey) {
-		
-		QueryResultIterator<Course> iterator = load().iterator();
-		List<CourseAttributes> courses = new ArrayList<>();
-		
-		while (iterator.hasNext()) {
-			Course c = iterator.next();
-			boolean containsKeyword = c.getName().toLowerCase().contains(searchKey.toLowerCase());
-			if (containsKeyword) {
-				CourseAttributes courseAttr = makeAttributes(c);
-				courses.add(courseAttr);
-				continue;
-			}
-		}
-		
-		return courses;
-	}
+    public List<CourseAttributes> searchCourses(String searchKey) {
+        
+        QueryResultIterator<Course> iterator = load().iterator();
+        List<CourseAttributes> courses = new ArrayList<>();
+        
+        while (iterator.hasNext()) {
+            Course c = iterator.next();
+            boolean containsKeyword = c.getName().toLowerCase().contains(searchKey.toLowerCase());
+            if (containsKeyword) {
+                CourseAttributes courseAttr = makeAttributes(c);
+                courses.add(courseAttr);
+                continue;
+            }
+        }
+        
+        return courses;
+    }
 }
