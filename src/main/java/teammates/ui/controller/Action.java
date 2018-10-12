@@ -48,6 +48,7 @@ public abstract class Action {
 
     /** This is the 'nominal' user. Need not be the logged in user */
     public AccountAttributes account;
+    
 
     /** This is the unregistered and not loggedin student's attributes. */
     public StudentAttributes student;

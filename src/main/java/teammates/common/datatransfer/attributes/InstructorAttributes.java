@@ -257,7 +257,7 @@ public class InstructorAttributes extends EntityAttributes<Instructor> {
     public String getRole() {
         return role;
     }
-
+    
     /**
      * A Builder class for {@link InstructorAttributes}.
      */
